@@ -1,0 +1,92 @@
+What is Data?
+Example Of data
+Database Management System(DBMS)
+What is a Flat File Database?
+A flat file database is a simple way to store data
+csv file storing customer records 
+Difference between Flat File Database & DBMS
+Simple ,Single table system    Complex, Multiple table sysem
+Need of data in Database system:
+Data -As a corporate resource:
+Data Availability:
+Maintaining Complex data:
+Data independence and efficient access.
+Data integrity security
+Concurrent access ,recovery from crashes.
+
+Benefits of Database System over File System :-
+Redundency can be reduced   Inconsistency can be avoided
+
+Data can beshared
+Security restrictions can be applied
+integrity can be maintained
+
+Database Architecture:
+External View 1    External View2
+SNo LName BranchName
+Conceptual Model
+Internal view
+
+
+
+Database Concepts
+Why Database?
+A typical file processing system suffers from some major liminations like:
+Data redudency,
+
+
+Types of Databases: (1)Hierarchical and Network   (2)Relational and Object-oriented  (3)Graph and ER Model  (4)Document Database
+             Root                                Stores
+    Level1          Level1               Clerks         Customers
+    child           child
+Level2  Level2  Level2  Level2                Transactions
+child   child   child   child                  Items
+
+Advantages Disadvantages Popular Example
+MySQL
+PostgreSQL
+Oracle Database
+Microsoft SQL Server
+SQLite  
+
+db4o
+ObjectDB
+
+#--------------------------------------------------------------------------------------------
+Database Abstraction: simplifies database design.
+
+The major purpose of database system is to provide users with an abstract view of the system.
+
+The system hides certain details of how data is stored, created, maintained. 
+Complexity should be hidden from database users.
+
+Three level of Abstractions are:
+1.Internal Level(Physical Level): How data is stored
+2.External Level: defines a number of simplified domain-specific views
+3.Conceptual Level: defines data in terms of a data model
+view1   view2----- view3
+  CONCEPTUAL LEVEL   
+  PHYSICAL LEVEL
+
+#---------------------------------------
+Data Independence :
+
+
+Logical Data Independence :
+
+Physical Data Independence:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
