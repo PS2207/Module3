@@ -1,5 +1,21 @@
 What is Data?
-Example Of data
+*Raw facts, figures or information, that has no meaning until processed or organized.
+Data can be numbers ,words, symbols.
+Examples Of Data : 200, john, math (It does not contain any clear meaning,or doesn't give any kind of information)
+But Symbols are count as data ,if they have context pass@123, Grade- A+, Currency- 50$
+These values alone don't tell us much-  they are just pieces of information without context.
+#-----------------------------------------------------------------------------------------------
+What is Information?
+*Processed or Organized data, that has meaning and helps us understand something.
+Information is useful for taking decisions or solving problem.
+Example of Information : John scored 90 marks in Math, Employee1 is on leave today.
+#----------------------------------------------------------------------------------------
+Data                        Information
+Raw and unprocessed         Processed and Meaningful.
+No clear meaning            Has meaning and context.
+Example: 90,John            John scored 90 marks.
+Cannot be used directly     Used for understanding or decisions.
+#-------------------------------------------------------------------------
 Database Management System(DBMS)
 What is a Flat File Database?
 A flat file database is a simple way to store data
