@@ -71,10 +71,15 @@ view1   view2----- view3
 #---------------------------------------
 Data Independence :
 
-
+2 kinds of Data Independence:
 Logical Data Independence :
 
 Physical Data Independence:
+#--------------------------------
+
+Data Models:
+3 types of Data Model-
+(i)Hierarchical (ii)Relational
 
 
 
