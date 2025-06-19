@@ -16,6 +16,25 @@ No clear meaning            Has meaning and context.
 Example: 90,John            John scored 90 marks.
 Cannot be used directly     Used for understanding or decisions.
 #-------------------------------------------------------------------------
+What is Database?
+Database is a collection of related data items stored at one place.
+Eg- College database stores information about teachers,students,classes,subjects(all related data).
+A database is nothing but set of data having some relation between them.
+
+Sample Database Structure:
+Student Table:    Sid   Name  Class Major
+Course Table:     Cid   Name  Hours
+Department Table: Did   Name
+Marks Table:      Sid   Cid   Marks Grade
+#-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+#-------------------------------------------------------------------------
 Database Management System(DBMS)
 What is a Flat File Database?
 A flat file database is a simple way to store data
