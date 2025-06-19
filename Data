@@ -29,14 +29,12 @@ Department Table: Did   Name
 Marks Table:      Sid   Cid   Marks Grade
 #-----------------------------------------------------------------------------
 
+Database Management System(DBMS):
+DBMS is a software that helps in defining, constructing, manipulating the database.
+suppose you have a data & you store data in a database. how you will access,how you modify, how you change any kind of 
+it is also known as computerized record-kepping system.
+DBMS have become an integral part of information system of many organisations as it is used to handle huge amount of data.
 
-
-
-
-
-
-#-------------------------------------------------------------------------
-Database Management System(DBMS)
 What is a Flat File Database?
 A flat file database is a simple way to store data
 csv file storing customer records 
