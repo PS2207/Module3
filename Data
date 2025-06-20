@@ -35,8 +35,16 @@ suppose you have a data & you store data in a database. how you will access,how 
 it is also known as computerized record-kepping system.
 DBMS have become an integral part of information system of many organisations as it is used to handle huge amount of data.
 For ex - If you have small data you can manage it but if you have more than 200
+#---------------------------------------------------------------------------------------------------
 What is a Flat File Database?
-A flat file database is a simple way to store data
+A flat file database is a simple way to store data, usually in plain text or spreadsheet format.
+All the information is stored in a single table- like a big list-with no links or retionships between pieces of data.
+Features:
+Data stored in rows and columns(one table only)
+No structured relationships between data
+Often saves as - .txt, .csv, or excel files
+Easy to create and read manually.
+
 csv file storing customer records 
 Difference between Flat File Database & DBMS
 Simple ,Single table system    Complex, Multiple table sysem
