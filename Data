@@ -70,14 +70,21 @@ Data redudency,
 
 
 Types of Databases: (1)Hierarchical and Network   (2)Relational and Object-oriented  (3)Graph and ER Model  (4)Document Database
-             Root                                Stores
-    Level1          Level1               Clerks         Customers
-    child           child
-Level2  Level2  Level2  Level2                Transactions
-child   child   child   child                  Items
+(1)In a Hierarchical database- besides actual data, records also contain information about their groups of parent/child relationships.
+   Network database management systems use a network structure to create relationship between entities. 
+             Root                                 Stores
+    Level1           Level1               Clerks         Customers
+    child            child
+Level2  Level2   Level2  Level2                 Transactions
+child   child    child   child                  Items
 
-Advantages Disadvantages Popular Example
-MySQL
+(2)Relational database management systems, the relationship between data is relational and data is stored in tabular form of rows and columns.
+   The object-oriented database derivation is the integriety of object-oriente programming language systems and consistent systems.
+        client                            inheritence  Data Encapsulation   Object identity  Ploymorphism     
+client  server  client                                       Object_oriented Programming
+        client                               Object-oriented dataabase =Object-oriented programing + Datbase Technology
+Advantages Disadvantages Popular Example                      Database capabilities
+MySQL                                     Integrity  Security  Versioning  Transactions  Persistence  Concurrency  Query  Recovery  Archive
 PostgreSQL
 Oracle Database
 Microsoft SQL Server
