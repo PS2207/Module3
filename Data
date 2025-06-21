@@ -2,8 +2,12 @@
 What is Data?
 *Raw facts, figures or information, that has no meaning until processed or organized.
 Data can be numbers ,words, symbols.
-Examples Of Data : 200, john, math (It does not contain any clear meaning,or doesn't give any kind of information)
-But Symbols are count as data ,if they have context pass@123, Grade- A+, Currency- 50$
+Examples Of Data : 200, john, math, $, 01-01-2000 (It does not contain any clear meaning, or doesn't give any kind of information)
+Ex- 20$ is more meaningfull than just 20 or $ alone but, it is partially information not comlplete info, bcz still missing context.
+Bcoz we don't know :
+20$ of what? (price, salary, fine, donation)
+who is giving or receiving it
+when and where?
 These values alone don't tell us much-  they are just pieces of information without context.
 #-----------------------------------------------------------------------------------------------
 What is Information?
@@ -31,10 +35,12 @@ Marks Table:      Sid   Cid   Marks Grade
 
 Database Management System(DBMS):
 DBMS is a software that helps in defining, constructing, manipulating the database.
-suppose you have a data & you store data in a database. how you will access,how you will modify, how you any kind of some fast changes  
+suppose you have some data & you store it in a database. how you will access it,how you will modify?, how will you apply any kind of some fast changes to it.
+This is where a DBMS helps us
 it is also known as computerized record-kepping system.
-DBMS have become an integral part of information system of many organisations as it is used to handle huge amount of data.
-For ex - If you have small data you can manage it but if you have more than 200
+DBMS have become an integral part of information system of many organisations, as it is used to handle a huge amount of data efficiently.
+For ex - If you have small data you can manage it manually but,
+if you have more than 200records(or more complex data) it becomes difficult. that's when a DBMS becomes necessary.
 #---------------------------------------------------------------------------------------------------
 What is a Flat File Database?
 A flat file database is a simple way to store data, usually in plain text or spreadsheet format.
@@ -47,7 +53,11 @@ Easy to create and read manually.
 
 csv file storing customer records 
 Difference between Flat File Database & DBMS
-Simple ,Single table system    Complex, Multiple table sysem
+Simple ,Single table system     Complex, Multi-table system
+No support of relationships     Supports data relationships
+Limited functionality           Full-featured data management
+Best for small or one-time use  Best for scalable,secure applications.
+#------------------------------------------------------------------------
 Need of data in Database system:
 Data -As a corporate resource:
 Data Availability:
@@ -78,19 +88,19 @@ Data redudency,
 
 
 Types of Databases: (1)Hierarchical and Network   (2)Relational and Object-oriented  (3)Graph and ER Model  (4)Document Database
-(1)In a Hierarchical database- besides actual data, records also contain information about their groups of parent/child relationships.
-   Network database management systems use a network structure to create relationship between entities. 
+(1)# In a Hierarchical database- besides actual data, records also contain information about their groups of parent/child relationships.
+   # Network database management systems use a network structure to create relationship between entities. 
              Root                                 Stores
     Level1           Level1               Clerks         Customers
     child            child
 Level2  Level2   Level2  Level2                 Transactions
 child   child    child   child                  Items
 
-(2)Relational database management systems, the relationship between data is relational and data is stored in tabular form of rows and columns.
-   The object-oriented database derivation is the integriety of object-oriente programming language systems and consistent systems.
+(2)# Relational database management systems, the relationship between data is relational and data is stored in tabular form of rows and columns.
+   # The object-oriented database derivation is the integriety of object-oriente programming language systems and consistent systems.
         client                            inheritence  Data Encapsulation   Object identity  Ploymorphism     
 client  server  client                                       Object_oriented Programming
-        client                               Object-oriented dataabase =Object-oriented programing + Datbase Technology
+        client                               [Object-oriented database =Object-oriented programing + Datbase Technology]
 Advantages Disadvantages Popular Example                      Database capabilities
 MySQL                                     Integrity  Security  Versioning  Transactions  Persistence  Concurrency  Query  Recovery  Archive
 PostgreSQL
@@ -129,6 +139,14 @@ Physical Data Independence:
 Data Models:
 3 types of Data Model-
 (i)Hierarchical (ii)Relational
+Relational Model - Concept
+Tables: In relation data model, relations are saved in the format of Tables, This format stores the relation among entities.
+A table has rows and columns, where rows represent records and columns represent attributes.
+Tuple: A single row of a table, which contains a single record for that relation is called tuple.
+Attribute: Columns are referred as attributes.
+Domain: A pool of values from which the actual values appearing in a given column are drawn.
+
+
 
 
 
