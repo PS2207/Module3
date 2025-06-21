@@ -1,0 +1,127 @@
+Understanding the Data Definition Language(DDL) :
+Background & Origin:
+SQl was developed at IBM by Donald D.Chamberlin and Raymond F.Boyace after learning about the relational model from Edgar F.chatCodd in the early 1970s.
+The language was originally named SEQUEL(Structured English Query Language)
+WHat is SQL?
+
+Visual Representation of SQl as the Bridge Between DBMS aand Data   DBMS->SQL->Data
+
+How SQL interacts with Data in a DBMS?
+Why is SQL Important?
+User friendly and Accessible
+Declarative language
+Efficient database management
+Standard language
+command structure
+built-in functionality
+
+Classification of SQL commands-
+DDL  DML DCL TCL DQL
+create- To Create a new table -CREATE TABLE table_name (id, name , salary ,email) ;
+drop - To delete table
+alter - To chnange structure of table
+truncate - To 
+WHERE - To filter records based on conditions
+
+Example: Creating a Table in SQL using DDL:
+
+CREATE TABLE students(             Column name  Data type Constraints
+  student_id INT PRIMARY KEY,      student_id  INT PRIMARY KEY
+  name VARCHAR(100),
+  age INT,
+  gender VARCHAR(10),
+  email VARCHAR(100) UNIQUE,
+  admission_date DATE);
+Read data from table - SELECT * FROM table_name;
+Delete table- DROP FROM TABLE table_name where id = 1
+
+ALTER TABLE IN SQL : Modify table without deleting
+ALTER TABLE students ADD contact_no VARCHAR(15); - To add a new column
+ALTER TABLE students DROP COLUMN gender; - To delete a column 
+ALTER TABLE students RENAME COLUMN name to full_name;- Renaming a Column in a Table
+
+What is DROP TABLE in SQL? 
+DROP TABLE table_name;
+it will permanently remove the entire table from the database:
+The table structure.
+All data stored within
+Any associated constrains, indexes,or triggers
+This action is irreversible unless a abckup exists.
+
+Difference between DELETE ,TRUNCATE, DROP
+Use: To delete specific rows from a table based on a given condition.
+Commands: 
+DELETE FROM students where age < 18;
+TRUNCATE TABLE students; 
+DROP TABLE students;
+
+Table after Execution: The table & its structure remains unchanged.
+Quickly delete all rows from a table while preserving the struture for future use.
+Completely remove a table: including its structure,data & all associated constraints
+#--------------------------------------
+
+What are the Data Types in SQL?
+Types of SQL Data Types :
+Numeric Data Types = 10
+Character/String Data Types - "John"
+Date and Time Data Types -
+Boolean Data Types - Yes/No or True/False  TRU, FALSE
+
+Data Type      use for                      Example
+INT            Whole numbers                15, 200, 999
+BIGINT         very large numbers           9876543210
+SMALLINT       smaller number               1,2,3
+DECIMAL(p,s)   Exact numbers(with decimal)  12.50
+FLOAT          Approximate decimal values   3.14, 0.99
+
+
+Liminations of DDL:
+No data Handling
+Irreversible in Some Cases
+Limited to Schema-Level Changes
+Requires Permission
+Error-Prone for Beginners
+No Confrmatio Prompts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
