@@ -17,10 +17,10 @@ built-in functionality
 
 Classification of SQL commands-
 DDL  DML DCL TCL DQL
-create- To Create a new table -CREATE TABLE table_name (id, name , salary ,email) ;
-drop - To delete table
-alter - To chnange structure of table
-truncate - To 
+create- To Create a new table
+drop - To delete a table
+alter - To change structure of table
+truncate - To delete all rows from a table but keeps its structure
 WHERE - To filter records based on conditions
 
 Example: Creating a Table in SQL using DDL:
