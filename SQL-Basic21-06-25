@@ -31,6 +31,8 @@ INSERT into students (id,name,age,email,gender,admission_date) values(1, 'john',
 UPDATE students SET age=30 WHERE id=1;
 DELETE FROM students where id in(1,2);
 SELECT * from students;
+MERGE
+CALL
 #-----------------------------
 Classification of SQL commands-
 DDL  DML DCL TCL DQL
