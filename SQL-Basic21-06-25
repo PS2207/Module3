@@ -14,13 +14,27 @@ Efficient database management
 Standard language
 command structure
 built-in functionality
+CREATE DATABASE db_name;
+USE db_name;
+DROP database db_name;
+CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(100), age INT, email VARCHAR(100), gender VARCHAR(10), UNIQUE, admission_date DATE ); 
+INSERT into students (id,name,age,email,gender,admission_date) values(1, 'john', 30, 'm', 'john@gmail.com', 1-1-2000 );
+SELECT * from students;
 
 Classification of SQL commands-
 DDL  DML DCL TCL DQL
-create- To Create a new table
-drop - To delete a table
-alter - To change structure of table
-truncate - To delete all rows from a table but keeps its structure
+DDL Commands:
+CREATE- To Create a new table
+DROP - To delete a table
+ALTER - To change structure of table(like adding column or removing column)
+TRUNCATE - To delete all rows from a table but keeps its structure
+RENAME- To rename a table or column
+
+DML Commands:
+INSERT
+UPDATE-
+DELETE-
+
 WHERE - To filter records based on conditions
 
 Example: Creating a Table in SQL using DDL:
