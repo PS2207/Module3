@@ -19,7 +19,7 @@ built-in functionality
 SHOW databases;
 CREATE DATABASE db_name;
 USE db_name;
-DROP database db_name;/ DROP table table_name;
+DROP database db_name; / DROP table table_name;
 CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(100), age INT, email VARCHAR(100), gender VARCHAR(10), UNIQUE, admission_date DATE ); 
 ALTER TABLE table_name ADD email VARCHAR(100) unique;   ALTER TABLE students DROP column email;
 Ex- ALTER TABLE students ADD(age INT, email varchar(100) UNIQUE);  ALTER TABLE students  DROP COLUMN age,DROP column email;
@@ -36,12 +36,12 @@ MERGE- INSERT INTO students (id,name,age,email) values(1,'ram',35,'ram@gmail.com
 CALL
 #------
 DQL(Data Query Language) :-
-SELECT * from students;
-SELECT COUNT(*) FROM students;
-SELECT age,name FROM students WHERE age >30;
-SELECT DISTINCT name FROM students;
-SELECT * FROM students ORDER BY name desc;
-SELECT name, COUNT(*) FROM students GROUP BY name;
+SELECT * from students;  - (To See all rows and columns in a table)
+SELECT COUNT(*) FROM students; -(Counts total number of rows in student table)
+SELECT age,name FROM students WHERE age >30;  -(Fetch only specific column age,name students who is older than 30)
+SELECT DISTINCT name FROM students;   -(Retrieves a list of unique(non-repeating) names from the students table and removes duplicate from the result)
+SELECT * FROM students ORDER BY name desc;  -(Sorts results by the name column in descending (Z to A) order.
+SELECT name,age, COUNT(*) FROM students GROUP BY name,age;  -(Counts how many students share the same name ,age)
 #-----------------------------
 Classification of SQL commands-
 DDL  DML DCL TCL DQL
