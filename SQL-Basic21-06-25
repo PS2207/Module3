@@ -33,7 +33,25 @@ DELETE FROM students where id in(1,2);
 
 This will update existing records or insert new ones.
 MERGE- INSERT INTO students (id,name,age,email) values(1,'ram',35,'ram@gmail.com') ON DUPLICATE KEY UPDATE name=values(name), age=values(age),email=values(email);
-CALL
+CALL-
+mysql>DELIMITER//
+mysql>BEGIN
+mysql>CREATE PROCEDURE getStudentById(IN stuId INT);
+     >BEGIN
+     >SELECT * FROM students WHERE st_id = stuId; 
+     >END;
+mysql>DELIMITER;
+mysql>CALL getStudentById(2) 
+What difference between simple query 'SELECT * FROM students WHERE st_id=2;' and 'Creating Procedure then Calling a stored procedure'?
+This directly fetches all columns from students table where id is 2O.
+USE IT WHEN:
+   You want to run a quick one-time query.
+   You don't need to run this logic again & again.
+This runs a stored procedure named getStudentById(2) which internally does- SELECT * FROM students WHERE stId=stuId;
+USE IT WHEN:
+    You need to reuse this query frequently.
+    You want to make your app/database more secure and organized.
+Create a stored procedure 
 #------
 DQL(Data Query Language) :-
 SELECT * from students;  - (To See all rows and columns in a table)
