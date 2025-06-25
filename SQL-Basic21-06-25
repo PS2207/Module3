@@ -51,7 +51,9 @@ This runs a stored procedure named getStudentById(2) which internally does- SELE
 USE IT WHEN:
     You need to reuse this query frequently.
     You want to make your app/database more secure and organized.
-Create a stored procedure 
+Create a stored procedure in MySQL that includes - IF condition, Input parameter, Message if no record found
+GOAL- If Student with given id exist show their details.
+If not, Show: 'No Student found with that id'
 #------
 DQL(Data Query Language) :-
 SELECT * from students;  - (To See all rows and columns in a table)
