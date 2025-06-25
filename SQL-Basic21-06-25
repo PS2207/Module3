@@ -36,13 +36,13 @@ MERGE- INSERT INTO students (id,name,age,email) values(1,'ram',35,'ram@gmail.com
 CALL-
 mysql>DELIMITER//
 mysql>BEGIN
-mysql>CREATE PROCEDURE getStudentById(IN stuId INT);
+mysql>CREATE PROCEDURE getStudentById(IN stuId INT)
      >BEGIN
-     >SELECT * FROM students WHERE st_id = stuId; 
-     >END;
-mysql>DELIMITER;
+     >SELECT * FROM students WHERE st_id = stuId
+     >END//
+     >DELIMITER;
 mysql>CALL getStudentById(2) 
-What difference between simple query 'SELECT * FROM students WHERE st_id=2;' and 'Creating Procedure then Calling a stored procedure'?
+What is the difference between simple query 'SELECT * FROM students WHERE st_id=2;' and 'Creating stored Procedure then Calling this'?
 This directly fetches all columns from students table where id is 2O.
 USE IT WHEN:
    You want to run a quick one-time query.
