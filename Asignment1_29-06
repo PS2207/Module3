@@ -1,0 +1,12 @@
+Q5: Which statement is true for a flat-file database but false for a DBMS?
+(a)Data are stored in multiple related tables (b)Complex querying and transaction control are provided.
+(c)Only one simple table with no inter-table relationships is used. (d)It enforces strong data integrity constrainst automatically.
+
+Q6: Logical data independence means that changes mae at which level should not affect external views?
+(a) Physical level (b)Conceptual(logical) schema  (c)Internal storage model (d)Application program level
+
+Q7: In a network DBMS, what relationship strength makes it more flexible than the hierarchical model?
+(a)Only one-to-one links (b)Fixed one-to-many links  (c)Many-to-many links through multiple owners/members records  (d)No explicit links(all data are flat)
+
+Q8: THe primary goal of data abstraction in a DBMS is to:
+(a)Compress data for efficient storage (b)Hide complex storage details from users while presenting a simplified view (c)Encrypt for security (d)Remove redundant data from all tables
