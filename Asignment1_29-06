@@ -1,7 +1,16 @@
+Q1:
+(a)  (b)
+(c)  (d)
+Q2:
+(a)  (b)
+(c)  (d)
+
 Q3: Which level of database abstraction describes how the data are actually stored on disk(indexes, hashing)?
 (a)External/View level  (b)Conceptual level (c)Physical/Internal level (d)Logical level
+
 Q4: Which database model stores information as nodes, edges, and properties, making it especially suitable for relationship-heavy data(e.g social networks)?
 (a)Hierarchical model  (b)Relational model  (c)Graph model  (d)Flat-file database
+
 Q5: Which statement is true for a flat-file database but false for a DBMS?
 (a)Data are stored in multiple related tables (b)Complex querying and transaction control are provided.
 (c)Only one simple table with no inter-table relationships is used. (d)It enforces strong data integrity constrainst automatically.
