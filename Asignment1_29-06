@@ -1,19 +1,19 @@
 Q1: Which of the following best expresses the difference between data and information?
-(a) Data are meaningful facts whereas information is unprocessed symbols. (b) Data are raw facts,whereas information is processed and meaningful.
+(a) Data are meaningful facts whereas information is unprocessed symbols. (b) Data are raw facts,whereas information is processed and meaningful.✔️
 (c) Data are always numbers,whereas information is always text.           (d) Data and information are interchangeable terms.
 
 Q2: In the relational model, which element uniquely identifies each row in a table?
 (a) Foreign key  (b) Alternate key  (c) Primary key✔️   (d) Candidate key
 
 Q3: Which level of database abstraction describes how the data are actually stored on disk(indexes, hashing)?
-(a)External/View level  (b)Conceptual level (c)Physical/Internal level (d)Logical level
+(a)External/View level  (b)Conceptual level (c)Physical/Internal level✔️ (d)Logical level
 
 Q4: Which database model stores information as nodes, edges, and properties, making it especially suitable for relationship-heavy data(e.g social networks)?
-(a)Hierarchical model  (b)Relational model  (c)Graph model  (d)Flat-file database
+(a)Hierarchical model  (b)Relational model  (c)Graph model ✔️ (d)Flat-file database
 
 Q5: Which statement is true for a flat-file database but false for a DBMS?
 (a)Data are stored in multiple related tables (b)Complex querying and transaction control are provided.
-(c)Only one simple table with no inter-table relationships is used. (d)It enforces strong data integrity constrainst automatically.
+(c)Only one simple table with no inter-table relationships is used.✔️ (d)It enforces strong data integrity constrainst automatically.
 
 Q6: Logical data independence means that changes mae at which level should not affect external views?
 (a) Physical level (b)Conceptual(logical) schema  (c)Internal storage model (d)Application program level
