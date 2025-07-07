@@ -1,0 +1,9 @@
+Table is the basic object in a database that stores data in rows and columns.
+Each columns has a specific data type(like INT,VARCHAR,DATE,etc)
+You can insert ,update,delete,select data from a table.
+
+SQL Language categories- 
+DDL(Data Definition Language)- Defines and modifies the structure of database objects like- tables,views,and schemas
+DML(Data Manipulation Language)
+DQL(Data Query Lnaguage)
+DCL(Data Control Language) (Transaction Control Lnaguage)
