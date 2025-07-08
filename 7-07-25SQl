@@ -3,7 +3,7 @@ Each columns has a specific data type(like INT,VARCHAR,DATE,etc)
 You can insert ,update,delete,select data from a table.
 
 SQL Language categories- 
-DDL(Data Definition Language)- Defines and modifies the structure of database objects like- tables,views,and schemas
-DML(Data Manipulation Language)
-DQL(Data Query Lnaguage)
+DDL(Data Definition Language)- Defines and modifies the structure of database objects like- tables,views,and schemas.
+DML(Data Manipulation Language)- INSERT data into a table. UPDATE existing records in a table.  DELETE records from a table
+DQL(Data Query Lnaguage)- Used to fetch data from database without modifying it. It includes the powerful SELECT command.
 DCL(Data Control Language) (Transaction Control Lnaguage)
