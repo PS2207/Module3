@@ -1,6 +1,44 @@
 Table is the basic object in a database that stores data in rows and columns.
 Each columns has a specific data type(like INT,VARCHAR,DATE,etc)
 You can insert ,update,delete,select data from a table.
+---------------------------------------------------------------------
+Insert data without mentioning column names-
+INSERT data INTO students
+values(1,'alice',20,'alice@gmail.com');
+
+Insert data by mentioning column names(this is the best practice)-
+INSERT data INTO students (id,name,age,email)
+values(1,'alice', 20, 'alice@gmail.com');
+-------UPDATE-----------------------------------
+SYNTAX:
+UPDATE table_name 
+SET column1=value1,  column2=value2,....
+WHERE condition;
+EXAMPLE:
+UPDATE students
+SET name="Bob', email='bob@gmail.com'
+WHERE id=1;
+-------DELETE------------------------------------
+SYNTAX:
+DELETE FROM table_name
+WHERE CONDITION;
+Example:
+DELETE FROM students
+WHERE age>20;
+------------------------------------------
+
+Operation              QueryExample                        Result
+Delete One Row        DELETE FROM students WHERE id=1;    Only one row deleted
+Delete multiple rows  DELETE FROM students WHERE age>20;  Delete matching rows
+Delete all rows       DELETE FROM students;               Clears the entire table
+Without WHERE         
+
+
+
+
+
+
+
 
 SQL Language categories- 
 DDL(Data Definition Language)- Defines and modifies the structure of database objects like- tables,views,and schemas.
