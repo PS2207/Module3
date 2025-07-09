@@ -46,3 +46,53 @@ DML(Data Manipulation Language)- Deals with operations on data, such as insertin
 INSERT data into a table. UPDATE existing records in a table.  DELETE records from a table
 DQL(Data Query Lnaguage)- Used to fetch data from database without modifying it. It includes the powerful SELECT command.
 DCL(Data Control Language) (Transaction Control Lnaguage)
+
+
+
+
+
+
+******************************9-07-2025*************************
+
+BETWEEN OPERATOR - For range checking
+SELECT * FROM table_name / column1,column2,column3....
+WHERE column, BETWEEN value1 AND value2;
+SELECT * FROM students WHERE Age BETWEEN 20 AND 24;
+
+IS NULL - Checking Missing Data return
+SELECT * FROM students WHERE email IS NULL;
+
+IS NOT NULL- Filtering Valid Entries
+SELECT * FROM students WHERE email IS NOT NULL;
+Can use DISTINCT
+
+SELECT id,name,age,course
+FROM students 
+WHERE age>=18 AND course IN('MATH','SCIENCE') AND email IS NOT NULL 
+LIMIT 10;
+
+SELECT column1,column2,(column1+column2) AS total FROM table_name;
+SELECT first_name,last_name,(f_name+l_name)
+SELECT item,quantity,price(quantity*price) AS total FROM sales;
+SELECT product_name,price, (price*0.9) AS discounted_price FROM products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
