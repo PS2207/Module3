@@ -53,7 +53,11 @@ DCL(Data Control Language) (Transaction Control Lnaguage)
 
 
 ******************************9-07-2025*************************
-
+INTRODUCTION TO ADVANCED FILTERING KEYWORDS:-
+IN- for checking membership in a list.
+BETWEEN- for specifying ranges
+IS NULL- for checking the presence of 6missing values
+IS NOT NULL- for checking the absence of values.
 BETWEEN OPERATOR - For range checking
 SELECT * FROM table_name / column1,column2,column3....
 WHERE column, BETWEEN value1 AND value2;
