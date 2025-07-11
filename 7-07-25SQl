@@ -81,7 +81,155 @@ SELECT item,quantity,price(quantity*price) AS total FROM sales;
 SELECT product_name,price, (price*0.9) AS discounted_price FROM products;
 
 
+SELECT MAX(department) AS max_salary FROM employee;
+SELECT SUM(department) AS sum_salary FROM employee;
+SELECT AVG(department) AS avg_salary FROM employee;
 
+Using GROUP BY with AVG() Department-Wise Average Salary
+SELECT department_id, AVG(salary)
+FROM employees
+GROUP BY department;
+
+SELECT department FROM employees
+GROUP BY (department,salary);
+
+SELECT MIN(salary) AS min_salary, MAX(salary) AS max_salary FROM employee;
+
+The SQL HAVING clause is used to filter the results of a GROUP BY query based on the result of an aggregate function.
+SELECT department_id, COUNT(*) AS total
+FROM employees
+GROUP BY deprtment_id
+HAVING COUNT(*)>5;
+
+SELECT department_id, COUNT(*) AS total
+FROM employees
+GROUP BY deprtment_id
+HAVING COUNT(*)>5;
+
+SE
+1
+DROP TABLE IF EXISTS Employee,Department;
+2
+CREATE TABLE Department(
+   dept_id SERIAL PRIMARY KEY,
+   dept_name VARCHAR(50) UNIQUE NOT NULL
+);
+3
+CREATE TABLE Employee(
+  emp_id SERIAL PRIMARY KEY,
+  NAME VARCHAR(100) NOT NULL,
+  salary NUMERIC(10,2) CHECK (salary >= 0),
+  dept_id INT REFERENCES Department(dept_id)
+);
+4
+INSERT INTO Department(dept_name) VALUES
+  ('Engineering'),
+  ('HR'),
+  ('Sales');
+5
+INSERT INTO Employees(NAME, Salary,dept_id)VALUES
+  ('Alice',600000,1),
+  ('Bob',500000,2),
+  ('Charlie',400000,3),
+  ('Alice',300000,1),
+  ('Eve',700000,3);
+6
+INSERT INTO Employees (NAME, salary, dept_id) VALUES
+ ('Alice',600000,4)
+7
+SELECT * FROM department;
+
+-------GROUP BY----------------------------------------
+Aggregate functions - Average,  Minimum, Maximum, Count
+
+SELECT dept_id, AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept_id;
+
+SELECT dept_id,MIN(salary) AS average_salary
+FROM employees
+GROUP BY dept_id;
+
+SELECT dept_id, COUNT(*) AS num_employees
+FROM employees 
+GROUP BY dept_id;
+------------HAVING------------------------------
+comment in sql -- or /*... */
+SELECT dept_id, AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept_id
+HAVING AVG(salary) >50000;
+
+SELECT dept_id, AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept_id
+HAVING COUNT(*) >50000;
+
+------------ORDER BY------------------------------
+SELECT NAME, salary
+FROM employees
+ORDER BY salary DES or ASC;
+
+SELECT COL_NAME
+FROM TABLE_NAME
+WHERE customer_id IN(2,8,9) AND
+(amount > 10 OR amount < 2)
+ORDER BY customer ASC (IF invalid)
+ORDER BY amount DESC
+
+-------LIMIT, OFFSET-----------------------------------------
+SELECT * FROM employees LIMIT 2;
+
+SELECT * 
+FROM employees 
+ORDER BY salary DESC
+LIMIT 4;
+
+SELECT * 
+FROM employees 
+ORDER BY salary DESC 
+OFFSET 4;
+
+SELECT * 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 2 OFFSET 4;
+
+SELECT *
+FROM employees
+WHERE salary BETWEEN 50000 AND 700000;
+
+SELECT *
+FROM employees
+WHERE salary IN('Alice');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PostGreSQL table small or capital 
 
 
 
