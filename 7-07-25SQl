@@ -237,6 +237,110 @@ PostGreSQL table small or capital
 
 
 
+Aggregation function is the function that performs operation on a set of data & return.
+
+Count() is an agg return number of rows exist in a datbase
+MAX() -SELECT MAX() AS max_
+MIN()
+SUM()
+SELECT MIN() AS highest_salary FROM employee;
+
+SELECT department , AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+department avg_salary
+HR         42500 
+IT         67500    
+FINANCE    50000
+Table: employees
+emp_id   name    department   salary    age
+1        Alice      HR        40000     25
+2        Bob        IT        60000     30
+3        Jenny      HR        34500     28
+4        john       IT        75000     35
+5        Alex       FINANCE   50000     40
+
+(Q)
+id   name
+1    Alice
+2    NULL
+3    Bob
+SELECT COUNT(*) FROM table_name;
+SELECT COUNT() FROM table_name;
+SELECT department, SUM(salary)
+FROM employees
+HAVING SUM(salary) > 50000;
+
+SELECT SUM(salary) / COUNT(*)  AS avg_salary FROM employees;
+SELECT AVG(salary) FROM employees;
+SELECT department, 
+FROM
+HAVING
+GROUP BY 
+---------------------------------------------------------------------
+Complex conditions with GROUP BY and HAVING in SQL:
+SELECT department, COUNT(*) AS emp_count, AVG(salary) AS  avg_salary
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 2 AND AVG(salary) >= 45000;
+
+SELECT department, MAX(salary) AS max_salary
+FROM employees
+GROUP BY department
+HAVING MAX(salary) BETWEEN 45000 AND 75000 
+    AND department IN('HR','Finance');
+
+
+SELECT department, COUNT(salary) AS non_null_salaries, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department
+HAVING COUNT(salary) < COUNT(*);
+
+
+SELECT department, AVG(salary) AS avg_salary, MIN(age)
+FROM employees
+GROUP BY department
+HAVING AVG(salary) FROM employees
+   SELECT AVG(salary)
+   FROM employees
+   WHERE
+-----------------------------------------------------------
+What are window functions in SQL?
+FUNCTION       DESCRIPTION
+ROW_NUMBER()   Assigns a unique number to each row
+RANK()         Ranks with gaps in case of ties
+DENSE_RANK()   Ranks without gaps in case of ties
+SUM()/AVG()    Comulative or partition-based totals
+LAG()/LEAD()   Access previous or next row value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+
+
+
+
+
+
+
 
 
 
