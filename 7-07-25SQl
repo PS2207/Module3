@@ -313,6 +313,137 @@ DENSE_RANK()   Ranks without gaps in case of ties
 SUM()/AVG()    Comulative or partition-based totals
 LAG()/LEAD()   Access previous or next row value
 
+Table: employees
+name     department   salary    row_num
+Charlie    HR         45000     1
+Alice      IT         40000     2
+David      HR         75000     1
+Bob        IT         60000     2
+Eva        FINANCE    50000     1
+------------------------------------------------------
+SELECT name,salary,
+  LAG(salary,1) OVER(ORDER BY salary) AS prev_salary
+FROM employees;
+name      salary   prev_salary
+Alice     40000    NULL
+Charlie   45000    40000
+EVe       50000    45000
+Bob       60000    50000
+David     75000    60000
+-------------------------------------------------------
+SELECT name,salary,
+  DENSE_RANK() OVER (ORDER BY salary DESC) AS salary_dense_rank
+FROM employees;
+name      salary  salary_dese_rank
+David     75000    1
+Bob       60000    2
+Eva       50000    3
+Charlie   45000    4
+Alice     40000    5    
+------------------------------
+Whta is INNER JOIN in SQL?
+SELECT students.student_id, students.name, marks.marks
+FROM students
+INNER JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.marks
+FROM students
+LEFT JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.marks
+FROM students
+RIGHT JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.marks
+FROM students
+FULL OUTER JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.subject, marks,marks
+FROM students
+LEFT OUTER JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.subject, marks,marks
+FROM students
+RIGHT OUTER JOIN marks
+ON students.student_id = marks.student_id;
+
+SELECT students.student_id, students.name, marks.subject, marks,marks
+FROM students
+FULL OUTER JOIN marks
+ON students.student_id = marks.student_id;
+
+Join Type      Includes                              Missing Side Shows
+INNER JOIN     Only matching rows in both tables     Excluded
+RIGHT JOIN     All from left + matches from right    Right = NULL
+LEFT JOIN      All from right + matches from left    Left=NULL
+FULL JOIN      All rows from both side               NULL on both sides
+
+Type                   Includes unmatched rows from...
+LEFT OUTER JOIN         Left table only
+RIGHT OUTER JOIN        Right table only
+FULL INNER JOIN         Both left and right tables
+
+What is a CROSS JOIN?
+Join Type    Matches Needed
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+CROSS JOIN
+
+What is a SELF JOIN in SQL?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
