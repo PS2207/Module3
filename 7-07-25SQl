@@ -399,33 +399,48 @@ CROSS JOIN
 What is a SELF JOIN in SQL?
 
 ------------------------------
+Subqueries or Nested queries in SQL.
+the name itself defined Sub queries are the queries written inside another query.
+Why are Subqueries important?
+What's the probelm without Subqueries?
 Returns one value
 Returns one row(multiple columns)
 Returns one column
-SELCT name 
-FROM employees WHERE salary > 50000;
 
-SELECT e.name
-FROM employees e
+Without Subquery(Manually):-
+SELECT name FROM employees WHERE salary > 50000;
+
+SELECT e.name FROM employees e
 JOIN(
   SELECT AVG(salary) AS avg_salary FROM employees
 ) avg_able
 ON e.salary > avg_table.avg_salary;
 
+With Subquery:-
 SELECT name FROM employees
 WHERE salary > (SELECT AVG(salary) FROM employees);
-
-Scalar Subquery
-Row Subquery 
-1  Alice 10 60000
-2  Bob    10 40000
-3  Charlie  20 50000   
+-------------------------------------------------------
+Scalar Subquery :Sub-query that return a single value.
+emp_id    name    salary
+1         Alice    60000
+2         Bob      50000
+3         Charlie  40000
+SELECT name FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+output : name=Alice
+------------------------------------------------------------------------------
+Row Subquery : Sub-query that returns a single whole row with (multple column).
+emp_id  name   department_id  salary
+1       Alice    10            60000
+2       Bob      10            40000
+3       Charlie  20            50000   
 output : name=Alice
 SELECT name FROM employees
 WHERE (department_id, salary)=
   (SELECT department_id, MAX(salary) FROM employees);
-----------------------------------------------------------
+------------------------------------------------------------------
 Column Subquery:-
+Table: departments           Tbale:Employees
 department_id location       emp_id    name       department_id
 10            Delhi             1      Alice       10
 20            Mumbai            2      Bob         20
