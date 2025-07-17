@@ -41,6 +41,28 @@ CREATE TABLE Employee(
 (c)ALTER TABLE Employee ADD UNIQUE(Sno) PRIMARY; (D)ALTER Employee TABLE ADD KEY Sno;
 To add a Primary Key in an existing table
 
+-----------GradedAssignment1------------------
+
+(Q1)To generate a list of all employees and their managers,including the top-level employees who do not have a manager, which query is most suitable?
+
+SELECT E.EmpName, M.EmpName FROM Employees E INNERJOIN Employees M ON E.ManagerID=M.EmpID
+
+(Q2)You need to find all departments that have no employees assigned to them.Which of the following is the most effective approach?
+SELECT d.dept_name FROM departments d INNER JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
+SELECT d.dept_name FROM departments d LEFT JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
