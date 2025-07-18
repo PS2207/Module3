@@ -50,6 +50,28 @@ SELECT E.EmpName, M.EmpName FROM Employees E INNERJOIN Employees M ON E.ManagerI
 (Q2)You need to find all departments that have no employees assigned to them.Which of the following is the most effective approach?
 SELECT d.dept_name FROM departments d INNER JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
 SELECT d.dept_name FROM departments d LEFT JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
+SELECT d.dept_name FROM departments d WHERE dept_id NOT IN(SELECT e.dept_id FROM employees e WHERE dept_id IS NOT NULL);
+Both (b) and (c) are effective approaches.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
