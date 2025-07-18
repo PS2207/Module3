@@ -55,8 +55,102 @@ Both (b) and (c) are effective approaches.
 
 
 
+-------------18-07-25-------------------------------------
+--CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
+/*
+INSERT INTO employees(id , name, department, salary, age)
+Values
+(1,  'Alice',  'HR',        40000,     25),
+(2,  'Bob',    'IT',        60000,     30),
+(3,  'Jenny',  'HR',        34500,     28),
+(4,  'john',   'IT',        75000,     35),
+(5,  'Alex',   'FINANCE',   50000,     40);
+*/
+/*
+INSERT INTO employees(emp_id , emp_name, dept_id, dept_name)
+Values
+(1,  'Alice',  101, 'Sales'),
+(2,  'Bob',    102, 'Engineering'),
+(3,  'Rahul',  103, 'HR'),
+(4,  'Megha',   104, 'Electrical');
+*/
+/*
+SELECT * FROM employees
+ --WHERE (SELECT dept_id FROM employees WHERE dept_name='Sales'); /*single row inner*/
+ WHERE dept_id= (SELECT dept_id FROM employees WHERE dept_name='Sales');
+*/
+/*
+INSERT INTO employees(emp_id , emp_name, dept_id, dept_name)
+Values(1,  'RR',  107, 'Sales');
+*/
+/*
+UPDATE employees
+SET dept_id
+*/
+
+CREATE TABLE employee (emp_id INT PRIMARY key, emp_name VARCHAR(100), dept_id VARCHAR(100);
+--CREATE TABLE department  (dept_id INT PRIMARY key, dept_name VARCHAR(100), dept_id VRCHAR(100);
+--INSERT into employee (emp_id,emp_name,dept_id) VALUES(1,'Alice' ,101);
 
 
+-------breakout-----------
+
+/*
+CREATE TABLE employee (emp_id INT PRIMARY key, emp_name VARCHAR(100), dept_id VARCHAR(100);
+--CREATE TABLE department  (dept_id INT PRIMARY key, dept_name VARCHAR(100), dept_location VRCHAR(100);
+--INSERT into employee (emp_id,emp_name,dept_id) VALUES(1,'Alice' ,101);
+
+INSERT INTO department VALUES(10, 'HR', 'uk'), (11, 'sales', 'usa'),(12, 'engineer', 'india');
+                       
+SELECT emp_name FROM employee WHERE dept_id IN(
+     SELECT dept_id FROM department WHERE dept_location='uk';
+    );
+ */                      
+ CREATE TABLE employee (emp_id INT PRIMARY key, NAME VARCHAR(100), department VARCHAR(100),salary, manager_id INT PRIMARY KEY);
+CREATE TABLE employee (emp_id INT PRIMARY key, emp_name VARCHAR(100), dept_id VARCHAR(100);
+ --sub query in corretalted -find employees who earn more than average of their department                  
+ SELECT NAME, department,salary FROM employees e1 WHERE salary >(SELECT AVG(salary) FROM employees e2 WHERE e1.department=e2.department);                      
+    
+ Find employees who earn more than their manager?JOIN
+ List employees with second highest salary? 
+  SELECT * FROM employees ORDER by salary  DESC  offset 1 limit 1;                     
+  SELECT NAME, salary  FROM employees WHERE salary =(SELECT salary FROM employees WHERE salary < (SELECT MAX(salary) FROM employees );;                       
+                       
+                       
+                       
+                       
+                       
+ --sub query in SELECT clause add extra column of average salary of their department
+   --Suubquery in from clause find depatrment with max avg salary                    
+SELECT  department,avg_salary 
+FROM (SELECT department , AVG(salary) AS avg_salary 
+      FROM employees  
+      GROUP BY department
+ ) AS dept_avg; 
+    --OR ORDER BY avg_salary DESC LIMIT 1;
+ WHERE  avg_salary =(
+   SELECT MAX(avg_salary) 
+   FROM (SELECT department, AVG(salary) AS avg_salary FROM employees GROUP BY department )AS inner_avg);  
+ -------------------------------------------------------                      
+ SELECT NAME, department  
+ FROM employees
+ WHERE department IN(
+   SELECT department
+   FROM employees
+   GROUP BY department
+   HAVING AVG(salary) > 55000
+   );
+   --Subquery with ANY/All - Employees earning more than ANY person in HR   
+   SELECT NAME, salary from employees                    
+   WHERE salary > ANY (SELECT salary FROM employees WHERE department='HR');                    
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
 
 
 
