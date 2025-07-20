@@ -1,6 +1,17 @@
+
 (Q1)Who originally developed SQL at IBM?
 (a)Edgar F.Codd   (b)Donald D. Chamberlin and Raymond F.Boyace✔️ (c)Larry Ellison (d)James Gosling
+
 SQL was originally developed at IBM in the 1970s by Donald D. Chamberlin and Raymond F.Boyace.
 They created the language called SEQUEL(Structured Query Language),which later beacme SQL.
-Jame Gosling created java progemaming language
-(Q2)
+Edgar F.Codd proposed relational model in 1970, not developed sql itself.
+Larry Ellison is a co-founder of oracle corporation in 1979 which comercialized sql but didn't develop it.
+James Gosling developed java progemaming language in 1995, not sql.
+
+(Q2)Which of the following is a DDL command?
+(a)SELECT (B)INSERT (C)CREATE (D)UPDATE
+SELECT- DQL: used to query data
+INSERT/UPDATE- DML: used to insert & update data
+CREATE- DDL(used to define & modify database structure like schema,table,indexes): used to create
+DDL-CREATE,ALTER,DROP,TRUNCATE,RENAME,COMMENT(in Oracle, but Not supported in all RDBMS)
+DML-INSERT,UPDATE,DELETE,MERGE
