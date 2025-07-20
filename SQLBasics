@@ -38,11 +38,12 @@ VARCHAR is faster  (b)CHAR is not supported in SQL
 
 (Q18)What is the primary use of DDL in SQL?
 (a)Manipulating data (b)Querying data (c)Defining and modifying database structures (d)Backing up data
-(Q19)What would be the best command to
+(Q19)What would be the best command to delete only students under age 18?
+(a)TRUNCATE (b)DROP TABLE (c)DELETE (d)ALTER TABLE
 (Q20)Which of the following types best fits the admission_date field?
 (a)DATETIME  (b)DATE   (c)TIMESTAMP   (d)TIME
 
-
+----------------------------------------------------------------------------------------------------------
 
 
 
