@@ -15,3 +15,44 @@ INSERT/UPDATE- DML: used to insert & update data
 CREATE- DDL(used to define & modify database structure like schema,table,indexes): used to create
 DDL-CREATE,ALTER,DROP,TRUNCATE,RENAME,COMMENT(in Oracle, but Not supported in all RDBMS)
 DML-INSERT,UPDATE,DELETE,MERGE
+
+(Q6)What does DECIMAL(10,2) mean in a data type?
+
+(Q7)What might DROP TABLE be restricted to DBAs?
+(Q8)Which scenario best calls for using DROP TABLE?
+(Q9)Which of the following is a constraint you can apply during CREATE TABLE?
+(a)NOTFALSE (b)DEFAULT NAME  (c)NOT NULL  (d)IS VALID
+(Q10)What command is best used to rename a table?
+(a)ALTER TABLE .. RENAME TO  (b)RENAME TABLE
+
+(Q11)Which of the following is a DDL command?
+SELECT INSERT CRAETE UPDATE
+(Q15)Why is VARCHAR preferred over CHAR in name fields?
+VARCHAR is faster  (b)CHAR is not supported in SQL  
+(c)Names vary in length and VARCHAR uses only needed space (d)CHAR cannot store letters
+
+(Q16)In SQL,which data type is best for storing an email address?
+(Q17)Which of the following is NOT a valid use case for ALTER TABLE?
+(a)Adding a new column  (b)Deleting specific rows (c)Changing data types (d)Renaming a column
+
+
+(Q18)What is the primary use of DDL in SQL?
+(a)Manipulating data (b)Querying data (c)Defining and modifying database structures (d)Backing up data
+(Q19)What would be the best command to
+(Q20)Which of the following types best fits the admission_date field?
+(a)DATETIME  (b)DATE   (c)TIMESTAMP   (d)TIME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
