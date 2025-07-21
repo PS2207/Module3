@@ -53,8 +53,15 @@ SELECT d.dept_name FROM departments d LEFT JOIN employees e ON d.dept_id=e.dept_
 SELECT d.dept_name FROM departments d WHERE dept_id NOT IN(SELECT e.dept_id FROM employees e WHERE dept_id IS NOT NULL);
 Both (b) and (c) are effective approaches.
 
+(Q3)What is the result of joining a table to itself using different aliases?
+(a)A Syntax error  (b)A Cartesian Product  
+(c)A Self Join,used for querying hierarchical data  (d)A Full Outer Join
 
+(Q4)You have two tables,FullTimeEmployees and Contractors.To get a single list of all unique people who work for the company,regardless of their employemnt type,which operator should you use?
+(a)UNIONALL  (b)INTERSECT  (C)UNION  (d)FULLOUTERJOIN
 
+(Q5)Which set operator is functionally equivalent to a LEFTJOIN where the WHERE clause filters for NULL on the right table's key?
+(a)UNION  (b)INTERSECT   (c)EXCEPT(MINUS)  (d)UNIONALL
 -------------18-07-25-------------------------------------
 --CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
