@@ -143,8 +143,198 @@ FROM (SELECT department , AVG(salary) AS avg_salary
    --Subquery with ANY/All - Employees earning more than ANY person in HR   
    SELECT NAME, salary from employees                    
    WHERE salary > ANY (SELECT salary FROM employees WHERE department='HR');                    
-                       
-                       
+------------------------------------------------------------------------------------                       
+What are set operation?
+when we needed set operation?
+types of set operation?
+
+SET Operation
+SELECT column1,column2 FROM table1
+UNION
+SELECT column1,column2 FROM table2;
+
+Table A:Employees_US      Table B:Employees_UK         Name
+Emp_id   Name             Emp_id   Name                Alice
+1        Alice            2        Bob                 Bob
+2        Bob              4        Diana               Charlie
+3        Charlie          5        Evan                Diana
+                                                       Evan
+
+SELECT Name FROM Employees_US
+UNION ALL
+SELECT Name FROM Employees_UK
+Name
+Alice
+Bob
+Charlie
+Bob
+Diana
+Evan
+
+
+Table A:Sales_Dept      Table B:HR_Dept            emp_name  
+Emp_id   emp_name       Emp_id    emp_name         Raj
+101      Raj            201       Priya            Meena
+102      Meena          202       Raj              Alok
+103      Alok           203       Nitin            Priya
+                                                   Nitin
+
+wrong query for that output-
+SELECT emp_name FROM Sales_Dept WHERE emp_id <105
+UNION ALL
+SELECT emp_name FROM HR_Dept  WHERE emp_id < 105;
+
+right query
+SELECT emp_name FROM Sales_Dept AS name 
+UNION 
+SELECT emp_name FROM HR_Dept AS name;
+
+SELECT emp_name FROM Sales_Dept
+UNION 
+SELECT emp_name FROM HR_Dept 
+ORDER BY emp_name;
+---------------------------------------
+East_Sales           West_Sales
+emp      sales       emp  sales
+A        1000       
+B        1200
+
+How many rows will this query return? 4
+Employees Contractors
+emp_id  emp_name     emp_id  emp_name      
+1       Ravi         101     Sneha   
+2       Sneha        102     Kiran
+3       Asha
+SELECT emp_name FROM employees
+UNION
+SELECT emp_id, emp_name FROM contractors;
+
+Will this query execute? no
+SELECT emp_id, emp_name FROM employees
+UNION
+SELECT emp_name FROM contractors;
+
+SELECT emp_id, emp_name FROM employees
+UNION
+SELECT emp_name,emp_id FROM contractors; column data type mismatch  int,varchar & varchar,int order
+-----------------------------------------------------------------------------------------------------
+if both tables  are empty? nothin return
+SELECT  emp_name FROM employees
+UNION
+SELECT emp_name FROM contractors;
+
+difference between these 2 queries-
+SELECT column_name FROM table1 ORDER BY column_name    error
+UNION
+SELECT column_name FROM table2;
+
+SELECT column_name FROM table1 
+UNION
+SELECT column_name FROM table2
+ORDER BY column_name;
+if Raj's emp_id is different in both tables,
+UNION will treat them as 2 distinct rows & will not remove either as a duplicate.
+--------------------------------------------------------
+What is INTERSECT query?
+SELECT name,dept FROM Employees
+INTERSECT
+SELECT name,dept FROM Employees;
+name dept
+Bob  Finance
+-------------
+SELECT name,dept FROM Employees
+INTERSECT ALL
+SELECT name,dept FROM Employees;
+name     dept       name    dept
+Alice    HR         Bob     Finance
+Bob      Finance    Diana   Sales
+Charlie  IT         Eva     HR
+Diana    IT
+
+name dept
+Bob  Finance
+----------------------------------------
+What if one column is of different data type? Error due to data type
+Use INTERSECT to find employees who are also managers and work in same department?
+----------------------------------------------------------------------------------------- 
+INTERSECT VS INNER JOIN
+SELECT emp_id name
+ON EmpID=EmpID2
+---------------------------------
+What is EXCEPT in SQL?
+SELECT col1,col2,...
+FROM table1
+EXCEPT
+SELECT col1,col2,...
+FROM table2;
+
+SELECT student_id, name FROM Students_2024
+WHERE student_id NOT IN (SELECT student_id FROM Students_2025);
+
+
+SELECT name,student_id FROM Students_2024
+EXCEPT
+SELECT student_id,name FROM Students_2025;
+
+(Q)What will be the result for this?  nothin return subtracting same row
+SELECT student_id FROM Students_2024
+EXCEPT
+SELECT student_id FROM Students_2024; takes all columns only , takes one column so column mismatch
+SELECT 8 FROM Students_2024
+EXCEPT
+SELECT name FROM Students_2025;
+How to find records in Table A but not in Table B or C? EXCEPT, UNION bth use
+SELECT * FROM A
+EXCEPT
+SELECT * FROM B
+EXCEPT
+SELECT * FROM C
+-----------------------
+ADVANCED SQL SET OPERATION
+(SELECT student_id FROM courses_2023
+UNION
+SELECT student_id FROM courses_2024)
+EXCEPT
+(SELECT student_id FROM courses_2023
+INTERSECT
+SELECT student_id FROM courses_2024);
+------------
+SELECT Course FROM courses_2023
+INTERSECT
+SELECT Course FROM courses_2024
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                        
                        
                        
