@@ -62,6 +62,17 @@ Both (b) and (c) are effective approaches.
 
 (Q5)Which set operator is functionally equivalent to a LEFTJOIN where the WHERE clause filters for NULL on the right table's key?
 (a)UNION  (b)INTERSECT   (c)EXCEPT(MINUS)  (d)UNIONALL
+
+(Q6)What is a key difference between UNION and UNIONALL?
+(a)UNIONALL is faster beacuse it does not remove duplicate rows.
+(b)UNION keeps duplicate rows, while UNIONALL removes them.
+(c)They are functionally identical, but UNIONALL is the SQL standard.
+(d)UNION requires the columns to have the same names, while UNIONALL does not.
+
+(Q7)In which order are the following SQL clauses evaluated?
+(a)SELECT,FROM,WHERE,GROUP BY,HAVING   (b)FROM,WHERE,GROUP BY,HAVING,SELECT
+(c)FROM,GROUP BY,HAVING,WHERE,SELECT   (d)SELECT,WHERE,FROM,HAVING,GROUP BY
+
 -------------18-07-25-------------------------------------
 --CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
