@@ -141,11 +141,25 @@ Error-Prone for Beginners
 No Confrmatio Prompts
 
 
+recursive function work on postgres not mysql
+----22-07-25----------
+UNION, UNION ALL
+INTERSECT, INTERSECT ALL  Alice, Bob,Bob  Charlie, Bob,Bob =Bob,Bob  |  Alice, Bob,Bob  Charlie, Bob,Bob = Bob
+EXCEPT, EXCEPT ALL   101 Rahul, 102 bob, 103 Megha= ? Rahul    |   103 Megha, 102 bob, 105 Alice=?
 
-
-
-
-
+Higher precedence LEFT TO RIGHT-> INTERSECT> UNION,except
+alice,bob,charlie     alice,david  charlie,eve,frank
+-(AUB) intersects (C-B)
+(
+SELECT NAME FROM table1
+UNION
+SELECT NAME FROM table2
+)                             alice,bob,charlie,david   ->charlie->
+INTERSECT
+SELECT NAME FROM table3
+EXCEPT
+SELECT NAME FROM table2;
+ alice,charlie,bob,david   ->charlie->    charlie
 
 
 
