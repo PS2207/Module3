@@ -45,14 +45,56 @@ VARCHAR is faster  (b)CHAR is not supported in SQL
 
 ----------------------------------------------------------------------------------------------------------
 
+What is Data Integrity & Transactions in DBMS 
+Why it needed
+What are constraints in DBMS? 
+Why are constraints needed?
+What are keys in database?
+What is Primary key? uniquly identify ,cannot be null, can be candidate key(more than one candidate key like sudent id,phonem)
+Foreign key? references to primary key of another table.
+Candidate key?can be null
+Alternative key?
+composite key?
+Super key?
+Can enroll_date be a Proimary key
+Which of the following is a candidate key in the enrollment table?
+Write query to find names of students who have not enrolled in any course?
+What is a transaction in DBMS? sequence of operation insert,delete,update
+COMMIT -> Save changes permanently.
+ROLLBACK -> Undo all changes since the transaction began.
+There is a situation, when 1st update occurs, 2nd update doesn't occur.
+so in that case, it might be an inconsistency.
+Example of a Transaction
+START  TRANSACTION
+ 1.DEDUCT RS1000 from Account A
+ 2.Add RS1000 to Account B
+BEGIN;
+UPDATE Accounts SET balance=balance - 1000 WHERE acc_no= 'A';
+UPDATE Accounts SET balance=balance + 1000 WHERE acc_no= 'B';
+COMIT: 
+ROLLBACK;
 
+BEGIN TRANSACTION;
+INSERT INTO Accounts(acc_id,name,balance)
+VALUES(103 'Charlie', 8000);
+COMIT;//LETS SAY NO ERROR OCCURS
+ROLLBACK; // logic error
 
+BEGIN TRANSACTION;
+DELTEE FROM Accounts WHERE acc_id=102;
+COMMIT;
+ACID Properties of Transactions
+Atomacity
+C-Consistency
+I-Isolation
+D-Durabiliy
 
+Suppose Rah
 
-
-
-
-
+START TRANSACTION;
+UPDATE 
+UPDATE
+COMMMIT;
 
 
 
