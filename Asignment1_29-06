@@ -79,6 +79,13 @@ UNION: returns all distinct rows from both sets & removes duplicate entries.
 EXCEPT: returns from the first set that are not in the second.
 INTERSECT: returns only the rows that are present in both result sets.
 MINUSALL: This is not a standard SQL operator.
+
+(Q9)You want to find departments where the average salary is above $65,000.which query is correct?
+(a)SELECT DeptName FROM Departments JOIN Eployees ON... WHERE AVG(Salary)>65000;
+(b)SELECT DeptName FROM Departments JOIN Employees ON... GROUP BY DeptName HAVING AVG(Salary)>65000;
+(c)SELECT DeptName FROM Departments JOIN Employees ON...GROUP BY DeptName WHERE AVG(Salary)>65000
+(d)SELECT DeptName,AVG(Salary) FROM Departments...WHERE AVG(Salary)>65000;
+
 -------------18-07-25-------------------------------------
 --CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
