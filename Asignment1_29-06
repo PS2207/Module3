@@ -86,6 +86,14 @@ MINUSALL: This is not a standard SQL operator.
 (c)SELECT DeptName FROM Departments JOIN Employees ON...GROUP BY DeptName WHERE AVG(Salary)>65000
 (d)SELECT DeptName,AVG(Salary) FROM Departments...WHERE AVG(Salary)>65000;
 
+(Q10)What is the purpose of the HAVING clause?
+(a)To filter before they are grouped.  (b)To filter groups based on the result of an aggregate function.
+(c)To substitute the WHERE clause when using joins.  (d)To order the results of a grouped query.
+
+(Q11)What is the primary advantage of a window function over a standard aggregate function?
+(a)They are faster  (b)They can perform calculations across a set of rows without collapsing them into a single.
+(c)They an be used in the WHERE clause  (d)They only work on numeric data
+
 -------------18-07-25-------------------------------------
 --CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
