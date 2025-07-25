@@ -1,0 +1,98 @@
+
+🟢 Basic SQL
+What is SQL
+Data Types (INT, VARCHAR, DATE, etc.)
+
+SQL Syntax and Clauses
+SELECT, FROM, WHERE
+ORDER BY
+DISTINCT
+LIMIT / TOP
+
+🔵 Filtering & Conditions
+WHERE clause
+Logical Operators (AND, OR, NOT)
+Comparison Operators (=, !=, <, >, BETWEEN, LIKE, IN, IS NULL)
+
+🟡 Functions
+Aggregate Functions: COUNT, SUM, AVG, MAX, MIN
+String Functions: UPPER, LOWER, CONCAT, SUBSTRING, TRIM, LENGTH
+Date Functions: NOW, CURDATE, DATEDIFF, DATE_ADD, MONTH, YEAR
+Numeric Functions: ROUND, FLOOR, CEIL, ABS
+
+🔴 Grouping & Filtering Groups
+GROUP BY
+HAVING
+Difference between WHERE and HAVING
+
+🟣 Joins
+INNER JOIN
+LEFT JOIN (LEFT OUTER JOIN)
+RIGHT JOIN (RIGHT OUTER JOIN)
+FULL JOIN (FULL OUTER JOIN)
+SELF JOIN
+CROSS JOIN
+USING vs ON in joins
+
+🟤 Set Operators
+UNION vs UNION ALL
+INTERSECT
+EXCEPT / MINUS
+
+⚫ Subqueries
+Single-row subquery
+Multi-row subquery
+Correlated subquery
+Subqueries in SELECT, FROM, WHERE, HAVING
+
+⚪ DDL (Data Definition Language)
+CREATE TABLE
+ALTER TABLE
+DROP TABLE
+TRUNCATE
+RENAME
+
+🟧 DML (Data Manipulation Language)
+INSERT INTO
+UPDATE
+DELETE
+MERGE (in some databases)
+
+🟨 TCL (Transaction Control Language)
+COMMIT
+ROLLBACK
+SAVEPOINT
+SET TRANSACTION
+
+🟩 DCL (Data Control Language)
+GRANT
+REVOKE
+
+🔶 Constraints
+PRIMARY KEY
+FOREIGN KEY
+CANDIDATE KEY
+SUPER KEY
+ALTERNATE KEY
+UNIQUE
+NOT NULL
+CHECK
+DEFAULT
+
+🔷 Indexes & Views
+CREATE INDEX
+UNIQUE INDEX
+DROP INDEX
+CREATE VIEW
+REPLACE VIEW
+
+🟥 Advanced Topics
+Window Functions: RANK(), DENSE_RANK(), ROW_NUMBER(), LEAD(), LAG()
+CTE (Common Table Expression): WITH clause
+Stored Procedures
+Triggers
+Normalization & Denormalization
+ACID Properties
+ER Diagrams
+
+
