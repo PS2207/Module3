@@ -91,9 +91,22 @@ MINUSALL: This is not a standard SQL operator.
 (c)To substitute the WHERE clause when using joins.  (d)To order the results of a grouped query.
 
 (Q11)What is the primary advantage of a window function over a standard aggregate function?
-(a)They are faster  (b)They can perform calculations across a set of rows without collapsing them into a single.
-(c)They an be used in the WHERE clause  (d)They only work on numeric data
+(a)They are faster(❌Performance depends on context)
+(b)They can perform calculations across a set of rows without collapsing them into a single.
+(c)They can be used in the WHERE clause(❌Window functions can not be directly used in the WHERE clause.)
+(d)They only work on numeric data(❌They can work with dates, strings etc, not just numbers)
+Window functions like- RANK()
+EX-SELECT emp_id,department,salary,
+  RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rank_in_dept
+FROM employees;
+THis works without grouping or collapsing multiple rows into one.
 Aggregate Function like AVG(), SUM(), COUNT()
+
+(Q12)In the windows function RANK() OVER (PARTITION BY DeptID ORDER BY Salary DESC), what does PARTTION BY DeptID do?
+(a)It filters the data to only one department
+(b)It sorts the employee by their department ID
+(c)It restarts the ranking calculation for each new department.
+(d)It groups the rows into a single output row per departemnt.
 -------------18-07-25-------------------------------------
 --CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
