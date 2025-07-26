@@ -110,12 +110,124 @@ Aggregate Function like AVG(), SUM(), COUNT()
 
 (Q13)If two employees have the same salary,what is a key difference between RANK() and DENSERANK()?
 (a)RANK() will assign them the same rank and skip the next rank(s); DENSERANK() will not skip
-(b)DENSERANK() will assign them ranks based on EmpID.
+(b)DENSERANK() will assign them ranks based on EmpID.✔️
 (c)RANK() cannot handle ties.
 (d)DENSERANK() is faster but less accurate.
 
-(Q14)Which function would you use to find the salary of the employee in the row immediately preceding the currect row , within the samw department?
-(a)RANK()  (b)LEAD(salary,1)  (c)LAG(Salary,1)   (d)ROWNUMBER()
+(Q14)Which function would you use to find the salary of the employee in the row immediately preceding the currect row , within the same department?
+(a)RANK()  
+(b)LEAD(salary,1)  (returns salary from the next row,not the previous one )
+(c)LAG(Salary,1)✔️  (returns the salary of the previous row)For mysql before version8, this won't work.
+(d)ROWNUMBER() (Just gives a unique row number in order)
+LAG(column,offset) is a window function that lets you access data from previous row within the same result set without using a self-join.
+
+(Q15)The query SELECT DeptID, COUNT(EmpID) FROM Employees GROUP BY DeptID; will return:
+(a)The total number of employees.
+(b)A list of employees in each department. Group rows based on department.Counts how many employees exist in each department
+(c)The number of employees in each department.
+(d)An error beacuse COUNT(*) should be used.
+
+(Q16)What is a Common Table Expression(CTE)?
+(a)A permanent table used for storing temporary results.
+(b)A type of subquery that can only be used in the WHERE clause.
+(c)A temporary,named result set,defined using the WITH clause,to simplify complex queries.
+(d)A special type of view that is automatically dropped.
+A CTE (Common Table Expression) is:
+A temporary result set.
+Defined using the WITH clause.
+Exists only during the execution of a single SQL statement.
+Makes complex queries easier to read and write, especially when dealing with joins, recursion, or repeated subqueries.
+WITH DeptCounts AS (
+    SELECT DeptID, COUNT(EmpID) AS EmpCount
+    FROM Employees
+    GROUP BY DeptID
+)
+SELECT *
+FROM DeptCounts
+WHERE EmpCount > 5;
+
+(Q17)To find all employees who earn more than the company's average salary,which is the most common approach?
+(a)Using a LEFTJOIN (b)Using a scalar subquery in the WHERE clause
+(c)Using the HAVING clause  (d)Using a window function.
+
+(Q18)Which feature is unique to CTEs compared to standard subqueries?
+(a)They can be referenced multiple times within the same query.
+(b)They can be used to write recursive queries.
+(c)They improve query readability by breaking down logoc.
+(d)All of the above.
+
+(Q19)Which statement is true about the DELETE statement?
+(a)DELETE FROM employees; removes the table structure.
+(b)DELETE is a DDL command.
+(c)A WHERE clause is mandatory.
+(d)DELETE FROM Employees; remove all rows from the table but the table itself remains.
+
+(Q20)The CASE statement in a SELECT clause is used for what purpose?
+(a)To filter rows like a WHERE clause.
+(b)To perform conditional(if-then-else) logic to return a value
+(c)To join tables based on  a condition.
+(d)To sort results based on multiple columns.
+
+(Q21)What is a correlated subquery?
+(a)A subquery that is executed only once before the outer query.
+(b)A subquery that uses values from the outer query, causing it to be re-evaluated for each row of the outer query.
+(c)A subquery that must return multple columns
+(d)Another name for a Common Table Expression(CTE)
+
+(Q22)
+(Q23)
+(Q24)Which of the following is a key rule for using set operators like UNION or INTERSECT?
+(a)
+(b)
+(c)An ORDERE BY CLAUSE\
+(d)They can only be used on two tables at a time.
+(Q25)A TRUNCATE TABLE statement is different from DELETE FROM table beacuse:
+(a)TRUNCATE is a DML operation and is slower.
+(b)TRUNCATE is a DDL operation, cannot be easily rolled back,and resets identity columns
+(c)TRUNCATE can be used with a WHERE clause
+(d)DELETE removes the table,while TRUNCATE only removes the data.
+
+
+
+
+
+
+
+
+
+
+
+
+A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
