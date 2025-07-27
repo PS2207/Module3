@@ -41,17 +41,19 @@ CREATE TABLE Employee(
 (c)ALTER TABLE Employee ADD UNIQUE(Sno) PRIMARY; (D)ALTER Employee TABLE ADD KEY Sno;
 To add a Primary Key in an existing table
 
------------GradedAssignment1------------------
+----------------------------------------------------GradedAssignment1-----------------------------------------------------------------------------------------------------------------------
 
 (Q1)To generate a list of all employees and their managers,including the top-level employees who do not have a manager, which query is most suitable?
-
-SELECT E.EmpName, M.EmpName FROM Employees E INNERJOIN Employees M ON E.ManagerID=M.EmpID
+(a)SELECT E.EmpName, M.EmpName FROM Employees E INNER JOIN Employees M ON E.ManagerID = M.EmpID;
+(b)SELECT E.EmpName, M.EmpName FROM Employees E LEFT JOIN  Employees M ON E.ManagerID = M.EmpID;
+(c)SELECT E.EmpName, M.EmpName FROM Employees E RIGHT JOIN Employees M ON E.ManagerID = M.EmpID;
+(d)SELECT E.EmpName, M.EmpName FROM Employees E, Employees M WHERE E.ManagerID = MEmpID;
 
 (Q2)You need to find all departments that have no employees assigned to them.Which of the following is the most effective approach?
-SELECT d.dept_name FROM departments d INNER JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
-SELECT d.dept_name FROM departments d LEFT JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
-SELECT d.dept_name FROM departments d WHERE dept_id NOT IN(SELECT e.dept_id FROM employees e WHERE dept_id IS NOT NULL);
-Both (b) and (c) are effective approaches.
+(a)SELECT d.dept_name FROM departments d INNER JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
+(b)SELECT d.dept_name FROM departments d LEFT JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
+(c)SELECT d.dept_name FROM departments d WHERE dept_id NOT IN(SELECT e.dept_id FROM employees e WHERE dept_id IS NOT NULL);
+(d)Both (b) and (c) are effective approaches.
 
 (Q3)What is the result of joining a table to itself using different aliases?
 (a)A Syntax error  (b)A Cartesian Product  
