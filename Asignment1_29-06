@@ -47,7 +47,7 @@ To add a Primary Key in an existing table
 (a)SELECT E.EmpName, M.EmpName FROM Employees E INNER JOIN Employees M ON E.ManagerID = M.EmpID;
 (b)SELECT E.EmpName, M.EmpName FROM Employees E LEFT JOIN  Employees M ON E.ManagerID = M.EmpID;
 (c)SELECT E.EmpName, M.EmpName FROM Employees E RIGHT JOIN Employees M ON E.ManagerID = M.EmpID;
-(d)SELECT E.EmpName, M.EmpName FROM Employees E, Employees M WHERE E.ManagerID = MEmpID;
+(d)SELECT E.EmpName, M.EmpName FROM Employees E, Employees M WHERE E.ManagerID = M.EmpID;
 
 (Q2)You need to find all departments that have no employees assigned to them.Which of the following is the most effective approach?
 (a)SELECT d.dept_name FROM departments d INNER JOIN employees e ON d.dept_id=e.dept_id WHERE e.emp_id IS NULL;
