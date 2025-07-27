@@ -177,10 +177,26 @@ WHERE EmpCount > 5;
 (Q22)
 (Q23)
 (Q24)Which of the following is a key rule for using set operators like UNION or INTERSECT?
-(a)
-(b)
-(c)An ORDERE BY CLAUSE\
+(a)The tables must have the same name.
+(b)The queries must select the same number of columns with compatible data types.✔️
+(c)An ORDER BY clause can be used in each SELECT statement.
 (d)They can only be used on two tables at a time.
+UNION removes duplicate entire rows not just one value, here ids are same, but other column are different
+so it will not remove.
+TABLE1: students_2024        TABLE2: student_2025
+id  name                     id   course_name
+1   Alice                    1    English
+2   Bob                      2    Math
+SELECT id,name FROM student_2024
+UNION
+SELECT id,course_name FROM student_2024
+OUTPUT: TABLE3
+id  name             
+1   Alice                
+2   Bob              
+1   English                 
+2   Math                 
+
 (Q25)A TRUNCATE TABLE statement is different from DELETE FROM table beacuse:
 (a)TRUNCATE is a DML operation and is slower.
 (b)TRUNCATE is a DDL operation, cannot be easily rolled back,and resets identity columns
