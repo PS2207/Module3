@@ -174,15 +174,28 @@ WHERE EmpCount > 5;
 (c)A subquery that must return multple columns
 (d)Another name for a Common Table Expression(CTE)
 
-(Q22)
-(Q23)
+(Q22)You want to find all employees who work in a department located in 'New York'. Which query using a subquery is structured correctly?
+(a)SELECT EmpName FROM Employees WHERE Location='NewYork';
+(b)SELECT EmpName FROM Employees WHERE DeptId IN(SELECT DeptId FROM Departments WHERE Location='New York');
+(c)SELECT EmpName FROM Employees WHERE(SELECT Location FROM Departments)='NewYork;
+(d)SELECT EmpName FROM Employees E JOIN Departments D ON E.DeptID=D.DeptID;
+
+(Q23)A subquery placed in the FROM clause of a SELECT statement is also known as:
+(a)A scalar subquer
+(b)A correlated subquery
+(c)A derived table or inline view
+(d)A window function
+
 (Q24)Which of the following is a key rule for using set operators like UNION or INTERSECT?
 (a)The tables must have the same name.
 (b)The queries must select the same number of columns with compatible data types.✔️
 (c)An ORDER BY clause can be used in each SELECT statement.
 (d)They can only be used on two tables at a time.
-UNION removes duplicate entire rows not just one value, here ids are same, but other column are different
+UNION removes duplicate entire rows, not just duplicate values in one column, 
+here ids are same, but other columns name,course_name are different
 so it will not remove.
+Although IDs are the same, the entire rows are different, so they are not dupicate to SQL. 
+UNION checks all columns in the row for duplication, not just one row.
 TABLE1: students_2024        TABLE2: student_2025
 id  name                     id   course_name
 1   Alice                    1    English
@@ -195,7 +208,18 @@ id  name
 1   Alice                
 2   Bob              
 1   English                 
-2   Math                 
+2   Math     
+but if i want output like this
+OUTPUT: TABLE3
+id  value     type             
+1   Alice     Name                
+2   Bob       Name   
+1   English   Subject name             
+2   Math      Subject name
+Use this query-
+SELECT id, name AS value, 'Student Name' AS type  FROM student_2024
+UNION
+SELECT id, course_name AS value, 'Subject Name' AS type  FROM student_2025;
 
 (Q25)A TRUNCATE TABLE statement is different from DELETE FROM table beacuse:
 (a)TRUNCATE is a DML operation and is slower.
