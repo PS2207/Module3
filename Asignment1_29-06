@@ -593,9 +593,65 @@ ISOLATION- must not intefere two parallel transaction
 DURABILITY- After commit -no chance to revert
 
 
+---------------Assignment 28-0725------------------------------------------------------------------------------------------------
+ Database Schema:
+ • Customers– CustomerID INT PRIMARY KEY– Name VARCHAR(100)– City VARCHAR(50)
+ • Orders– OrderID INT PRIMARY KEY– CustomerID INT REFERENCES Customers(CustomerID)– OrderDate DATE– Status VARCHAR(20)
+ • OrderItems– OrderID INT REFERENCES Orders(OrderID)– ProductID INT REFERENCES Products(ProductID)– Quantity INT
+ • Products– ProductID INT PRIMARY KEY– ProductName VARCHAR(100)– Price DECIMAL(10,2)– StockQuantity INT
+ 1
+Questions
+ Q1. Write an SQL query to display all customers who do not have any orders yet.
+ Q2. Supposeyouwanttochangethestatus of all orders placed before ‘2023-01-01’ to ‘Archived’.
+ Write the SQL statement to do this.
+ Q3. Write an SQL statement to insert a new product called ’Wireless Mouse’ with a price of
+ 25.99 and stock quantity of 100.
+ Q4. A customer named ’Alice Smith’ has made an order today. Write an INSERT query for
+ the Orders table assuming her CustomerID is 5 and status is ‘Pending’.
+ Q5. You discover some products have a stock quantity less than zero due to a bug. Write an
+ UPDATE query to set any negative stock quantities to zero.
+ Q6. Write an SQL query to delete all cancelled orders (Status = ’Cancelled’) that were placed
+ in 2022.
+ Q7. A customer moves to a new city. Write an UPDATE statement to change the city of the
+ customer with CustomerID = 3 to ‘San Francisco’.
+---------------------------------------------------------------------------------------------------------------------------
 
+Solution 1  :  SELECT c.* FROM Customers c LEFT JOIN Orders o ON  c.CustomerID = o.CustomerID  WHERE o.OrderID IS NULL ;
+CustomerID    Name             City    
+ 4            Ramesh Kumar     Delhi      
+ 7            Meera Shah       Chennai 
+----------------------------------------------------------------------------------------------------------------------------
 
+Solution 2 : UPDATE orders SET Status = 'Archived'  WHERE OrderDate < '2023-01-01';
+OrderID    CustomerID   OrderDate      Status   
+ 101            1       2022-12-30     Archived 
+ 102            2       2023-01-02     Pending  
+--------------------------------------------------------------------------------------------------------------------------------
 
+Solution 3 : INSERT INTO Products (ProductName, Price, StockQuantity) values('Wireless Mouse', 25.99, 100);
+ProductID  ProductName      Price     StockQuantity
+301        USB Keyboard     19.99     50           
+302        Wireless Mouse   25.99     100           
+----------------------------------------------------------------------------------------------------------------------------
+Solution 4 : INSERT INTO orders (CustomerID, OrderDate, Status)  VALUES(5, CURRENT_DATE,'Pending');
+OrderID  CustomerID  OrderDate    Status 
+103          5       2025-07-28   Pending 
+-------------------------------------------------------------------------------------------------------------------------
+
+Solution 5 : UPDATE products SET StockQuantity = 0 WHERE StockQuantity  < 0 ;
+ProductID    ProductName     Price    StockQuantity 
+301          USB Keyboard    19.99    50            
+302          HDMI Cable      10.99    0             
+--------------------------------------------------------------------------------------------------------------------------
+Solution 6 :  DELETE FROM orders WHERE Status = 'Cancelled' AND OrderDate >=  '2023-01-01' AND OrderDate < '2024-01-01' ;
+OrderID    CustomerID    OrderDate      Status    
+105            3         2022-12-25     Cancelled 
+106            4         2023-03-10     Completed 
+-------------------------------------------------------------------------------------------------------------------------------
+Solution 7 : UPDATE Customers SET City = 'San Francisco' WHERE customerID=3 ;
+CustomerID    Name            City          
+3             Alice Smith     San Francisco 
+---------------------------------------------------------------------------------------------------------------
 
 
 
