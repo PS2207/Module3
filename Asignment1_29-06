@@ -223,7 +223,7 @@ SELECT id, name AS value, 'Student Name' AS type  FROM student_2024
 UNION
 SELECT id, course_name AS value, 'Subject Name' AS type  FROM student_2025;
 
-(Q25)A TRUNCATE TABLE statement is different from DELETE FROM table beacuse:
+(Q25)A TRUNCATE TABLE statement is different from DELETE FROM table because:
 (a)TRUNCATE is a DML operation and is slower.
 (b)TRUNCATE is a DDL operation, cannot be easily rolled back,and resets identity columns
 (c)TRUNCATE can be used with a WHERE clause
@@ -233,63 +233,8 @@ SELECT id, course_name AS value, 'Subject Name' AS type  FROM student_2025;
 
 
 
-
-
-
-
-
-
-
-A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -------------18-07-25-------------------------------------
---CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
+CREATE TABLE employees(emp_id INT PRIMARY KEY, emp_name VARCHAR(50), dept_id INT, dept_name VARCHAR(100));
 /*
 INSERT INTO employees(id , name, department, salary, age)
 Values
@@ -593,16 +538,18 @@ ISOLATION- must not intefere two parallel transaction
 DURABILITY- After commit -no chance to revert
 
 
+
 ---------------Assignment 28-0725------------------------------------------------------------------------------------------------
  Database Schema:
  • Customers– CustomerID INT PRIMARY KEY– Name VARCHAR(100)– City VARCHAR(50)
  • Orders– OrderID INT PRIMARY KEY– CustomerID INT REFERENCES Customers(CustomerID)– OrderDate DATE– Status VARCHAR(20)
+                                    CustomerID INT FOREIGN KEY(customerID) REFERENCES Customers(CustomerID)
  • OrderItems– OrderID INT REFERENCES Orders(OrderID)– ProductID INT REFERENCES Products(ProductID)– Quantity INT
  • Products– ProductID INT PRIMARY KEY– ProductName VARCHAR(100)– Price DECIMAL(10,2)– StockQuantity INT
  1
 Questions
  Q1. Write an SQL query to display all customers who do not have any orders yet.
- Q2. Supposeyouwanttochangethestatus of all orders placed before ‘2023-01-01’ to ‘Archived’.
+ Q2. Suppose you want to change the status of all orders placed before ‘2023-01-01’ to ‘Archived’.
  Write the SQL statement to do this.
  Q3. Write an SQL statement to insert a new product called ’Wireless Mouse’ with a price of
  25.99 and stock quantity of 100.
@@ -614,6 +561,10 @@ Questions
  in 2022.
  Q7. A customer moves to a new city. Write an UPDATE statement to change the city of the
  customer with CustomerID = 3 to ‘San Francisco’.
+---------------------------------------------------------------------------------------------------
+CustomerID    Name             City      OrderID  CustomerID OrderDate Status    OrderID  ProductID Quantity 
+ 4            Ramesh Kumar     Delhi      
+ 7            Meera Shah       Chennai 
 ---------------------------------------------------------------------------------------------------------------------------
 
 Solution 1  :  SELECT c.* FROM Customers c LEFT JOIN Orders o ON  c.CustomerID = o.CustomerID  WHERE o.OrderID IS NULL ;
@@ -655,14 +606,41 @@ CustomerID    Name            City
 
 
 
+(Q1)Find Employees Earning More Than Their Manager 
+employees(id,name,salary,manager_id)
+1  alice  2000 2
+2  bob    3000 2
+(Q2)Second Highest Salary Per Department
+employees(id,name,salary,department_id)
+1  alice  2000 2
+2  bob    3000 2
+3  rahul  40000 1
+3  megha  2000 1
 
-
-
-
-
-
-
-
+(Q3)Detect Consecutive Days Of Login
+logins(user_id, login_date)
+Difference between Concurrency & parallelism in transaction?
+----------------------------------------------------------------------
+SELECT  e.name  AS employee_name, 
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary;
+----------------------------------------------------------------------
+SELECT  e.department_id, MAX(e.salary)  AS second_highest_salary 
+FROM employees e
+WHERE e.salary <(
+   SELECT MAX(salary)
+   FROM employees
+   WHERE department_id = e.department_id
+)GROUP BY e.department_id;
+--------------------------------------------------------------------
+SELECT DISTINCT l1.user_id
+FROM logins l1
+JOIN logins l2 ON l1.user_id = l2.user_id AND l2.login_date = l1.login_date + INTERVAL '1 day'    26-7-2025=25-7-2025+1day
+JOIN logins l3 ON l1.user_id=  l3.user_id AND l3.login_date = l1.login_date + INTERVAL '2 day';   27-7-2025=25-7-2025+1day   L1->L2->l3
+----------------------------------------------------------------------------------------------------------
+Order of Execution: FROM(including JOINs) - ON - WHERE - GROUP BY - HAVING - SELECT - DISTINCT - ORDER BY
+----------------------------------------------------------------------------------------------------------
 
 
 
