@@ -633,7 +633,7 @@ WHERE e.salary <(
    WHERE department_id = e.department_id
 )GROUP BY e.department_id;
 -------------------------------
-(Q3)Detect Consecutive Days Of Login
+(Q3)Detect Consecutive Days Of Login per user using (i)SELF-JOINING with date difference logic, (ii)Window functions(Best for modern sql engine).
 logins(user_id, login_date)
 Difference between Concurrency & parallelism in transaction?
 ----------------------------------------------------------------------
@@ -645,7 +645,20 @@ JOIN logins l3 ON l1.user_id=  l3.user_id AND l3.login_date = l1.login_date + IN
 Order of Execution: FROM(including JOINs) - ON - WHERE - GROUP BY - HAVING - SELECT - DISTINCT - ORDER BY
 ----------------------------------------------------------------------------------------------------------
 
+Array & Strings are kind of data structure:
+All elements of array should be of same type like INTEGERS, STRINGS, CHARACTERS
+All elements stored in contiguous memeory location
+(1010)2 = (0000 0000 0000 1010)
+How To access any particular element in array?
 
+1 2 3 4 5 6 7
+2000  20002  2004  2006  2008 2010 2012
+base address(assume for learning purpose )bcoz we can't have any control over that- 
+by default allocated in computer whereever memory space is there,
+size if integer is compiler dependent
+CONCEPT OF ADDRESS CALCULATION :
+BASE ADDRESS + (NO OF ELEMENTS NEEDS TO BE SKIPEED)*SIZE OF ELEMENTS
+1000 + 5 *2)=
 
 
 
