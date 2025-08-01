@@ -1,0 +1,278 @@
+What is isolation? Problems without proper isolation
+When multiple transactions run at the same time, isoltion ensures that they do not effect each other.
+when 2 transaction run paralle
+Dirty Read: Reading data that another transaction has modified but not yet commited.
+--Transaction T1
+UPDATE BankAccount SET balance = balance = 100 WHERE account_id=1;
+--Transaction T2(before T1 commits)
+SELECT balance FROM BankAccount WHERE aacount_id =1;
+COMMIT 
+ROLLBACK
+SAVEPOINT
+
+Non-Repetable Read: Reading the same row twice in a transaction gives different results because another transaction modified it.
+
+--Transaction T1
+SELECT balance FROM BankAccount WHERE account_id=1; returns 1000
+
+--Transaction T2
+UPDATE BankAccount SET balance=1500 WHERE account_id=1;
+COMMIT;
+--Back to T1
+SELECT balance FROM BankAcccount WHERE account_id=1; returns 1500
+
+Phantom Read: A transaction reads a set of rows, and another transaction inserts or deletes a row that fits the same condition.
+
+Read Uncommited- Lowest Isolation Level):Allows one transaction to read
+
+Read Commited- (Default in many DBMS like Oracle, SQL Server): Allows a transaction to only read data that has been commited by other transactions.
+--Transaction T1
+SET 
+BEGIN;
+UPDATE
+
+--Transaction T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITED;
+BEGIN;
+SELECT balance FROM BankAccount WHERE account_id=1;
+--T2 sees the old balance 500, not 400
+
+Repeatable Read-(Default in MySQL InnoDB): Ensures that if a transaction reads a row once,it will always get the same value for that row during the entire transaction
+
+--T
+SET
+BEGIN;
+SELECT
+--Gets 1000
+
+Serializable -(Highest Isolation Level):Treats every transaction as if it is running one by one (serially). No other transaction can effect the data you read or write nutil you're done.
+--Transaction T2
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+BEGIN;
+SELECT * FROM Orders WHERE amount > 1000;
+--T1 sees 2 rows
+
+--Transaction T2(tries to insert matching row)
+BEGIN;
+INSERT INTO Orders(order_id, amount) Values(105, 1500);
+--X This will wait or fail untill T1 commis
+All are dependent Transactions are dependent on each other.
+---------------------------------------------------------------
+What is Concurrency Control?
+without interfere each other 
+Lost update problem-when 2 transactions read the same data update it independently.One update gets overwritten or lost.
+data correction, unpredictable result
+
+BEGIN;
+SELECT balance FROM Account WHERE ac_id= 
+
+Transaction read uncommited data from another transaction.
+--Transaction T1
+BEGIN;
+UPDATE Product SET price=400 WHERE prod_id=10
+--No commit yet
+
+--Transaction T2
+BEGIN;
+SELECT price FROM Product WHERE prod_id=10;
+--Reads price as 400
+--Then T1 rolls back
+
+T2 used wrong price
+Non-Repeatable Read: When a transaction reads the same row twice and gets different results,because another transaction updated it in
+
+Phantom Read:
+--Transaction T1
+BEGIN;
+SELECT FROM WHERE
+
+--Transaction T2
+BEGIN;
+
+
+Type of Concurrency Control Techniques
+Lock-Based Concurrency Control
+Subtypes:
+Shared Lock(S):
+Exclusive Lock(X):Only one transaction can write 
+
+Suppose we have an Accont table
+AcconutNo Balance
+101       1000
+Two Transactions:
+  T1 wants to read the balance. shared lock
+  T2 wants to update the balance.  exclusive lock
+
+----------------------------------------------------------
+Timestamp-Based Concurrency Control
+Example:
+   T1(TS=5): Wants to read Account 101
+   T2(TS=10): Wants to write Account 101
+Suppose T2 writes before T1 reads
+------------------------------------------------------------
+Optimistic Concurrency Control(OCC)
+Example:
+  T1 reads Acconut 101-> sees rs 1000
+  T2 reads and updates Acconut 101 -> rs 1200 -> Commits
+  T1 tries to update based on old value -> rs 900
+-------------------------------------------------------------
+Multiple Concurrency Controle(MVCC)
+T1 starts at 10:00
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Situation                           Without Concurrency Control                                   With Concurrency Control
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Google Doc editing                  You overwrite each other's sentences                          System warns you or merges changes
+ATM balance ccheck and withdrawal   You see rs1000, someone else withdraws it, and you also try.  System re-checks balance before final withdrawl
+
+
+(Q1)Suppose two transactions T1 and T2 try to withdraw rs500 each from the same bank account which initially has rs 1000, if there's concurrency control,what could go wrong?
+A.The final balance could be rs0
+B.The final balance could be rs1000
+C.The final balance could be rs500
+D.The final balance could be rs-500
+
+(Q2)Which concurrency control technique allows readers to access data without blocking and writers to update data without waiting for readers to finish?
+A.Two-Phase Locking
+B.Optimistic Concurrency Control
+C.Multiversion Concurrency Control
+D.Deadlock Prevention
+
+(Q3)A transaction T1 reads the same row twice and gets different results each time,Which concurrency anomaly is this?
+ADirty Read
+B.Non-Repeatable Read
+C.Phantom Read
+D.Lost Update
+(Q4)Which of the following isolation levels allows Phantom Reads?
+A.Serializable
+B.Read Uncommitted
+C.Repeatable Read
+D.Read Commited
+
+(Q5)Which Concurrency Control method assumes conflicts are rare and checks for conflicts only at the time of committing a transaction?
+A.Pessimistic Concurrency Control
+B.Multiversion Concurrency Control
+C.Two-Phase Locking
+D.Optimistic Concurrency Control
+(Q6)Transaction T1 reads a data item updated by T2, but T2 hasn't commited yet,what is this anomaly called?
+Dirty Read✔️
+Lost Update
+Phantom Read
+Non-Repeatable Read
+
+(Q7)Which isolation level allows all three anomalies:Dity Reads,Non-repeatable Reads, and Phantom Reads?
+A.Read Uncommitted
+B.Read Committed
+C.Repeatable read
+D.Serializable
+What happens in the "Lost Update" problem?
+One transaction overwrrites the result of another without knowing
+
+Which concurrency control meyhod uses timestamps to order transactions?
+A.Lock-based
+B.
+C.
+D.
+--------------------------------------------------------------------------------
+What is indexing?Quickly retrive 
+Why is indexing important?
+
+Single-Column IndexAn index on a single column of a table
+Composite indexIndex built on multiple columns
+Unique index:
+Clustered Index:The table data is physically arranged according 
+Non-Clustered Index: A separate index structure that holds pointers to the table rows.
+CREATE INDEX idx_marks ON Students(Marks);
+Full-Text Index: Used for searching textual content(e.g, blogs,description)
+CREATE FULLTEXT INDEX idx_description ON Articles(Description);
+SELECT * FROM Articles WHERE MATCH() AGAINST('quantum');
+When indexing can be a problem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
