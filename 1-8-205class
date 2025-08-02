@@ -1,5 +1,5 @@
 What is isolation? Problems without proper isolation
-When multiple transactions run at the same time, isoltion ensures that they do not mess with each other's data or effect each other.
+When multiple transactions run at the same time, isoltion ensures that they will not mess with each other's data or effect each other.
 when 2 transaction run paralle
 Dirty Read: Reading data that another transaction has modified but not yet commited.
 --Transaction T1
@@ -191,6 +191,181 @@ When indexing can be a problem:
 indexes slow down INSERT/UPDATE/DELETE operations(since index also needs to update)
 Too many indexes = high memory/disk usage can be ignored if the query planner full scan is better(small table)
 
+---------2-08-2025-----------------------------------------------
+What is indexing in DBMS?
+Indexing helps you quickly find rows in a table. just like alphabetic order in a phone.
+---------------------------
+Suppose you have a table:
+CREATE TABLE Students(student)id INT, name VARCHAR(50), age INT, department VARCHAR(20);
+
+Now you often do this
+SELECT * FROM students WHERE department='cse'; This means you're frequently searching by department
+So create an index on it:
+CREATE INDEX dept_index ON Students(department);
+--------------------------------------------------
+
+Multipl-Column Index)(Composite index
+SELECT * FROM students WHERE department='cse' AND age=20;
+
+DROPPING INDEXES
+DROP INDEX index_name;
+Example:you earlier created:
+CREATE INDEX dept_index ON Students(department);
+
+(Q)What happens when you drop an index from a table in SQL?
+A.The table data is also deleted
+B.Queries usig the indexed column will stop working
+C.Only the index structure is deleted;table and data remain intact
+D.The column on which the index was created is lso removed
+Which of the following query benefits most from this index?
+CREATE INDEX ON Employees(name);
+SELECT * FROM Employees ORDER BY age;
+SELECT * FROM Employees WHERE name='Alice';
+SELECT * FROM Employees  WHERE department ='Sales';
+
+Which of the following is NOT a reason to drop an index?
+The index is never used by any queries
+The column is removed from the table
+To improve write performance on the table
+To make queries run faster
+
+Definition of Query optimization
+different ways to execute sql queries chooses in time memory and reso
+-------------------------------------------------------------------------------------------------
+Example Scenario (Before & After Optimization):Imagine a Products table with 1 million rows:
+
+SELECT * FROM Products WHERE price>1000;
+After Optimzation:
+CREATE INDEX idx_price ON Products(price);
+SELECT name,category FROM Products WHERE price>1000;
+
+(Q)Which of the following queries are likely to be faster?
+SELECT *FROM Employees WHERE salary>50000;
+SELECT name,department FROM Employees WHERE salary>50000;
+
+Orders(order_id, customer_id,order_date) has million of rows which will perform faster & why?
+SELECT * FROM Orders WHEREorder_date  BETWEEN '2025-06-01' AND '2025-06-30';
+
+What is Normalization in DBMS?
+Normalizaition is the process tProcess of rorgan
+Why do we need Normalization?
+Where is Normalization used?
+
+Unnormalized Table-UNF?Column has multiple entries Courses- Math,Physics
+1NF(First Normal Form): Remove Repeating  No repeating columns.
+----------------------------------------------------------------------
+2NF-Second Normal Form:Table must be in 1NF and no partial dependency on composite primary keys.
+Let's assume the composite key is (StudentID, Course).
+But StudentName and DeptName depend only on StudentID
+StudentID  StudentName  Courses
+101        Alice        Math,Physics
+102        Bob          Math
+----------------------------------------
+Third Normal Form: Table must be in 2NF and no transitive dependency (non-key -> non-key)
+
+1.Student Table
+StudentID StudentName
+101        Alice
+102        Bob
+2.Enrollment Table
+StudentID CourseName
+101       Math
+101       Physics
+102       Math
+--------------------------------------------------
+BCNF- Boyce-Codd Normal Form: Every functional dependency A -> B, A must be a super key.
+Let's say we now add this relation:
+Table: ProfessorAssignment
+ProfessorName   Course    Room
+Dr.Smith        Math      R1
+Dr.Smith        Physics   R1
+Suppose:
+A professor can teach multiple courses in one room.
+But a course can be taught by only one professor.
+
+Table1:CourseProfessor
+Course    ProfessorName
+Math      Dr.Smith
+Physics   Dr.Smith
+Table2:ProfessorRoom
+ProfessorName   Room
+Dr.Smith        R1
+-----------------------------------------------
+(Q)Which of the following is true about 1NF?
+A. It ensures Atomacity of attributes
+
+(Q)Which of the following violates 2NF?
+A.Functional dependency on part of a candidate key
+Functional dependency on  of a candidate key
+Which normal form does the relation satisfy if it has no partial or transitive dependency but A->B and A is not a candidate key?
+A.1NF    B.2NF   C.3NF   D.Violates BCNF
+(Q)Which of the following is a primary attribute?
+A.An attribute that is part of some candiadte key
+B.A derieved attribute
+C.A multivalued attribute
+.D.An attribute that is part of any candiadte key
+(Q)What is the main role of normalization?
+A.To improve security
+B.To reduce the size of database
+C.To eliminate redundancy and avoid anomalies
+D.To make SQL queries faster
+
+(Q)Which of the following statement is TRUE regarding 3NF?
+A.Every relation in 2NF is also in 3NF
+B.3NF always implies BCNF
+C.if A->B and B is a prime attribute,the relation is in 3NF✔️
+D.3NF eliminates all kinds of functional dependencies
+
+(Q)What happens if a database is not normalized?
+There will be no redundancy
+Only
+
+(Q)In a university database,CourseID determines CourseName,but CourseID is no a candidate key.What is violated?
+A.1NF    B.2NF   C.3NF   D.BCNF
+
+What is the correct decomposition when a relation violates BCNF?
+A.
+B.Decompose
+C.Decompose into two tables where each FD satisfies superkey condition
+D.Remove all non-prime attributes
+
+What is Denormalization? used in some cases combines tables keep everything in one table Process design to improce some Reverse of normalization
+Why Denormalize?
+1.Customers Table
+
+2.Orders Table
+
+breaks table to remove redundancy
+--------------------------------------------
+What is an Entity-Relationship(ER) Model?
+Why use ER Model?
+Entity:that is distinguishable from other objects.
+Types:
+ Strong Entity
+Weak Entity
+Example: Student,Department,Book
+2.Attribute
+Types:
+ Simple
+Example:
+For entity Student, attributes could be:
+Student_ID,Nmae,DOB,Email,Pj=honeNumbers
+
+Entity Set:A group
+
+Relationship Set
+Example
+Degree of Relationship
+Unary
+Binary
+Ternary
+
+
+
+Cardinality (Mapping Constraints):
+One-to-one
+One-to-many
+many-to-many
 
 
 
@@ -200,6 +375,10 @@ Too many indexes = high memory/disk usage can be ignored if the query planner fu
 
 
 
+AI project-
+Function calling
+Recomendation engine 
+search engine
 
 
 
