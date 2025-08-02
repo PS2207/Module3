@@ -1,5 +1,5 @@
 What is isolation? Problems without proper isolation
-When multiple transactions run at the same time, isoltion ensures that they do not effect each other.
+When multiple transactions run at the same time, isoltion ensures that they do not mess with each other's data or effect each other.
 when 2 transaction run paralle
 Dirty Read: Reading data that another transaction has modified but not yet commited.
 --Transaction T1
@@ -178,14 +178,18 @@ Why is indexing important?
 
 Single-Column IndexAn index on a single column of a table
 Composite indexIndex built on multiple columns
-Unique index:
+Unique index:Enforces uniqueness on the column
 Clustered Index:The table data is physically arranged according 
 Non-Clustered Index: A separate index structure that holds pointers to the table rows.
 CREATE INDEX idx_marks ON Students(Marks);
+
 Full-Text Index: Used for searching textual content(e.g, blogs,description)
 CREATE FULLTEXT INDEX idx_description ON Articles(Description);
-SELECT * FROM Articles WHERE MATCH() AGAINST('quantum');
-When indexing can be a problem
+SELECT * FROM Articles WHERE MATCH(Description) AGAINST('quantum');
+
+When indexing can be a problem:
+indexes slow down INSERT/UPDATE/DELETE operations(since index also needs to update)
+Too many indexes = high memory/disk usage can be ignored if the query planner full scan is better(small table)
 
 
 
