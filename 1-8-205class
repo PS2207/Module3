@@ -191,9 +191,11 @@ When indexing can be a problem:
 indexes slow down INSERT/UPDATE/DELETE operations(since index also needs to update)
 Too many indexes = high memory/disk usage can be ignored if the query planner full scan is better(small table)
 
----------2-08-2025-----------------------------------------------
+##############################2-08-2025#############################################################################
 What is indexing in DBMS?
-Indexing helps you quickly find rows in a table. just like alphabetic order in a phone.
+Indexing helps you quickly find rows in a table. just like alphabetical order in a phone book helps you quickly help find a name.
+Creating index: It creates a separate data structure, that helps quickly locate rows based on column values.
+CREATE INDEX index_name ON table_name(column_name);
 ---------------------------
 Suppose you have a table:
 CREATE TABLE Students(student)id INT, name VARCHAR(50), age INT, department VARCHAR(20);
