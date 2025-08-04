@@ -204,9 +204,13 @@ Now you often do this
 SELECT * FROM students WHERE department='cse'; This means you're frequently searching by department
 So create an index on it:
 CREATE INDEX dept_index ON Students(department);
+Why this helps?
+Without index: DBMS checks each row one by one(full table scan)
+With index:
+Much faster if the table has 1000s or millions of rows.
 --------------------------------------------------
 
-Multipl-Column Index)(Composite index
+Multiple-Column Index)(Composite index
 SELECT * FROM students WHERE department='cse' AND age=20;
 
 DROPPING INDEXES
