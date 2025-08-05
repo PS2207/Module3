@@ -207,12 +207,14 @@ CREATE INDEX dept_index ON Students(department);
 Why this helps?
 Without index: DBMS checks each row one by one(full table scan)
 With index:
+DBMS goes to pre-sorted list for department
 Much faster if the table has 1000s or millions of rows.
 --------------------------------------------------
-
-Multiple-Column Index)(Composite index
+Example2-
+Create Multi-Column Index (Composite index)
 SELECT * FROM students WHERE department='cse' AND age=20;
-
+Now you can create:
+Create index dept_age_index ON students(department,age);
 DROPPING INDEXES
 DROP INDEX index_name;
 Example:you earlier created:
@@ -387,18 +389,46 @@ Recomendation engine
 search engine
 
 
+-------------------------------------------------------------------------
+create table users(st_id serial primary key, username text, email);
+insert into users('alice', 'alice@gmail.com');
+select * from users where email='alice@gmail.com'; full scan
 
+for faster result-
+create index learn_index on users(email);
+select * from users where email='alice@gmail.com'; 
+select indexname,indexdef
+from pg_indexes
+where tablename='users';
+show index from students;
 
-
-
-
-
-
-
-
-
-
-
+Normalization: Reduce data redundancy (means Repetition of data:same data is stored multiple times in table unnecessarily) like below
+| StudentID | Name | Course  | Teacher    |
+| --------- | ---- | ------- | ---------- |
+| 1         | Raj  | Math    | Mr. Sharma |
+| 2         | Ravi | Science | Ms. Mehta  |
+| 3         | Raj  | Science | Ms. Mehta  |
+notice Raj, Ms, mehta appears twice.
+data integrity
+What can be good system design to store multiple data but not use datastructure linked list etc.
+-----------------
+Research:
+Cluster index
+Non-cluster index
+Unique index
+Full-text index
+Dirty Read
+Phantom read
+Repeatable Read
+Non-Repeatable read
+Optimistic Concurrency Control
+Lock-based Concurrency control
+Isolation level
+Read uncommitted
+Shared lock
+Exclusive lock(allow both read write)
+Partial lock
+Full lock
 
 
 
