@@ -390,26 +390,30 @@ search engine
 
 
 -------------------------------------------------------------------------
-create table users(st_id serial primary key, username text, email);
-insert into users('alice', 'alice@gmail.com');
+create table users(st_id serial primary key, username text, email text);
+insert into users(username,email) values('alice', 'alice@gmail.com')...;
 select * from users where email='alice@gmail.com'; full scan
 
 for faster result-
 create index learn_index on users(email);
 select * from users where email='alice@gmail.com'; 
-select indexname,indexdef
-from pg_indexes
-where tablename='users';
-show index from students;
+select indexname,indexdef from pg_indexeswhere tablename='users';
+mshow index from students;
 
-Normalization: Reduce data redundancy (means Repetition of data:same data is stored multiple times in table unnecessarily) like below
+Normalization: process of organizing data in database to :
+(i)Reduce data redundancy (means Repetition of data:same data is stored multiple times in table unnecessarily) like below
 | StudentID | Name | Course  | Teacher    |
 | --------- | ---- | ------- | ---------- |
 | 1         | Raj  | Math    | Mr. Sharma |
 | 2         | Ravi | Science | Ms. Mehta  |
 | 3         | Raj  | Science | Ms. Mehta  |
-notice Raj, Ms, mehta appears twice.
-data integrity
+notice Raj, Ms.mehta appears twice.
+| StudentID | Name | Course  | Teacher    |
+| --------- | ---- | ------- | ---------- |
+| 1         | Raj  | Math    | Mr. Sharma |
+| 2         | Ravi | Science | Ms. Mehta  |
+| 3         | Raj  | Science | Ms. Mehta  |
+(ii)Improve data integrity
 What can be good system design to store multiple data but not use datastructure linked list etc.
 -----------------
 Research:
