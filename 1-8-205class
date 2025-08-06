@@ -1,5 +1,5 @@
 What is isolation? Problems without proper isolation
-When multiple transactions run at the same time, isoltion ensures that they will not mess with each other's data or effect each other.
+When multiple transactions run at the same time, isolation ensures that they will not mess with each other's data or effect each other.
 when 2 transaction run paralle
 Dirty Read: Reading data that another transaction has modified but not yet commited.
 --Transaction T1
@@ -301,7 +301,9 @@ Dr.Smith        R1
 -----------------------------------------------
 (Q)Which of the following is true about 1NF?
 A. It ensures Atomacity of attributes
-
+B. It removes partial dependencies.
+C. It removes transitive dependencies.
+D. It eiminates redundancy.
 (Q)Which of the following violates 2NF?
 A.Functional dependency on part of a candidate key
 Functional dependency on  of a candidate key
