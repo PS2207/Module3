@@ -660,12 +660,164 @@ CONCEPT OF ADDRESS CALCULATION :
 BASE ADDRESS + (NO OF ELEMENTS NEEDS TO BE SKIPEED)*SIZE OF ELEMENTS
 1000 + 5 *2)=
 
+******************************************************************************
+Q1)Database Schema:
+Customers-CustomerID INT PRIMARY KEY- Name VARCHAR(100)
+Orders-OrderID INT PRIMARY KEY-CustomerID INT REFERENCES CUSTOMERS(CustomerID)-Status VARCHAR(20)
+ArchievedOrders-OrderID INT PRIMARY KEY-CustomerID INT-Status VARCHAR(20)
+Returns-ReturnID INT PRIMARY KEY-OrderID INT REFERENCES Orders(OrderID)-Reson VARCHAR(100)
+Q1)Which operator returns rows in the first SELECT but not in the second?
+(a)UNION  (b)INTERSECT  (c)EXCEPT✔️ (d)JOIN
+These operators work on set level.
+UNION → combines rows from both SELECT queries (removes duplicates by default).
+INTERSECT → returns only rows that are common to both SELECT queries.
+EXCEPT → returns rows from the first SELECT query that are not present in the second.
+JOIN → combines rows from two tables based on a related column.
 
+Q2)Which query could return unexpected results if ArchievedOrders contains NULL OrderIDs?
+(a)SELECT OrderID FROM Orders EXCEPT SELECT OrderID FROM ArchievedOrders.
+(b)SELECT OrderID FROM Orders WHERE OrderID NOT IN(SELECT OrderID FROM ArchivedOrders.✔️
+(c)Both A and B
+(d)Neither
 
+(Q3)Which pair always produces the same result if no NULLs are involved?
+(a)UNION and UNION ALL (B)EXCEPT and NOT IN ✔️
+(c)INTERSECT and CROSS JOIN  (d)JOIN and UNION
+Option (a) UNION vs UNION ALL
 
+UNION removes duplicates, UNION ALL keeps them.
+If no NULLs but duplicates exist, the results will differ.
+👉 Not always same. ❌
 
+Option (b) EXCEPT vs NOT IN
+EXCEPT: returns rows in first query that are not in the second.
+NOT IN: does the same, but fails only when NULLs are present in the subquery.
+If no NULLs are involved, both give identical results. ✅
+👉 This is the correct answer.
 
+Option (c) INTERSECT vs CROSS JOIN
+INTERSECT: common rows between two queries.
+CROSS JOIN: Cartesian product (all combinations).
+👉 Totally different. ❌
 
+Option (d) JOIN vs UNION
+JOIN: combines rows horizontally based on condition.
+UNION: combines rows vertically (stacking).
+👉 Different. ❌
+
+(Q4)In (SELECT Status FROM Orders) EXCEPT (SELECT Status FROM ArchievedOredrs) with NULLs,
+what happens?
+(a)NULL rows match,so they disappear
+(b)NULL rows remain because NULL!=NULL✔️
+(c)NULL rows cause error
+(d)NULLs convet to empty string
+
+How EXCEPT works with NULLs:
+EXCEPT does set subtraction: rows in the first query that are not in the second.
+In SQL, NULL is treated as a valid row value in set operations (UNION, INTERSECT, EXCEPT).
+But important rule: NULL ≠ NULL in comparisons.
+So:
+If Orders has a NULL status, and ArchivedOrders also has a NULL status,
+EXCEPT will not treat them as equal.
+The NULL from Orders will remain in the result.
+
+(Q5)What does INTERSECT return?
+(a)All rows in either SELECT (b)Rows that appear in both SELECTs ✔️
+(c)Rows only in the first SELECT (d)Rows only in the second SELECT
+
+(Q6)Which is faster for combining two SELECTs when duplicates don't matter?
+(a)UNION (b)UNION ALL✔️ (c)INTERSECT (d)EXCEPT
+
+UNION removes duplicates → needs extra sorting / hashing to check for duplicates → slower.
+UNION ALL just stacks results from both queries → no duplicate check → faster.
+INTERSECT and EXCEPT require comparisons between sets → more expensive than UNION.
+
+(Q7)Which is equivalent to (A UNION B) EXCEPT C?
+(a)(A EXCEPT C) UNION (B EXCEPT C)✔️ (b)(A EXCEPT B) INTERSECT C
+(c)(A UNION C) UNION B (d)(A UNION B) UNION C
+(A UNION B) EXCEPT C Meaning: all rows in A or B, but remove anything that is also in C.
+(A EXCEPT C) UNION (B EXCEPT C)
+
+Take A but remove C,
+Take B but remove C,
+Then combine them.
+👉 That’s exactly the same as first doing (A UNION B) and then removing C. ✅
+
+Option (b)
+(A EXCEPT B) INTERSECT C
+Rows in A but not B, then intersect with C.
+👉 Completely different. ❌
+
+Option (c)
+(A UNION C) UNION B
+That adds C instead of removing it. ❌
+
+Option (d)
+(A UNION B) UNION C
+Again adds C instead of subtracting. ❌
+
+(Q8)What's wrong with:
+SELECT OrderID FROM Orders
+UNION
+SELECT OrderID FROM ArchivedOrders
+OREDR BY Status
+(a)Nothing;sort by status  (b)Valid only if Status in SELECT
+(c)ORDER BY can go anywhere  (d)Works only with GROUP BY
+
+Both subqueries only select OrderID.
+Final result set has just one column: OrderID.
+But the query tries ORDER BY Status.
+Status is not part of the result set, so SQL throws an error.
+Options:
+(a) Nothing; sort by status → ❌ Wrong (not possible, Status not in result).
+(b) Valid only if Status in SELECT → ✅ Correct, because you can only sort by output columns or their aliases.
+(c) ORDER BY can go anywhere → ❌ Wrong, ORDER BY must be at the end of the whole UNION query.
+(d) Works only with GROUP BY → ❌ Irrelevant, GROUP BY not required here.
+
+(Q9)Which query finds orders returned but not archived?
+(a)SELECT OrderID FROM Returns INTERSECT SELECT OrderID FROM ArchivedOrders
+(b)SELECT OrderID FROM Returns EXCEPT SELECT OrderID FROM ArchivedOrders
+(c)SELECT OrderID FROM Returns UNION SELECT OrderID FROM ArchivedOrders
+(d)SELECT OrderID FROM Returns JOIN ArchivedOrders USING(OrderID)
+Option (a)
+SELECT OrderID FROM Returns 
+INTERSECT 
+SELECT OrderID FROM ArchivedOrders;
+👉 Finds orders that are both returned and archived. ❌ Not what we want.
+
+Option (b)
+SELECT OrderID FROM Returns 
+EXCEPT 
+SELECT OrderID FROM ArchivedOrders;
+👉 Finds orders that are in Returns but not in ArchivedOrders. ✅ Exactly what we want.
+
+Option (c)
+SELECT OrderID FROM Returns 
+UNION 
+SELECT OrderID FROM ArchivedOrders;
+👉 Combines both sets (all returned + all archived). ❌ Wrong.
+
+Option (d)
+SELECT OrderID FROM Returns 
+JOIN ArchivedOrders USING(OrderID);
+👉 Finds only orders that are both returned and archived. ❌ Wrong.
+
+(Q10)When combining two SELECT with different columns:
+(a)UNION will still work  (b)UNION fails with syntax error✔️
+(c)INTERSECT merges automatically (d)EXCEPT ignores extra columns
+Rule for set operators (UNION, UNION ALL, INTERSECT, EXCEPT):
+Both SELECT statements must return the same number of columns.
+The columns must have compatible data types (so they can be compared).
+Otherwise → SQL gives a syntax error.
+
+Options:
+(a) UNION will still work → ❌ No, UNION requires same columns.
+(b) UNION fails with syntax error → ✅ Correct, if column counts differ.
+(c) INTERSECT merges automatically → ❌ No auto-merge, same rule applies.
+(d) EXCEPT ignores extra columns → ❌ It doesn’t ignore, it also requires same columns.
+
+(Q11)Which guarantees no duplicate rows in output?
+(a)UNION ALL (b)UNION (c)CROSS JOIN  (D)None
 
 
 
