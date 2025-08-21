@@ -660,7 +660,7 @@ CONCEPT OF ADDRESS CALCULATION :
 BASE ADDRESS + (NO OF ELEMENTS NEEDS TO BE SKIPEED)*SIZE OF ELEMENTS
 1000 + 5 *2)=
 
-************************************************************************************************************************************
+*******11Aug-21Aug*****************************************************************************************************************************
 Q1)Database Schema:
 Customers-CustomerID INT PRIMARY KEY- Name VARCHAR(100)
 Orders-OrderID INT PRIMARY KEY-CustomerID INT REFERENCES CUSTOMERS(CustomerID)-Status VARCHAR(20)
