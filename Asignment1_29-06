@@ -966,8 +966,8 @@ We want departments that have no employees.
 
 (Q25)You want to list all projects with a budget over $500,000 and the names of the employees working on them.
 If a project meets the budget criteria but has no employees assigned,it should not appear in the list.Which join strategy is correct?
-(a)Start with Projects,LEFT JOIN to EmployeeProjects,then LEFTJOIN to Employees, and filter in the WHERE clause.✔️
-(b)Start with Projects,INNER JOIN to EmployeeProjects,then INNERJOIN to Employees, and filter in the WHERE clause.
+(a)Start with Projects,LEFT JOIN to EmployeeProjects,then LEFTJOIN to Employees, and filter in the WHERE clause.
+(b)Start with Projects,INNER JOIN to EmployeeProjects,then INNERJOIN to Employees, and filter in the WHERE clause.✔️
 (c)Start with Projects,RIGHT JOIN to EmployeeProjects,then INNER JOIN to Employees, and filter in the WHERE clause.
 (d)Use a FULL OUTER JOIN across all three tables.
 We want:
