@@ -660,7 +660,7 @@ CONCEPT OF ADDRESS CALCULATION :
 BASE ADDRESS + (NO OF ELEMENTS NEEDS TO BE SKIPEED)*SIZE OF ELEMENTS
 1000 + 5 *2)=
 
-******************************************************************************
+************************************************************************************************************************************
 Q1)Database Schema:
 Customers-CustomerID INT PRIMARY KEY- Name VARCHAR(100)
 Orders-OrderID INT PRIMARY KEY-CustomerID INT REFERENCES CUSTOMERS(CustomerID)-Status VARCHAR(20)
@@ -1020,8 +1020,79 @@ Every row in TableA will appear at least once (so minimum = 100).
 If each row in TableA matches multiple rows in TableB, the result can have more than 100 rows.
 In the extreme, if every row in TableA matches all 50 rows in TableB → 100 × 50 = 5000 rows.
 So the maximum is more than 100, depending on matches.
+
+(Q30)For optimizing join performance, what is the most critical factor?
+(a)Using table aliases for every table.
+(b)Ensuring the columns used in the ON clause are properly indexed. ✔️
+(c)Writing all keywords in uppercase.
+(d)Using RIGHT JOIN instead of LEFT JOIN.
+For join performance:
+SQL engines optimize query execution internally, so aliases (a) or uppercase (c) don’t matter.
+LEFT vs RIGHT JOIN (d) has no real performance difference.
+The critical factor is making sure the join columns are indexed, so row matching is fast.
+
+(Q31)You need to find all employees in the 'Sales' department who are not assigned to the 'Alpha' project. which logic is correct?
+(a)INNER JOIN Employees and Departments, then LEFT JOIN to EmployeeProjects/Projects and check for a NULL or non-matching project name.
+(b)Use a FULL OUTER JOIN nad filter in the WHERE clause.
+(c)Use a FULL OUTER JOIN  and filter in the WHERE clause.
+(d)Use a subquery with NOT IN to exclude employees on the 'Alpha' project.
+(a) is partially correct, but to be safe you need to ensure the employee has no Alpha assignment at all. It can be error-prone without grouping.
+(b) & (c) — FULL OUTER JOINs are unnecessary and inefficient for this use case ❌
+(d) — Use a subquery with NOT IN to exclude employees on the 'Alpha' project ✅
+
+(Q32)Cinsider the query:
+SELECT D.DeptName , COUNT(E.EmpID)
+FROM Departments D
+LEFT JOIN Employees E ON D.DeptID = E.DeptID
+GROUP BY D.DeptName;
+What does COUNT(E.EmpID) calculate?
+(a)It counts all employees in e ach department, and will show 1 for departemnts with no employees.
+(b)It counts all non-null EmpIDs for each department, resulting in 0 for departments with no employees.
+(c)It will produce an error beacuse you cannot use COUNT with a LEFT JOIN.
+(d)It counts the total number of employees in the comppany for each department row.
+LEFT JOIN → keeps all departments, even those without employees.
+COUNT(E.EmpID) → counts only non-NULL values of EmpID.
+If a department has no employees, E.EmpID is NULL, so the count = 0 (not 1).
+So the result is: number of employees per department, showing 0 for departments with no employees.
+✅ Correct answer:
+(b) It counts all non-null EmpIDs for each department, resulting in 0 for departments with no employees.
+
+(Q33)To find all employees who have the same manager as the employee named 'John Smith', what is the best approach?
+(a)A CROSS JOIN on the Employees table.
+(b)A SELF JOIN where you first find 'John Smith's manager's ID and then find all employees with that same ID, excluding ;John Smith' himself.
+(c)A LEFT JOIN to the Departments table.
+(d)A query with a GROUP BY clause on the ManagerID.
+We want:
+Employees who share the same Manager as 'John Smith'.
+Best approach:
+First, find 'John Smith'’s ManagerID.
+Then select all employees whose ManagerID = that value.
+Exclude 'John Smith' himself.
+That’s exactly a SELF JOIN approach (b).
+✅ Correct answer:
+(b) A SELF JOIN where you first find 'John Smith's manager's ID and then find all employees with that same ID, excluding 'John Smith' himself.
+
+(Q34)When joining Employees to EmployyProjects, what is the relationship type and how does it affect the join?
+(a)One-to-One;each employee row can only join with one project row.
+(b)One-to-Many; an employee can appear multiple times in the result set if they are on multiple projects.
+(c)Many-to-Many;requires a third linking table to join them.
+(d)It's a self-referencing relationship.
+Employees table: each employee has one row.
+Projects table: each project has one row.
+The relationship between employees and projects is many-to-many (an employee can work on many projects, and a project can have many employees).
+To represent this, we use a linking table (EmployeeProjects).
+So when joining Employees → EmployeeProjects:
+The relationship is one-to-many (one employee → many rows in EmployeeProjects).
+This means an employee can appear multiple times in the join result, once for each project they’re assigned to.
+✅ Correct answer:
+(b) One-to-Many; an employee can appear multiple times in the result set if they are on multiple projects.
                        
-                       
+(Q35)You want to find all departments where the average employee salary is graeter than $75,000.Which clause is necessary to filter the groups based on this aggregate condition?
+(a)WHERE AVG(Salary)>75000   (b)ON AVG(Salary)>75000  
+(c)HAVING AVG(E.Salary)>75000  (d)FILTER(AVG(Salary>75000)
+When filtering aggregates like AVG(), you must use the HAVING clause (since WHERE works only on individual rows before grouping).
+✅ Correct answer:
+(c) HAVING AVG(E.Salary) > 75000
                        
                        
                        
