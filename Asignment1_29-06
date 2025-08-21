@@ -817,7 +817,83 @@ Options:
 (d) EXCEPT ignores extra columns → ❌ It doesn’t ignore, it also requires same columns.
 
 (Q11)Which guarantees no duplicate rows in output?
-(a)UNION ALL (b)UNION (c)CROSS JOIN  (D)None
+(a)UNION ALL (b)UNION✔️ (c)CROSS JOIN  (D)None
+
+(Q12)Which placement of ORDER BY is valid for UNION?
+(a)After each SELECT  (b)Only after final SELECT ✔️
+(c)Anywhere (d)In FROM clause
+For UNION, you can only use ORDER BY once, and it must be placed after the final SELECT statement to sort the combined result set.
+
+(Q13)How does UNION differ from JOIN fundamentally?
+(a)UNION stacks rows vertcally; JOIN combines horizontally.✔️
+(b)They are equivalent
+(c)JOIN removes duplicates automaically
+(d)UNION only works for same table.
+
+(Q12)Which placement of ORDER BY is valid for UNION?
+(a)After each SELECT  (b)Only after final SELECT
+(c)Anywhere (d)In FROM clause to sort the combined result set.
+
+(Q14)If you want Orders that exist in Orders but not in both ArchievedOrders and Returns, which is correct?
+(a)Orders EXCEPT(ArchivedOrders INTERSECT Returns)
+(b)(Orders Except ArchivedOredrs) UNION Returns
+(c)Orders UNION ArchivedOredrs UNION Returns
+(d)Orders INTERSECT(ArchivedOredrs EXCEPT Returns)
+
+(Q15)You need to find oredrs that are neither archived nor returned.Which of these is equivalent to:
+SELECT OrderID FROM Orders
+EXCEPT
+(SELECT OrderID FROM ArhivedOrders 
+ UNION SELECT OrderID FORM Returns);
+(a)(Orders EXCEPT ArchivedOrders)EXCEPT Returns  (b)(Orders EXCEPT Returns)Union ArchivedOrders
+(c)(Orders INTERSECT ArchivedOrders) EXCEPT Returns (d)(Orders UNION ArchivedOrders)EXCEPT Returns
+Step 1: Meaning
+This takes all Orders
+Removes anything that appears in ArchivedOrders OR Returns (the union).
+So the result = Orders that are neither archived nor returned ✅
+
+Step 2: Check options
+(a) (Orders EXCEPT ArchivedOrders) EXCEPT Returns
+First removes ArchivedOrders
+Then removes Returns
+Equivalent to removing (ArchivedOrders ∪ Returns)
+✅ This matches exactly.
+
+(b) (Orders EXCEPT Returns) UNION ArchivedOrders
+Wrong: Brings back ArchivedOrders.
+
+(c) (Orders INTERSECT ArchivedOrders) EXCEPT Returns
+Wrong: Keeps only intersection with ArchivedOrders first.
+
+(d) (Orders UNION ArchivedOrders) EXCEPT Returns
+Wrong: Adds ArchivedOrders instead of removing.
+
+(Q16)Departments-DeptID(Primary Key)-DeptName-Location
+Employees-EmpID(Primary Key - EmpName -DeptID(Foreign Key to Departments)-ManagerID
+(Foreign Key to EMployees, for self-reference)-Salary 
+Projects-ProjectID(Primary Key)- ProjectName-Budget
+
+You need to create a report listing every single employee and their department name.
+If an employee has not yet been assigned a department,they should still appear in the report.which join is most appropriate?
+
+(a)INNER JOIN (b)LEFT JOIN from Employees to Departments
+(c)RIGHT JOIN Ffrom Employees to Deartments  (d)CROSS JOIN
+Every single employee should appear.
+If no department assigned, still include the employee (with NULL for DeptName).
+That means we keep all rows from Employees table, and join department info only if available.
+👉 This is exactly what a LEFT JOIN from Employees to Departments does.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
