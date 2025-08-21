@@ -870,12 +870,11 @@ Wrong: Adds ArchivedOrders instead of removing.
 
 (Q16)Departments-DeptID(Primary Key)-DeptName-Location
 Employees-EmpID(Primary Key - EmpName -DeptID(Foreign Key to Departments)-ManagerID
-(Foreign Key to EMployees, for self-reference)-Salary 
+(Foreign Key to Employees, for self-reference)-Salary 
 Projects-ProjectID(Primary Key)- ProjectName-Budget
 
 You need to create a report listing every single employee and their department name.
 If an employee has not yet been assigned a department,they should still appear in the report.which join is most appropriate?
-
 (a)INNER JOIN (b)LEFT JOIN from Employees to Departments
 (c)RIGHT JOIN Ffrom Employees to Deartments  (d)CROSS JOIN
 Every single employee should appear.
@@ -883,28 +882,144 @@ If no department assigned, still include the employee (with NULL for DeptName).
 That means we keep all rows from Employees table, and join department info only if available.
 👉 This is exactly what a LEFT JOIN from Employees to Departments does.
 
+(Q17)What is the primary risk of writing a JOIN clause without a corresponding ON clause?
+(a)It will always result in asyntax error.
+(b)It will perform a LEFT JOIN by default.
+(c)It will produce a Cartesian Product(CROSS JOIN),potentially gebnerating a massive ,incorrect result set.
+(d)It will only return rows from the first table.
+If you write a JOIN without an ON clause:
+SQL doesn’t know how to match rows.
+It falls back to combining every row of the first table with every row of the second table → this is a Cartesian Product (CROSS JOIN).
+That can create a huge, incorrect result set.
+✅ Correct answer: (c) It will produce a Cartesian Product (CROSS JOIN), potentially generating a massive, incorrect result set.
 
+(Q18)A query performs a LEFT JOIN from TableA to TableB. If you  add a condition WHERE TableB.column='some value',
+what is the potential effect on the query?
+(a)It has no effect on the join type. 
+(b)It can efficiently turn the LEFT JOIN into an INNER JOIN because it filters out rows where TableB.column would have been NULL.✔️
+(c)It will cause a syntax error.
+(d)It converts the join into a RIGHT JOIN.
 
+(Q19)For optimizing join performance,what is the most critica factor?
+(a)Using table aliases for every table.  (b)Ensuring the columns used in the ON clause are properly indexed.
+(c)Writing all keywords in uppercase.  (d)Using RIGHT JOIN instaed of LEFT JOIN.
+When optimizing join performance, the key is:
+The database must quickly match rows between the joined tables.
+That depends on whether the columns in the ON clause are indexed.
+Aliases, uppercase, or changing LEFT/RIGHT JOIN don’t affect performance meaningfully.
+✅ Correct answer: (b) Ensuring the columns used in the ON clause are properly indexed.
 
+(Q20)You want to find all departments where the average employee salary is greater than $75000.
+which clause is necessary to filter the groups based on this aggregate condition?
+(a)WHERE AVG(Salary)>75000  (b)ON AVG(Salary)>75000  
+(c)HAVING AVG(E.Salary)>75000 ✔️ (d)FILTER(AVG(Salary)>75000)
+When filtering aggregate results (like AVG, SUM, COUNT):
+WHERE filters rows before grouping → can’t use aggregate functions.
+ON is only for join conditions.
+HAVING is used to filter groups after aggregation.
+FILTER(...) is not standard SQL for this case.
+So the correct clause is:
+✅ (c) HAVING AVG(E.Salary) > 75000
 
+(Q21)You need to create a report listing every single employee and their department name.
+If an employee has not yet been assigned a deprtment,they should still appear in the report.
+Which join is most appropriate?
+(a)INNER JOIN  (b)LEFT JOIN from Employees to departments
+(c)RIGHT JOIN from Employees to Departments (d)CROSS JOIN
+We want all employees listed, even if they don’t have a department yet.
+INNER JOIN → drops employees without a department ❌
+RIGHT JOIN from Employees to Departments → keeps all departments, not all employees ❌
+CROSS JOIN → makes a Cartesian product ❌
+LEFT JOIN from Employees to Departments → keeps all employees, adds department name if available ✅
 
+(Q22)What will this query return?
+SELECT E.EmpName, M.EmpName
+FROM Employees E
+JOIN Employees M ON E.ManagerID = M.EmpID;
+(a)A list of all employees and their managers,including the CEO who has no manager.
+(b)A list of employees who are also managers.
+(c)A list of employees and their direct managers,excluding employees who do not have a manager.✔️
+(d)A list of all possible employee-manager pairings.
+This is a self-join:
+E = employee , M = manager (another row in the same table)
+Join condition: E.ManagerID = M.EmpID
+This means we only get employees who have a manager.
+Employees without a manager (e.g., CEO with ManagerID = NULL) are excluded.
+Result: pairs of (Employee, Manager) for every employee with a manager.
 
+(Q23)To find all departments that currently have no employees,which query is effective?
+(a)SELECT D.DeptName FROM Departments D INNER JOIN Employees E ON D.DeptID=E.DeptID WHERE E.EmpID IS NULL;
+(b)SELECT D.DeptName FORM Departemnts D LEFT JOIN Employees E ON D.DeptID = E.DepID WHERE E.EmpID IS NULL;
+(c)SELECT D.DeptName FROM Departments D FULL OUTERJOIN Employees E ON D.DeptID=E.DeptID;
+(d)SELECT D.DeptName FROM Departments D CROSS JOIN Employees E;
+We want departments that have no employees.
+(a) INNER JOIN ... WHERE E.EmpID IS NULL → impossible, inner join removes NULL matches ❌
+(b) LEFT JOIN ... WHERE E.EmpID IS NULL → correct: keeps all departments, filters those without employees ✅
+(c) FULL OUTER JOIN → would include all, but doesn’t filter ❌
+(d) CROSS JOIN → Cartesian product, not relevant ❌
 
+(Q24)What is the primary risk of writing A join clause without a corresponding ON clause?
+(a)It will always result in a syntax error.  
+(b)It will perform a LEFT JOIN by default.
+✔️(c)It will produce a Cartesian Product(CROSS JOIN),potentially generating a massive, incorrect result set.
+(d)It will only return  rows from the first table.
 
+(Q25)You want to list all projects with a budget over $500,000 and the names of the employees working on them.
+If a project meets the budget criteria but has no employees assigned,it should not appear in the list.Which join strategy is correct?
+(a)Start with Projects,LEFT JOIN to EmployeeProjects,then LEFTJOIN to Employees, and filter in the WHERE clause.✔️
+(b)Start with Projects,INNER JOIN to EmployeeProjects,then INNERJOIN to Employees, and filter in the WHERE clause.
+(c)Start with Projects,RIGHT JOIN to EmployeeProjects,then INNER JOIN to Employees, and filter in the WHERE clause.
+(d)Use a FULL OUTER JOIN across all three tables.
+We want:
+Projects with budget > 500,000
+Must list employees working on them
+If a project has no employees, it should NOT appear
+That means:
+We only want projects that have matching employees → so we must use INNER JOIN (not LEFT JOIN, because LEFT JOIN would include projects with no employees).
+The filtering on budget goes in the WHERE clause.
 
+(Q26)A query performs a LEFT JOIN from TableA to TableB. If you add a condition WHERE TableB.column='some value', what is the potential effect on the query?
+(a)It has no effect on the join type.
+(b)It can effectively turn the LEFT JOIN into an INNER JOIN because it filters out rows where TableB.
+column would have been NULL.
+(c)It will cause a syntax error.
+(d)It converts the join into a RIGHT JOIN.
+LEFT JOIN keeps all rows from TableA, and matches from TableB when possible.
+If no match, TableB columns are NULL.
+But if we add a condition in the WHERE clause like:
+WHERE TableB.column = 'some value'
+Then rows where TableB.column is NULL (unmatched) will be excluded.
+This removes the effect of the LEFT JOIN, making it behave like an INNER JOIN.
 
+(Q27)To get a complete list of every employee and every project,
+linking them where a relationship exist but including all non-linked rows from both sides,which join should be used?
+(a)INNER JOIN   (b)CROSS JOIN  (c)LEFT JOIN  (d)FULL OUTER JOIN
+We want:
+Every employee
+Every project
+Link them where relationships exist
+But also include all non-linked rows from both sides
+👉 That’s exactly what a FULL OUTER JOIN does (keeps all rows from both tables, with NULLs where no match).
 
+(Q28)You need to find the manager of an employee's manager(i.e, the "grand-manager"). This requires:
+(a)A single SELF JOIN.
+(b)Two consecutive SELF JOINs on the Employees table.✔️
+(c)A CROSS JOIN and a SELF JOIN
+(d)Joining Employees to Departments.
+We want the grand-manager (manager of an employee’s manager).
+A single self join gives: Employee → Manager.
+To go one step further (Manager → Manager’s Manager), we need two levels of self join.
+So:
+✅ Correct answer: (b) Two consecutive SELF JOINs on the Employees table.
 
-
-
-
-
-
-
-
-
-
-
+(Q29)If TableA has 100 rows and TableB has 50 rows,
+what is the maximum number of rows a LEFT JOIN from TableA to TableB can produce?
+(a)100 (b)50  (c)5000  (d)More than 100, if there are multiple matches in TableB for rows in TableA.
+For a LEFT JOIN from TableA (100 rows) to TableB (50 rows):
+Every row in TableA will appear at least once (so minimum = 100).
+If each row in TableA matches multiple rows in TableB, the result can have more than 100 rows.
+In the extreme, if every row in TableA matches all 50 rows in TableB → 100 × 50 = 5000 rows.
+So the maximum is more than 100, depending on matches.
                        
                        
                        
