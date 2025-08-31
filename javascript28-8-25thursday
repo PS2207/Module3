@@ -108,6 +108,9 @@ console.log("5" * 2 + "1"); //101
 ----------------------------------------------------------------------------------------------------
 console.log("10" - "7" + 3); //6
 
+In JavaScript, both - (subtraction) and + (addition) are
+left-to-right associative operators with the same precedence.
+So the expression is evaluated from left to right.
 // "10" - "7" → both strings are converted to numbers when - is used.
 // So 10 - 7 = 3.
 // Now 3 + 3 = 6 (both numbers, so normal addition).
