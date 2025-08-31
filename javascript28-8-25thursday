@@ -1,3 +1,4 @@
+
 //3 major keywords (var,let,const) to declare variable:
 var a=10
 var a=20  -var allows Re-declaration
@@ -90,40 +91,111 @@ console.log(false || true && false)//false
 let x =10
 let y = typeof x
 console.log(typeof y)//string
--------------------------------------------------------------------------------------------------------
 
+*****************************************************************************************************
 let a = 10 + "20";
+console.log(a); //1020
+
 // 10 (number) + "20" (string) → 
 // JS converts number to string when + is used.
 // So "10" + "20" → "1020" (string).
-console.log("5" * 2 + "1");
+-------------------------------------------------------
+console.log("5" * 2 + "1"); //101
+
 // "5" * 2 → here * forces numeric conversion. "5" → 5.
 // So 5 * 2 = 10.
 // Now 10 + "1" → 10 (number) gets converted to string because + with string → "10" + "1" = "101"
-console.log("10" - "7" + 3);
+----------------------------------------------------------------------------------------------------
+console.log("10" - "7" + 3); //6
+
 // "10" - "7" → both strings are converted to numbers when - is used.
 // So 10 - 7 = 3.
 // Now 3 + 3 = 6 (both numbers, so normal addition).
-console.log( null == undefined, null === undefined );
+-----------------------------------------------------------------------------------------
+console.log( null == undefined, null === undefined ); // true false
+
 // 👉 == → loose equality, allows type coercion. In JS, null == undefined is true.
 // 👉 === → strict equality, no type coercion. null and undefined are different types.
 // So result: true false
 // Output: true false
-console.log( [] + 1, [1] + 1 );
+------------------------------------------------------------------------------------------
+console.log( [] + 1, [1] + 1 ); //1 11
+
 // [] + 1 → empty array [] is converted to an empty string "" when used with +.
 // So "" + 1 = "1".
 // [1] + 1 → [1] converts to string "1".
 // So "1" + 1 = "11".
 // Output: "1" "11"
+-------------------------------------------------------------------------------------------------
 let x; 
-console.log(typeof x, typeof y);
+console.log(typeof x, typeof y); //undefined undefined
+
 // let x; means x is declared but not initialized, so value = undefined.
-// typeof x → "undefined".
-// y is not declared at all. Normally referencing undeclared variables throws ReferenceError, but typeof y is special — it does not throw error, instead it returns "undefined
+// typeof x → undefined.
+// y is not declared at all. Normally referencing undeclared variables throws ReferenceError, 
+but typeof y is special — it does not throw error, instead it returns undefined.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+js_basics_90min.js
+
+'use strict';
+const user = { name: "Bicky", age: "29", active: "true", scores: ["10", "20", 30], meta: null };
+const A = "10", B = 10, C = "42", D = 0, E = undefined, F = null, G = NaN;
+const obj = { "key-1": 1, nested: { x: "2", y: 3 }, "weird prop": "ok" };
+------------------------------------------------------
+// B1
+const isFortyTwoString = C==="42"
+console.log(isFortyTwoString); // true
+-----------------------------------------------------
+// B2
+const sumAB= Number(A) + B
+console.log(sumAB); // 20
+------------------------------------------------------
+// B3
+const concatAB= A+B*2
+console.log(concatAB) // 1020
+--------------------------------------------------------
+// B4
+const nestedSum = Number(obj.nested.x) +obj.nested.y
+console.log(nestedSum)// 3+2= 5
+-------------------------------------------------------
+B5 (5 marks). Safe numbers & booleans. From user, create ageNum as a number, and activeBool as a boolean (non-empty string → true).
+const ageNum= Number(user.age)    // "29" → 29
+const activeBool= Boolean(user.active) // "true" -> true
+console.log(ageNum)
+console.log(activeBool)
+-----------------------------------------------------------
+Q6 (5 marks). Prevent accidental concatenation (alt coercion).
+Create safeTotal that adds A and B to get 20 but without using Number(A). Use a different explicit coercion method.
+
+const safeTotal = Numner(A)+B // +A converts "10" → 10
+console.log(safeTotal)
+---------------------------------------------------------
+
+Q7 (4 marks). Equality snapshots. Create variables:
+p1Loose, p1Strict for 10 vs "10"
+p2Loose, p2Strict for null vs undefined Log them in one line.
+
+const p1Loose = (10 == "10");      // true
+const p1Strict = (10 === "10");    // false
+
+const p2Loose = (null == undefined);   // true
+const p2Strict = (null === undefined); // false
+
+console.log(p1Loose, p1Strict, p2Loose, p2Strict);
+
+console.log('DONE');
 
 
 
 
+// === in JS is strict equality:
+// Checks both type and value.
+// "42" (string) is not equal to 42 (number).
+// "42 " (extra space) is not equal either.
+// Only when the input is exactly the string "42", it returns true.
+
+// console.log('DONE');
 
 
 
