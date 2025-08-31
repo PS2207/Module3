@@ -1,54 +1,61 @@
 
 //3 major keywords (var,let,const) to declare variable:
 var a=10
-var a=20  -var allows Re-declaration
+var a=20  -var allows Re-declaration but can't use let or const keyword
 a=30      -var also allows Re-assignment
 
 let a=10 
-let a=20 - let doesn't allow Re-declaration
-a=30     - let allows Re-assignment
+let a=20  - let doesn't allow Re-declaration
+a=30      - let allows Re-assignment
 
 const a=10 
-const a=20 -doesn't allow Re-declaration
-a=20 -doesn't allow Re-assignment
-let a=20   -doesn't allow Re-declaration
--------------------------------------------------------------------- 
+const a=20  -doesn't allow Re-declaration
+a=20        -doesn't allow Re-assignment
 //const doesn't allow redeclaration,reassignment
 
-//Data Types:
-number ,string,boolean, undefined, null, arrays, objects
+-------------------------------------------------------------------- 
+//Data Types: 
+(i) Primitive - number ,string,boolean, undefined, null, arrays, objects but Number,String,Boolean wrapper class constructor
+(ii)Non-Primitive - Array, Object
 
 let x;
 console.log(x) //undefined
- 		
-let y =null;	
-console.log(y) //object
-
+console.log(typeof x) //undefined
+-----------------------------------------
+let y = null;	
+console.log(y) //null
+console.log(typeof y)// object
+------------------------------------------
 let list = [1,2,3,4, "Java", false, null]
-console.log(list) //object
-
+console.log(list) 
+console.log(typeof list) // object
+------------------------------------------
 Object: key-value pair
 let obj = {name: "ps", age:30, hasPassport:false}
-
-console.log(typeof y)//object
 console.log(typeof obj)//object
-console.log(typeof list)//object
+-------------------------------------------------------
 console.log(typeof x)//undefined
-Everythi
-ng in javascript is object
---------------------------------------------------------------------------
+console.log(typeof y)//object
+console.log(typeof list)//object
+console.log(typeof obj)//object
+console.log(typeof undefined) //undefined
 
-//arithmetic operators - as the name suggests it works only on numbers
+Everything in javascript is object
+--------------------------------------------------------------------------
+//Arithmetic operators - as the name suggests it works only on numbers
 logical operators
 comparison operators
-//Precedence-    />* >+>-
+//Precedence-    />* >+>- 
+100 / 5 * 2= 40✔️  but 10❌. From left to right associativity.since both have same precedence.
 
 //multiplication & division > subtraction & addition
 
 //Concatination
-console.log(typeof("javascript" + 10))//javascript10
-console.log(typeof("20" + "10")) =//2010
-concationation(string+number) =string
+console.log("javascript" + 10) //javascript10 
+console.log(typeof("javascript" + 10)) // string
+console.log("20" + "10") //2010
+console.log(typeof("20" + "10")) //string
+concationation(string+number) //=string
 -------------------------------------------------------
 
 //type coersin
@@ -58,21 +65,21 @@ console.log(Momos +samosa)//10050
 //that's why use- type coersion
 
 -------------------------------------------
-//Step 1: Declare a number, a string
-//Try touse + operator on them
+//Q: Declare a number, a string
+//Try to use + operator on them
 //Try to use - operator on them
 //Try to use * / operator them
-//consoole.log(value and typeof)
+//console.log(value and typeof)
 ------------------------------------------
 let a = 10;
 let b = "20";
 let b="abc" Nan(Not a number in case of * / . but type of(Nan) is number)
 
 // Using + (concatenation happens when one is string)
-console.log(a + b, typeof (a + b));   // "1020" (string)
+console.log(a + b, typeof (a + b));   // "1020" string
 
 // Using - (JavaScript tries to convert string to number)
-console.log(a - b, typeof (a - b));   // -10 (number) javascript using implicit type coersin here
+console.log(a - b, typeof (a - b));   // -10 number (javascript using implicit type coersin here)
 
 // Using * and / (again, string is converted to number)
 console.log(a * b, typeof (a * b));   // 200 (number)
@@ -86,9 +93,9 @@ b="10"
 console.log(a == b)//true value checking loose equality
 console.log(a === b)//false type checking strict equality
 
-logical operators javascript run from left
-console.log(false || true && false)//false
-
+logical operators in javascript run from left
+console.log(false || true && false)// -> false && true=true
+----------------------------------------------------------
 let x =10
 let y = typeof x
 console.log(typeof y)//string
