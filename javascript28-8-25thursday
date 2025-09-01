@@ -208,6 +208,156 @@ console.log('DONE');
 
 // console.log('DONE');
 
+***************************************************************************************
+//Control flow:
+if-else:
+
+let rice = "perfect"
+if(rice === "perfect"{
+ console.log("Eat the biryani")
+}else if(){
+ console.log("Cook for some more time")
+}else{
+ console.log(""Ordre from Zomato")
+}
+if(true){
+ console.log("Hello")
+}else if(true){
+   console.log("Hi")
+}//whenever first time condition is true then it will ignore the remaining condition
+whichever condition has higher piority it should be given first like
+if there are two different if then it will run both.
+---------------------------------------------------------------------------------------
+//Switch Case:
+switch(expression){
+    case value1:
+    case value2:
+    case value3:
+}
+let day="Tuesday"
+switch(day){
+    case "Monday":
+        console.log("Today is Monday")
+    case "Tuesday":
+        console.log("Today is Monday")
+    default:
+        console.log("None of the above")
+}
+
+---------------------------------------------------------------
+Loops:
+for (initialization; condition;increment/decrement){
+}
+for (let i=0;true;){
+//this will run for infinity
+}
+for (let i=0;i<5; i=i+1){ 
+//it will go infinite loop if i not give increment/decrement
+   console.log(i)
+}//0 1 2 3 4  ( vertically)
+------------
+let i=0;
+while(i<=5){
+ console.log(i)
+ i++
+}
+----------------
+let i=0
+do{
+ console.log(i)
+ i++
+}while(i > 5)
+//run the code first
+//then checks for condition
+------------------------------------------------
+//initioalization -> Starting point let i=0
+check for condition
+if true runs the code
+increment/decrement
+if false
+then stop
+------------------------
+break/continue keyword
+it will skip this
+let eaten = 0
+for(let plate=1; plate<=10; plate++){
+  if(plate == 3){
+      continue
+  }
+if(eaten >= 5){
+  break
+}
+  console.log("Eatong Plate", plate)
+  eaten++
+}
+-----------------------------------------------
+function:
+functionName(parameters){
+ //code
+}
+functionName(arguments)
+
+function add(a,b){
+ let sum =a+b
+ return sum
+}
+console.log(add(5, 10))
+console.log(add(25, 100))
+console.log(add(50, 210))
+---------------------
+function greet(){
+  console.log("Hello")
+  return "Hi"
+}
+console.log(greet()) //undefined
+
+Parameter: passed during function declaration
+argument:- passed during function calling
+
+//Undefined is data type
+function greet(){
+  console.log("Hello")
+  return "Hi"
+}
+console.log(greet())
+--------------------------------------------------------------------
+Javascript runs in 2 phase- Memory allocation phase Execution phase
+what is hoisting in js?
+console.log(x) //undefined
+var x=20  //var default value in memory allocation
+console.log(x)
+let a=10
+const b=5
+
+add(2,3)  //skip in memory allocation
+
+console.log(a)//5  //skip in memory allcation
+function add(a,b=0){
+console.log(a,b) //2 3
+let sum =a+b
+return sum
+memory : x=undefined, a, b  add: function(a,b){....}
+20 
+2 3
+5
+10
+
+function expression
+const add = (a,b=0)=> a+b
+add(2,3)
+  //logic
+  return
+
+//function declaration function expression
+
+
+
+
+
+
+
+
+
 
 
 
