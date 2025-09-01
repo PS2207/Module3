@@ -1,0 +1,41 @@
+# Problem 1: Understanding AI and ML
+Relationship (in one line):
+AI is the broad goal of making machines act intelligently. ML is a subset of AI where systems learn patterns from data instead of being explicitly programmed with rules (and Deep Learning is a further subset of ML that uses neural networks with many layers).
+
+Why ML instead of traditional (rule-based) programming?
+Use ML when patterns are too complex for hand-written rules, 
+the data is high-dimensional (text, images, audio), or the environment changes over time so the system must adapt by retraining.
+
+# Two real-world examples (with justification):
+- Email spam detection
+  Why not rules? Spammers constantly change wording and tricks—hard to keep rule lists up to date.
+  Why ML? A model can learn subtle, non-linear patterns from millions of emails and adapt as new data arrives (concept drift).
+
+- Image recognition (e.g., recognizing handwritten digits or objects in photos)
+  Why not rules? You can’t hand-code stable rules for all shapes, fonts, sizes, lighting, and noise.
+  Why ML? Models (e.g., CNNs) learn features automatically from pixels and handle the complexity and variability far better than manual rules.
+---------------------------------------------------------------
+Problem 2: Supervised vs Unsupervised Learning
+Part A — Quick comparison table
+Aspect	           Supervised Learning	                                                            Unsupervised Learning
+Data requirement	 Inputs with labels/targets (e.g., “spam” vs “not spam”, price value)	            Inputs without labels (just features)
+Main goal	         Predict a target: classification or regression	                                  Discover structure: clusters, groups, low-dimensional representations, anomalies
+Typical algorithms Linear/Logistic Regression, Decision Trees/Random Forests, SVM, Neural Networks	K-Means/Hierarchical/DBSCAN, PCA, t-SNE/UMAP, Autoencoders, Isolation Forest
+Evaluation	       Use a labeled test set: Accuracy, Precision/Recall, F1, AUC, MAE/RMSE	          Use structure/quality scores: Silhouette, Davies–Bouldin, WCSS; visualization; or downstream task performance
+Labeling effort  	 High (labels must be created/verified)	                                          Low (no labels needed)
+Typical outputs	   A predictive model that maps X → y	                                              Clusters, embeddings, or anomaly scores (no explicit target)
+Common use cases	 Spam detection, price prediction, disease diagnosis	                            Customer segmentation, topic discovery, anomaly detection, dimensionality reduction
+
+Part B — Choose supervised vs unsupervised (with reasoning)
+Detecting fraudulent credit card transactions → Supervised
+If you have historical labeled data (“fraud” vs “legit”), a classifier can learn patterns of fraud. (Imbalanced learning techniques often used.)
+
+Grouping customers based on purchasing behavior → Unsupervised
+No ground-truth groups; use clustering to discover natural segments.
+
+Predicting stock prices → Supervised
+You have past prices as targets; train a regression/time-series model to predict future values.
+
+Finding anomalies in network traffic → Unsupervised
+Anomalies are rare and labels are scarce; use anomaly detection to flag outliers relative to normal traffic.
+----------------------------------------------------------------------------------------------------------------------
