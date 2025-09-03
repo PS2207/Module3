@@ -350,9 +350,32 @@ add(2,3)
 
 //function declaration function expression
 
+**************************************************************************************************************
+function printTable(num){
+  for (i=1;i<=10;i++){
+  // console.log(num +" x " +i +" = "+ num*i)
+  //using backticks to build string directly with placeholders ${},
+  // instead of concatination(+) or commas(,), This is the modern ES6+ standard way.
+   console.log(`${num} x ${i} = ${num * i}`)
+  }
+}
+printTable(5)
+// In string concatination(+), all parts are combined into one single string value,
+// before being sent to console.log.
+//
+// In contrast, when you use commas(,) 
+// console.log just takes multiple argumnets.
+// it doesn't join them into one string, it prints each with a space in between.
+// Performance-wise:
+// If you care about micro-speed → use commas are slightly faster,
+// If you care about readable output → use +.
 
-
-
+---------------------------------------------------------------
+function countDigits(num) {
+  const newNum = num.toString()
+  return newNum.length
+}
+console.log(countDigits(987654)); // 6
 
 
 
