@@ -99,7 +99,171 @@ console.log(false || true && false)// -> false && true=true
 let x =10
 let y = typeof x
 console.log(typeof y)//string
+----------------4-09-25-------------------------------------------------------------------------------
+let arr = new Array(5) //constructor
+let list = ["a", "b", "c", "d"] ''literal
 
+JS has a 0 based
+console.log(list[2]) //c
+console.log(list[0]) //a
+
+//methods :
+//push add element to the end
+let char ="e"
+list.push("e")
+console.log(list.push("e")) //5
+console.log(list) // ['a', 'b', 'c', 'd', 'e']
+
+//pop -removes from the end
+console.log(list.pop())//e
+console.log(list)// ['a', 'b', 'c', 'd']
+
+//shift -removes from the front
+list.shift()
+console.log(list)
+
+//unshift
+list.unshift("a")
+console.log(list)
+
+list fruits = ["apple", "banana", "orange" , "grapes", "pineapple"]
+fruits.pop() //["apple", "banana", "orange" , "grapes"]
+
+//splice- index , number
+fruits.splice(1, 2)// ["apple", "grapes", "pineapple"]
+console.log(fruits)
+
+splice - starting index , number of items
+let deletdeFruits =fruits.splice(2)
+console.log(fruits)
+console.log(deletedFruits)
+
+fruits[1] = "kiwi"
+console.log(fruits)// ["apple","kiwi", "banana", "orange" , "grapes", "pineapple"]
+
+let numbers–[10,20,30]
+let n = fruits.length
+for(let i=0; i<n; i++){
+    numbers[i]=numbers[i]*2
+}
+console.log(fruits[i])
+---------------------------
+function square(num){
+    return num * num
+}
+for(let i=0; i<n; i++){
+    numbers[i]= square(numbers[i])
+}
+console.log(numbers) // [100, 400, 900]
+steps:
+//numbers[0] = 10 ->update 100 
+//numbers[1] = 20 -> 400
+//numbers[2] = 30 -> 900
+//n=3 (array length)
+//square: num => num* num
+//i=0
+//square(10) => 10*10 = 100
+//i=1
+//square(20) => 20*20 = 400
+
+function go into callstack after comleting reomve from this.
+----------------------------------------------------------------
+# CLASS QUESTION
+You are given a list of students
+Make two separates lists
+One list will have students with name that starts with a vowel.
+another list will names starting with consonants.
+
+let students = ["Aarav", "Bicky", "Thomas", "Aditya", "Ejaz", "Irfan", "Sandhya", "James"]
+let vowel = []
+let consonants = []
+let vowelsArray = ["A", "E", "I", "O", "U"];
+let n = students.length
+for(let i=0; i<n; i++){
+  let s= students[i]
+  if(vowelsArray.includes(s[0])){
+    vowel.push(s)  
+  }else{
+    consonant.push(s)
+   }
+}
+console.log(vowel, consonants)
+---------------
+let name "java"
+console.log(name,.toUpperCase())
+---------------------------------------------
+let vowelsArray = ["A", "E", "I", "O", "U"];
+
+for (let i = 0; i < students.length; i++) {
+  let name = students[i];
+  if (vowelsArray.includes(name[0].toUpperCase())) {
+    vowel.push(name);
+  } else {
+    consonants.push(name);
+  }
+}
+-----------------------------------------------------------------------------------------
+Objects: have different data types but key always string
+let student ={
+   "name": "Bicky",
+   "rollNo":100
+   "isPresent":true 
+}
+let arr = [1,2,3]
+console.log(arr[2])
+console.log(students[name])
+console.log(student)
+//create object -> firstName, lastName
+let person ={
+    firstName: "Pragya",
+    lastName:"Sinha",
+    age: 29,
+    key: "Key"
+}
+let key="age"
+console.log(person[key])//Key  pribt using bracket notation
+console.log(person["key"])//Key
+
+console.log(person["firstName"]+ " "+ person["lastName"])
+
+//dot notation- don't take variables
+console.log(person.key)/
+console.log("Students with names starting with vowels:", vowel);
+console.log("Students with names starting with consonants:", consonants);
+---------------------------------------------------------------------------
+JSON is also a javscript object
+//Array of objects
+let employees =[
+    {empId:1, name:"James", salary:60000,country:"india"},
+    {empId:1, name:"Shlok", salary:60000,country:"india"},
+    {empId:1, name:"Vaani", salary:40000,country:"india"},
+]
+------------------------------------------------------------------
+javascript does not hava stack , queue dtaa structure it has list
+//includes-
+console.log(fruits.includes("kiwi"))//false
+---------------------------------------------------
+function isAphaNumeric(str){
+  str = str.toLowerCase()
+  let charFlag = false
+  let numFlag = false
+  for(let i=0; i<str.length; i++){
+     if(st[i] >=0 && str[i] <=9){
+        numFlag=true
+     }
+     if(str[i] >="a" && str[i] <= "z"){
+        charFlag =true
+     }
+  }
+  return charFlag && numFlag
+}
+console.log(isAlphaNumeric("123ABC")) //true
+console.log(isAlphaNumeric("123456")) //false
+console.log(isAlphaNumeric("abcdef")) //false
+-------next class--------------------------------------------
+Solving problem in JS
+Array of Object
+HOF -> Map, Filter, ForEach, Reduce
 *****************************************************************************************************
 let a = 10 + "20";
 console.log(a); //1020
