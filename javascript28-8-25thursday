@@ -370,12 +370,20 @@ printTable(5)
 // If you care about micro-speed → use commas are slightly faster,
 // If you care about readable output → use +.
 
----------------------------------------------------------------
+------Using string length-----------------------------------
 function countDigits(num) {
   const newNum = num.toString()
   return newNum.length
 }
 console.log(countDigits(987654)); // 6
+---Using while loop-----------------------
+function countdigits(num){
+  count=0
+  while ((num -(num%10))/10){
+    count++
+  }
+}
+console.log(countDigits(1234))
 
 
 
