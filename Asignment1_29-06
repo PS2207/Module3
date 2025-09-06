@@ -661,11 +661,11 @@ BASE ADDRESS + (NO OF ELEMENTS NEEDS TO BE SKIPEED)*SIZE OF ELEMENTS
 1000 + 5 *2)=
 
 *******11Aug-21Aug*****************************************************************************************************************************
-Q1)Database Schema:
+Database Schema:
 Customers-CustomerID INT PRIMARY KEY- Name VARCHAR(100)
 Orders-OrderID INT PRIMARY KEY-CustomerID INT REFERENCES CUSTOMERS(CustomerID)-Status VARCHAR(20)
 ArchievedOrders-OrderID INT PRIMARY KEY-CustomerID INT-Status VARCHAR(20)
-Returns-ReturnID INT PRIMARY KEY-OrderID INT REFERENCES Orders(OrderID)-Reson VARCHAR(100)
+Returns-ReturnID INT PRIMARY KEY-OrderID INT REFERENCES Orders(OrderID)-Reason VARCHAR(100)
 Q1)Which operator returns rows in the first SELECT but not in the second?
 (a)UNION  (b)INTERSECT  (c)EXCEPT✔️ (d)JOIN
 These operators work on set level.
