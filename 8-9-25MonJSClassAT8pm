@@ -1,0 +1,17 @@
+Higher Order Function(HOFs):Is a function which takes another function as an argument or it returns a function.
+Callback functions: They are functions that are passed as arguments in another function to be called later.
+function fun(boo, x){
+  boo(x)
+}
+function boo(num){
+    consosle.log(num)
+}
+fun(boo, 3)
+
+//Inbuilt HOF in JS
+//forEach
+let arr = [1,2,3,4,5]
+function double(num){
+  console.log(num*2)
+}
+double(10)
