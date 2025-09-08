@@ -1,3 +1,152 @@
+// Higher Order Functions (HOFs)
+// callback functions: They are functions that are passed as arguments in another function to be called later.
+// function fun(boo, x){
+//     boo(x)
+// }
+
+// function boo(num){
+//     console.log(num)
+// }
+
+// function bar(){
+//     return function(){
+//         console.log("hello")
+//     }
+// }
+
+// let ans = bar()
+
+
+// fun(boo, 3)
+
+// HOF is a function which takes another function as an argument or it returns a function. 
+
+
+// Inbuilt HOF in JS
+// forEach
+
+// // let newArr = []
+// function double(num, index){
+//     if(index % 2 == 0){
+//         return num * 2
+//     }else {
+//         return num
+//     }
+// }
+// // double(10)
+// arr.forEach(double)
+// console.log(newArr)
+// [2,4,6,8,10]
+
+// map
+// console.log(arr.map(double))
+
+
+// let arr = [1,2,3,4,5]
+// let newArr = []
+// for(let el of arr){
+//     newArr.push(el * 2)
+// }
+// console.log(newArr)
+
+// console.log(arr.map((el)=>el*2))
+
+
+// filter
+
+// let salaries = [100, 300, 50, 200, 130, 240]
+// let filteredData = salaries.filter((el)=> el > 100)
+// console.log(filteredData)
+
+// map
+// let arr = [1,2,3,4,5]
+
+// console.log(arr.map((el)=> el ** 2))
+
+// let employees = [
+//     {userId: 1, salary:100},
+//     {userId: 2, salary:140},
+//     {userId: 3, salary:80},
+//     {userId: 4, salary:90}
+// ]
+
+
+// first give a 40% hike to the salary for all users who have a even id, 
+// then filter out all employees with salary less than 100
+
+// let newArr = employees.map((el)=>{
+//     if(el.userId % 2 == 0){
+//         return {userId: el.userId, salary: el.salary*1.4}
+//     }else{
+//         return el
+//     }
+// }).filter((el)=> el["salary"] >= 100)
+
+
+// console.log(newArr)
+
+
+// let employees = [
+//     {userId: 1, salary:100},
+//     {userId: 2, salary:140},
+//     {userId: 3, salary:80},
+//     {userId: 4, salary:90}
+// ]
+// // let arr = []
+// for(let el of employees){
+//     arr.push(el.salary)
+// }
+// console.log(arr)
+let employees = [
+    {userId: 1, salary:100},
+    {userId: 2, salary:140},
+    {userId: 3, salary:80},
+    {userId: 4, salary:90}
+]
+let ans = employees.reduce((acc, x)=>{
+   acc[x.userId] = x.salary
+   return acc
+}, {})
+
+console.log(ans)
+
+
+// ini val = [100, 140, 80, 90]
+
+
+forEach -> operations we use forEach -> does not return any array
+//map -> when we want to modify our array(not in place) return a new array with the modifications
+//filter -> when we want to filter out some data basis a particular criteria
+//reduce -> modify an array into any other datasructure other than array
+//can be done using normal for loops as well
+
+let list=["apple", "banana", "apple", orange", "kiwi", "banana", "banana", "orange", "banana"]
+//apple: 2, banana: 4, kiwi: 1, orange:2
+
+let obj = {}
+------------
+for (let fruit of list){
+   if(obj[fruit] == undefined){
+     obj[fruit]=1
+   }else{
+      obj[fruit]++
+   }
+}
+console.log(obj)
+------------------------
+//shortcut of that
+for(let fruit of list){
+   obj[fruit] = (obj[fruit] || 0)+1  //one line syntax
+}
+console.log(obj)
+----------
+//reduce
+console.log(list.reduce((acc, e1)=>{
+    acc[e1] = (acc[e1] || 0)+1
+    return acc
+}, {}))
+-------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 Higher Order Function(HOFs):Is a function which takes another function as an argument or it returns a function.
 Callback functions: They are functions that are passed as arguments in another function to be called later.
 function fun(boo, x){
@@ -12,6 +161,170 @@ fun(boo, 3)
 //forEach
 let arr = [1,2,3,4,5]
 function double(num){
-  console.log(num*2)
+  console.log(num*2) //20
 }
 double(10)
+
+arr.forEach(double)// 2 4 6 8 10 (in vertically)
+console.log(arr.forEach(double)) //doesnot return anything
+
+-----
+let arr = [1,2,3,4,5]
+let newArr = []
+function double(num){
+  newArr.push(num*2) //20
+}
+//double(10)
+arr.forEach(double)//it takes callback function 2 4 6 8 10 (in vertically)
+console.log(newArr) // [2,4,6,8,10]
+--------------
+//map HOF
+let arr = [1,2,3,4,5]
+function double(num){
+  return num*2 //20
+}
+----------------
+//map HOF
+let arr = [1,2,3,4,5]
+function double(num,index){
+  return num*index //20
+if(index % 2 ==0){
+   return num * 2
+}else{
+   return num
+}
+}
+-----------------
+//automatically create new array & elements are stored in it
+console.log(arr.map(double))//return an array 
+
+arr.forEach(double)// 2 4 6 8 10 (in vertically)
+console.log(arr.map(double)) //doesnot return anything
+-----------------------
+
+let arr = [1,2,3,4,5]
+let newArr = []
+for(let el of arr){
+  newArr.push(el*2)
+}
+console.log(newArr)
+//small code
+console.log(arr.map((el)=>el*2)
+-----------------------------------
+//filter
+let salaries = [100,300,50,200,130,240]
+function check(num){
+   retur num > 100
+}
+console.log(salaries.filter(check))
+//samll
+let filterData salaries.filter(e1)=> e1 > 100// anonymous function just paasing here
+console.log(filterData)
+-------------------------------
+//map
+let arr = [1,2,3,4,5]
+function square(num){
+  rteurn num*2
+}
+console.log(arr.map(e1)=>e1**2))
+//combine map & filter
+let employees = [
+  {userId: 1, salary:100 },
+  {userId: 2, salary:140 },
+  {userId: 3, salary:80 },
+  {userId: 4, salary:90 }
+]
+// first give a 40% hike to the salary for all users who have a even id.
+// then filter out all employees with salary less than 100
+--------------------------------------------------------
+let newArr = employees.map((e1)=>{
+  if(e1.userId % 2 == 0){
+     return {userId: e1.userId, salary: e1.salary*1.4}
+  }else{
+     return e1
+  }
+}).filter((e1)=> e1.salary >= 100)
+//}).filter((e1)=> e1["salary"] >= 100) //both work
+console.log(newArr)
+------------------------------------------
+//instead for loop use map filter
+code is shorter
+let employees = [
+  {userId: 1, salary:100 },
+  {userId: 2, salary:140 },
+  {userId: 3, salary:80 },
+  {userId: 4, salary:90 }
+]
+let sum =0
+for(let e1 of employees){
+  sum+=e1.salary
+}
+console.log(sum)
+
+let ans = employees.reduce((acc, e1)=>{
+  return acc + e1
+}, 0)
+
+let ans = employees.reduce((acc, e1)=> acc + e1.salary, 0)//reduce() takes callback 2 things function ,emulator
+console.log(ans)
+function callback(acc, e1){
+  return acc+e1
+}
+--------------------------------
+
+let employees = [
+  {userId: 1, salary:100 },
+  {userId: 2, salary:140 },
+  {userId: 3, salary:80 },
+  {userId: 4, salary:90 }
+]
+let arr =[]
+for(let e1 of employees){
+  arr.push(e1.salary)
+}
+console.log(arr)
+-------------------
+let ans = employees.reduce((acc, x)=> {
+   acc[x.userId] = x.salary
+   return acc
+}, {})
+console.log(ans)
+function callback(acc, e1){
+  return acc+e1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
