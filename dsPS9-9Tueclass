@@ -1,0 +1,89 @@
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+console.log("Try programiz.pro");
+
+var intToRoman = function(num){
+  const  thousands = ["", "M", "MM", "MMM"]
+  const  hundreds = ["", "C", "CC","CCC", "CD", "D","DC", "DCC", "CM"]
+  const  tens= ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+  const  ones= ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+  
+  const t = Math.floor(num/1000)
+  const h = Math.floor((num%1000)/100)
+  const d = Math.floor((num%100)/10)
+  const u = num%10
+  
+  return thousands[] + hundreds
+}
+// no loops use
+// num- 3748 create roman number
+//  4 0r 9 
+// OUTPUT: MMMDCCXLIX
+4 => IV(less than 5)
+9 => IX(less than 10)
+40 => XL
+90 => (100 - 90 = 10) XC
+400 => (500 - 400) => CD
+
+36 :: <= 36 = 10 = 36 -10 =26
+26 :: <= 26 = 10 = 26 -10 =16
+16 :: <= 16 = 10 = 16 -10 =6
+6 :: <= 6 = 5 = 6 -5 =1
+1 :: <= 1 =1 -1=0
+
+thousands = ["", "M", "MM", "MMM"]
+hundreds = ["", "C", "CC","CCC", "CD", "D","DC", "DCC", "CM"]
+tens= ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+ones= ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+
+4567
+t=4
+h=5
+te=6
+o=7
+
+t = floor(num/1000)
+h = floor(num%1000)/100
+d = floor(num%100)/10
+u = num%10
+
+thousands[t] + hundreds[h] + tens[d] +ones[u]
+t = 3
+h = 5
+d = 6
+u = 7
+return 
+
+
+-------------------------
+3749= 3749-1000=2749
+2749= 2749-1000= 1749
+1749= 1749-1000= 749
+749= 749-500=249= 249
+249= 249-100=149= 149
+149= 149-100=49
+49 = 50-49
+49 = 49 - 40 = 9
+// OUTPUT: MMMDCCXLIX
+Symbol  Value
+1         1
+V         5
+X         10
+L         50
+C         100
+D         500
+M         1000
+
+
+
+
+
+
+
+
+
+
+
+
+
