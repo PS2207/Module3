@@ -1,8 +1,3 @@
-// Online Javascript Editor for free
-// Write, Edit and Run your Javascript code using JS Online Compiler
-
-console.log("Try programiz.pro");
-
 var intToRoman = function(num){
   const  thousands = ["", "M", "MM", "MMM"]
   const  hundreds = ["", "C", "CC","CCC", "CD", "D","DC", "DCC", "CM"]
@@ -16,6 +11,7 @@ var intToRoman = function(num){
   
   return thousands[] + hundreds
 }
+-----------------------------------------------------------------------------
 // no loops use
 // num- 3748 create roman number
 //  4 0r 9 
