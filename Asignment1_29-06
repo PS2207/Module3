@@ -1094,8 +1094,161 @@ When filtering aggregates like AVG(), you must use the HAVING clause (since WHER
 ✅ Correct answer:
 (c) HAVING AVG(E.Salary) > 75000
                        
-                       
-                       
+**************Network Security Assignment ***********************************************************************************************************************                    
+Q1.An attacker steals a printed, confidential company report from an employee's desk. This is primarily a failure of:
+(i)Network Security   (ii)CyberSecurity  (iii)Information Security   (iv)Physical Security
+
+Q2.A large-scale Distributed Denial of Service(DDoS) attack successfully takes a company's website ffline. Which pillar of the CIA Triad has been violated?
+(i)Confidentially   (ii)Integrity  (iii)Availability    (iv)Authentication
+
+(Q3)An adversary secretly listens to the data being transmitted over an unsecured public Wi-Fi network altering it. What type of attack is this?
+(i)Active Attack   (ii)Passive Attack   (iii)Masquerade Attack   (iv)Replay Attack
+
+(Q4)In the context of security, what does a "vulnerabiltiy" represent?
+(i)The potential for harm to a system  (ii)The likelihood of an attack multiplied by its impact.
+(iii)A weakness in a system that can be exploited.  (iv)The person or entity trying to cause harm.
+
+(Q5)When you enter your username into a login form, which step of the IAA process are you performing?
+(i)Identification  (ii)Authentication  (iii)Authorization  (iv)Auditing
+
+(Q6)Using a fingerprint scanner to unlock your phone is an example of which authentication factor?
+(i)Something you know  (ii)Something you have  (iii)Something you are  (iv)Somewhere you are
+
+(Q7)The Principle of Least Privilege(PoLP) suggests that:
+(i)All users should have administrative rights by default
+(ii)A user or process should only have the minimum permissions necessary to perform its function.
+(iii)Security is least important for low-privilege users.
+(iv)Users should be granted access for the longest possible duration.
+
+(Q8)Which technology is primarily used to ensure the integrity of a message, proving i hasn't been tampered with in transit?
+(i)Encryption  (ii)Hashing(e.g., SHA-256)  (iii)Firewalls   (iv)Rate limiting
+
+(Q9)The term 'Cybersecurity' is most specifically focused on:
+(i)Protecting data in any form, including physical paper.
+(ii)Protecting data as it travels across networks.
+(iii)Protecting internet-connetced systems from digital attacks
+(iv)Protecting people and physical locations from harm.
+
+(Q10)What is the main advantages of Multi-Factor Authentication(MFA) over Single-Factor Authentication(SFA)?
+(i)It is faster for the user to login.   (ii)It removes the need for passwords entirely.
+(iii)It provides layered security, so a comporised password is not enough for a breach.(iv)It is less expensive to implement.
+
+(Q11)An attacker changes the amount on a captured financial transaction from '$100' to '$1000' before forwarding it. This is a clear attack on:
+(i)Confidentiality  (ii)Integrity  (iii)Availability  (iv)Non-repudiation
+
+(Q12)A bank's mobile app requires both the client(your phone) and the server to verify each other's identity before exchaniging information.
+This process is known as:
+(i)Single Authentication  (ii)Mutual Authentication  (iii)Authorization  (iv)Identification
+
+(Q13)A security key like a YubiKey is an example of which authentication factor?
+(i)Something You know  (ii)Something you have  (iii)Something you are  (iv)A combination of all three
+
+(Q14)Using HTTPS(the lock icon in your browser) primarily ensures:
+(i)The website you are visiting is 100% free of malicious links
+(ii)The data transmitted between your browser and the server is encrypted.
+(iii)The website will always be onlineand available
+(iv)The website has been approved by your internet service provider.
+
+*****************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                        
 
 
