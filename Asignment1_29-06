@@ -1097,10 +1097,11 @@ When filtering aggregates like AVG(), you must use the HAVING clause (since WHER
 **************Network Security Assignment ***********************************************************************************************************************                    
 Q1.An attacker steals a printed, confidential company report from an employee's desk. This is primarily a failure of:
 (i)Network Security   (ii)CyberSecurity  (iii)Information Security   (iv)Physical Security
-Network Security
-Cyber Security
-Information Security
-Physical Security
+The report was a printed document, not digital.
+Network security and cybersecurity deal with protection of data in digital/online environments.
+Information security covers both digital and physical data, but here the direct failure is physical security, since the paper report was left unprotected and stolen physically.
+👉 So while it is related to information security, the primary failure is physical security.
+
 Q2.A large-scale Distributed Denial of Service(DDoS) attack successfully takes a company's website ffline. Which pillar of the CIA Triad has been violated?
 (i)Confidentially   (ii)Integrity  (iii)Availability    (iv)Authentication
 
