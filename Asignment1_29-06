@@ -1154,10 +1154,23 @@ This process is known as:
 (iv)The website has been approved by your internet service provider.
 
 *****************************************************************************************************************************
+(Q1)Which statement best summarizes the Halting Problem?
+(a)A Problem that describes how to halt all running computers simultaneously.
+(b)A Computable problem used for checking if a number is prime.
+(c)An uncomputable problem of determining if any given program will stop or run forever.
+(d)The problem of optimizing algorithms to make them run faster.
 
+(Q2)According to the notes,if a problem can be described by a mathematical function , it is:
+(a)Always computable
+(b)Guranteed to be solvable by a Deterministic Finite Automaton(DFA)
+(c)Not necessarily computable.
+(d)Always part of the small fraction of uncomputable problems.
 
-
-
+(Q3)WHat is the correct relationship between an alphabet(E), a string (w), and a language(L)
+(a)A language is a finite sequence of alphabets
+(b)An alphabet is a set of valid languages.
+(c)A string is a set of symbols, and a language is a finite sequence of those strings.
+(d)A language is a set of strings, where each string is a finite sequence of symbols from an alphabet.
 
 
 
