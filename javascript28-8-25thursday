@@ -561,11 +561,169 @@ function reverseString(str) {
   return str.split("").reverse().join("");
 }
 console.log(reverseString("hello"))
-----------------------------------------
+-------------------------------------------------------------------------
+let list = [1,3,1,5,3,6,7,7,3]
+let obj = {}
+for (let el of list){
+  if(obj[e1] == undefined ){
+    obj[e1] = 1
+  }else{
+      obj[e1] += 1
+  }
+  //obj[e1] = (obj[e1] || 0) +1
+}
+console.log(obj)
+-----------------------------------------------------------
+//Group of Users: Group the users based on their city.
+let users = [
+   {userName: "Naresh", city: "Vizag"},
+   {userName: "Smith", city: "Nagpur"},
+   {userName: "Aashish", city: "Uttarakhand"},
+   {userName: "Bicky", city: "BLR"},
+   {userName: "User 1", city: "BLR"},
+   {userName: "User 2", city: "Uttarakhand"},
+   {userName: "User 3", city: "Vizag"},
+   {userName: "User 4", city: "Nagpur"},
+   {userName: "User 5", city: "Nagpur"},
+   {userName: "Priyanshu", city: "Moradabad"},
+]
+//output:
+//{"vizag": ["Naresh", "User 3], "BLR": ["Bicky", "User 1] , ....}
+
+function groupUsers(data, key){
+   let ans = {}
+   for (let user of data){
+     if(ans[user[key]] == undefined){
+      ans[user[key]] = 0
+     }
+     //ans[user[key]]++
+     ans[user[key]].push(user.userName)
+   }
+   //return ans
+}
+console.log(groupUsers(users, "city"))
+console.log(ans
+//step1 - ans ={vizag: ["Naresh", Nagpur: ["Smith"]}  , key: "city"
+user = {userName: "Smith", city: "Nagpur"}
+-----------------------------------------------------------------------------------
+//Cart(ecommerce): Final Amount to be paid After Discount
+//logic : {name: "Maggi", price: 12, qty: 3}
+//discount will be given if cart value is greater than or equal to 500rs.Discount will be 10% of the cart value 
+//after discount 3 things will be added.
+Platform fee: 10rs
+Tax: 5% will be added
+//Delivery Charge: 20rs (will not beadded if total amount after discount is greater or equal to 500rs)
+let cart = [
+    {name: "Maggi", price: 12, qty: 3},
+    {name: "Fortune", price: 12, qty: 3},
+    {name: "Maggi", price: 12, qty: 1},
+    {name: "Flour", price: 12, qty: 1},
+    {name: "Sugar", price: 25, qty: 1},
+    {name: "Salt", price: 25, qty: 1},
+    {name: "Tata tea", price: 200, qty: 1},
+    {name: "Milk", price: 70, qty: 1},
+]
+function totalAmount(data, tax=5, discountRate=10, discountAmount=500, 
+    platformFee=10, deliveryChargeWaiveOffAmount=500){
+  let initialTotal = 0;
+  for(let item of data){
+    initialTotal += item.price*item.qty
+  }
+  let discountedTotal = initialTotal
+  if(initialAmount >= discountAmount ){
+      discountedTotal -= discountedTotal*discountRate/100
+  }
+   let taxedTotal = discountedTotal*(100+tax)/100
+   let total = taxedTotal+platformFee
+   if(discountedTotal < 500){
+     total += deliveryCharge
+   }
+  console.log(initialTotal)
+} //595.9
+----------------------------------------------------------------------------------------
 
 
+-------------------------------------------------------------------------------------------------------
+//Filtering or merging similar/duplicate data.  Brute force
+let cart = [
+    {name: "Maggi", price: 12},
+    {name: "Maggi", price: 12},
+    {name: "Maggi", price: 12},
+    {name: "Fortune Oil", price: 99},
+    {name: "Potato", price: 40},
+    {name: "Flour", price: 60},
+    {name: "Sugar", price: 50},
+    {name: "Salt", price: 25},
+    {name: "Tata Tea", price: 200},
+    {name: "Milk", price: 70}
+]
+//obj = {maggi: 3}
+let ans = {}
+let prices = {}
+for(let item of cart){
+  if(ans[item["name"]] == undefined){
+      ans[item["name"]] =1
+  }else{
+      ans[item["name"]]++
+  }
+   prices[item["name"]] = item.price
+}
+//console.log(ans, prices)
+-----------------------
+Output like this:
+{
+  Maggi: 3,
+  'Fortune Oil': 1,  
+   ....
+} {
+  Maggi: 12,
+  'Fortune Oil': 99,
+   .....
+}
+------if add this------------------
+let arr = []
+for (let key in ans){
+  let obj = {name: key, price:prices[key], qty: ans[key]}
+  arr.push(obj)
+}
+console.log(arr)
+---------output like-----------------------------
+[
+  { name: 'Maggi', price: 12, qty: 3 },
+  { name: 'Fortune Oil', price: 99, qty: 1 },
+   ....
+]
+------------------------------------------------------------------
+let user = [
+  {userId: 1, userName: "User 1", createdAt: 100},
+  {userId: 1, userName: "User 1", createdAt: 100},
+  {userId: 1, userName: "User 1", createdAt: 100},
+  {userId: 1, userName: "User 1", createdAt: 100},
+]
 
 
+--------------------------------------------------------------------------------
+//Logic: remove the ones with with same userID. keep only ones that have higher createdAt value.
+let userCreatedAt = {}
+let userNames = {}
+for(let user of users){
+   console.log(user)
+  if(userCreatedAt[user[userId]] == undefined){
+     userCreatedAt[user[userId]] = user[creaedAt]
+
+  }else{
+     userCreatedAt[user["userId"]] = Math.max
+        (userCreatedAt[user["userId"]], user["createdAt"])
+  }
+   userNames[user["userId"]] = user.userName
+}
+console.log(usercreatedAt)
+let arr = []
+for (let key in userCreatedAt){
+  let obj = {userId: key, userName: userNames[key], createdAt: userCreatedAt[key]}
+  arr.push(obj)
+}
+console.log(arr)
 
 
 
