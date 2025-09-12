@@ -1224,7 +1224,7 @@ input string ?
 (c)The input string doesn't contain any symbols outside the alphbet sigma
 (d)The string has a length greater than zero.
 
-(Q13)For the DFA hat accepts binary strings with an even number odf 0s, what is the machine
+(Q13)For the DFA hat accepts binary strings with an even number odf 0s, what is the machine's final state after processing the string "10101"?
 (a)q even  (b)q odd  
 (c)It remians in the initial state, as the number of 1s is odd.
 (d)The state cannnot be determined from the provided table.
@@ -1233,7 +1233,13 @@ input string ?
 (a)To define which states are the accepting states
 (b)To specify the single start of the machine
 (c)To define the rules for moving from one state to another based on an input symbol.
-(d)To check if an input string is finite or infinte.
+(d)To check if an input string is finite or infinite.
+
+(Q15)Which statement accurately reflects the "physics of computing" analogy for computing theory.
+(a)It is a primarily concerned with the physical hardware & electronics of computers.
+(b)It is a practical field focused only on building applications like compilers.
+(c)It establishes the fundamental laws & limits of what is possible with computation.
+(d)It proves that all mathematical problems are ultimately solvable.
 
 
 
