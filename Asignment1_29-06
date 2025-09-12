@@ -1153,7 +1153,7 @@ This process is known as:
 (iii)The website will always be onlineand available
 (iv)The website has been approved by your internet service provider.
 
-*****************************************************************************************************************************
+***********Theory of Computation(12 Sep, 2025)*****************************************************************************************************
 (Q1)Which statement best summarizes the Halting Problem?
 (a)A Problem that describes how to halt all running computers simultaneously.
 (b)A Computable problem used for checking if a number is prime.
@@ -1171,6 +1171,82 @@ This process is known as:
 (b)An alphabet is a set of valid languages.
 (c)A string is a set of symbols, and a language is a finite sequence of those strings.
 (d)A language is a set of strings, where each string is a finite sequence of symbols from an alphabet.
+
+(Q4)Which statement best summarizes the Halting Problem?
+(a)Strings are permitted to be of infinte length
+(b)The set of all possible strings from any alphabet is always finite.
+(c)Strings are always finite, but a language can contain an infinite number of them.
+(d)A string and a symbol are functionally the same concept.
+
+(Q5)How is a computational problem formally defined within automata theory?
+(a)As an algorithm that produces a specific numerical output
+(b)As a decision problem that answerrs YES/NO for a string's membership in a language
+(c)As a function that maps one integer to another
+(d)As a collection of states in a machine
+
+(Q6)What is the language described by the regular expression(0+1)*1?
+(a)Any sequence of 0s and 1s, including the empty string
+(b)All binary strings that start with 1
+(c)All binary strings of odd length
+(d)All binary strings that end with 1
+
+(Q7)The Kleene star operator(*) when applied to an alphabet sigma(i.e.,sigma*) represents:
+(a)At least one symbol from the alphabet sigma
+(b)Any finite sequence of symbols from sigma, including the empty string
+(c)Only the empty string
+(d)An infinite repetition of a single symbol from sigma.
+
+(Q8)What does the regular expression phi* represent?
+(a)The language containing only the empty string
+(b)The empty language
+(c)All possible strings over any alphabet
+(d)An invalid or undefined expression
+
+(Q9)Which of the following is NOT a component of the 5-tuple defining a DFA?
+(a)A finite set of states(Q)
+(b)A transition function(delta)
+(c)An input alphabet(sigma)
+(d)A set of regular expressions(R)
+
+(Q10)According to the rules for a DFA, which of the following configurations is permitted?
+(a)One start state and zero finl states
+(b)Two or more start states
+(c)A DFA with no defnied start state
+(d)A transition function that maps to a state not in Q
+
+(Q11)In the example DFA for the language L = {w sigma {0,1}* | w ends with 1}, what is the state of the machine after processing 
+input string ?
+(a)q0   (b)q1  (c) The machine rejects before finishing the string  (d)It ends in both q0 and q1
+
+(Q12)A DFA formally accepts an input string if & only if:
+(a)The machine passes through an accepting state at any point during processing.
+(b)The machine is in an accepting state after the entire string has been processed.
+(c)The input string doesn't contain any symbols outside the alphbet sigma
+(d)The string has a length greater than zero.
+
+(Q13)For the DFA hat accepts binary strings with an even number odf 0s, what is the machine
+(a)q even  (b)q odd  
+(c)It remians in the initial state, as the number of 1s is odd.
+(d)The state cannnot be determined from the provided table.
+
+(Q14)What is the primary role of the transition function, delta, in a DFA?
+(a)To define which states are the accepting states
+(b)To specify the single start of the machine
+(c)To define the rules for moving from one state to another based on an input symbol.
+(d)To check if an input string is finite or infinte.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
