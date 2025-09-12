@@ -39,3 +39,79 @@ You have past prices as targets; train a regression/time-series model to predict
 Finding anomalies in network traffic → Unsupervised
 Anomalies are rare and labels are scarce; use anomaly detection to flag outliers relative to normal traffic.
 ----------------------------------------------------------------------------------------------------------------------
+(Q1)Which routing protocol uses hop count as its metric and is limited to 15 hops?
+(a)RIP ✅   (b)OSPF   (c)BGP   (d)EIGRP
+RIP (Routing Information Protocol) is a distance-vector routing protocol.
+It uses hop count as its metric.
+Maximum hop count is 15, making networks with 16 or more hops unreachable.
+OSPF → link-state, uses cost based on bandwidth.
+BGP → path-vector, uses AS path.
+EIGRP → advanced distance-vector, uses multiple metrics (bandwidth, delay, reliability, load).
+------------------------------------------------------------------------------------------------
+
+(Q2)OSPF chooses the best path based on which algorithm?
+(a)Bellman-Ford   (b)Dijkstra SPF ✅   (c)Floyd-Warshall  (d)Kruskal
+OSPF (Open Shortest Path First) is a link-state routing protocol.
+It uses Dijkstra’s Shortest Path First (SPF) algorithm to compute the shortest path tree and select the best routes.
+Bellman-Ford → used by distance-vector protocols like RIP.
+Floyd-Warshall → all-pairs shortest path algorithm (not commonly used in routing).
+Kruskal → minimum spanning tree algorithm, not used for routing decisions.
+---------------------------------------------------------------------------------------
+(Q3)Which type of routing is manually configured and does not change automatically?
+(a)Static Routing  (b)Dynamic Routing  (c)Default Routing  (d)Hybrid Routing
+Static Routing → routes are manually configured by the network administrator and do not change automatically.
+Dynamic Routing → routes are automatically adjusted using routing protocols like RIP, OSPF, or EIGRP.
+Default Routing → a special route used when no specific route is found.
+Hybrid Routing → combines features of both distance-vector and link-state protocols.
+--------------------------------------------------------------------------------------
+
+Q4)The default route in a router is usually represented as:
+(a)255.255.255.0   (b)127.0.0.1  (c)0.0.0/0   (d)192.168.1.1
+
+Q5)Which wireless technology allows secure payments with very short range(<=10cm)?
+(a)Wi-Fi  (b)NFC  (c)Bluetooth  (d)ZigBee
+
+Q6)Which generation of cellular technology introduced ultra-low latency(<1 ms)?
+3G 4G 5G 6G
+
+(Q7)Which metric causes video/audio choppiness when highly variable?
+(a)Bandwidth  (b)Jitter  (c)Latency  (d)Throughput
+
+(Q8)Which routing protocal is primiraly used for exchanging routes between ISPs?
+(a)RIP  (b)OSPF  (c)BGP  (d)EIGRP
+
+(Q9)Li-Fi transmits data using:
+(a)Radio waves  (b)Infrared  (c)Visible light  (d)Microwaves
+
+(Q10)Throughput is always less than or equal to:
+(a)Bandwidth  (b)Jitter  (c)Latency  (d)Packet Loss
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
