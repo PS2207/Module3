@@ -1103,43 +1103,68 @@ Information security covers both digital and physical data, but here the direct 
 👉 So while it is related to information security, the primary failure is physical security.
 
 Q2.A large-scale Distributed Denial of Service(DDoS) attack successfully takes a company's website ffline. Which pillar of the CIA Triad has been violated?
-(i)Confidentially   (ii)Integrity  (iii)Availability    (iv)Authentication
+(i)Confidentially   (ii)Integrity  (iii)Availability✅    (iv)Authentication
 
 (Q3)An adversary secretly listens to the data being transmitted over an unsecured public Wi-Fi network altering it. What type of attack is this?
-(i)Active Attack   (ii)Passive Attack   (iii)Masquerade Attack   (iv)Replay Attack
+(i)Active Attack✅   (ii)Passive Attack   (iii)Masquerade Attack   (iv)Replay Attack
 
 (Q4)In the context of security, what does a "vulnerabiltiy" represent?
 (i)The potential for harm to a system  (ii)The likelihood of an attack multiplied by its impact.
-(iii)A weakness in a system that can be exploited.  (iv)The person or entity trying to cause harm.
+(iii)A weakness in a system that can be exploited.✅  (iv)The person or entity trying to cause harm.
 
 (Q5)When you enter your username into a login form, which step of the IAA process are you performing?
-(i)Identification  (ii)Authentication  (iii)Authorization  (iv)Auditing
-
+(i)Identification✅  (ii)Authentication  (iii)Authorization  (iv)Auditing
+Identification → You claim an identity, e.g., by entering your username.
+Authentication → You prove your identity, e.g., by entering a password or using biometrics.
+Authorization → Determines what you are allowed to do after authentication.
+Auditing → Recording actions for monitoring or review.
+------------------------------------------------------------------------------------------------------
 (Q6)Using a fingerprint scanner to unlock your phone is an example of which authentication factor?
-(i)Something you know  (ii)Something you have  (iii)Something you are  (iv)Somewhere you are
-
+(i)Something you know  (ii)Something you have  (iii)Something you are✅  (iv)Somewhere you are
+Something you are → biometric factors like fingerprints, iris scans, or facial recognition.
+Something you know → passwords or PINs.
+Something you have → tokens, smart cards.
+Somewhere you are → location-based authentication.
+--------------------------------------------------------------------------------------------
 (Q7)The Principle of Least Privilege(PoLP) suggests that:
 (i)All users should have administrative rights by default
-(ii)A user or process should only have the minimum permissions necessary to perform its function.
+(ii)A user or process should only have the minimum permissions necessary to perform its function.✅
 (iii)Security is least important for low-privilege users.
 (iv)Users should be granted access for the longest possible duration.
-
+The Principle of Least Privilege (PoLP) limits access rights to reduce the risk of misuse or compromise.
+Options (i), (iii), and (iv) violate PoLP principles.
+---------------------------------------------------------------------------------------------------------------------------
 (Q8)Which technology is primarily used to ensure the integrity of a message, proving i hasn't been tampered with in transit?
-(i)Encryption  (ii)Hashing(e.g., SHA-256)  (iii)Firewalls   (iv)Rate limiting
-
+(i)Encryption  (ii)Hashing(e.g., SHA-256)✅  (iii)Firewalls   (iv)Rate limiting
+----------------------------------------------------------------------------------
 (Q9)The term 'Cybersecurity' is most specifically focused on:
 (i)Protecting data in any form, including physical paper.
 (ii)Protecting data as it travels across networks.
-(iii)Protecting internet-connetced systems from digital attacks
+(iii)Protecting internet-connetced systems from digital attacks✅
 (iv)Protecting people and physical locations from harm.
-
+Cybersecurity focuses on safeguarding computers, networks, and digital systems against unauthorized access, attacks, or damage.
+Option (i) → broader data protection (not limited to cyber).
+Option (ii) → more specifically network security.
+Option (iv) → physical security, not cybersecurity.
+-----------------------------------------------------------------
+Hashing produces a fixed-length digest of the message.
+Any change in the message results in a different hash, enabling verification of integrity.
+Encryption ensures confidentiality, not necessarily integrity.
+Firewalls and rate limiting are network security controls, not integrity mechanisms.
+----------------------------------------------------------------------------------------------------------
 (Q10)What is the main advantages of Multi-Factor Authentication(MFA) over Single-Factor Authentication(SFA)?
 (i)It is faster for the user to login.   (ii)It removes the need for passwords entirely.
 (iii)It provides layered security, so a comporised password is not enough for a breach.(iv)It is less expensive to implement.
-
+MFA requires multiple independent authentication factors (e.g., password + OTP + fingerprint).
+Even if one factor is compromised, the attacker cannot gain access without the others.
+MFA is not necessarily faster (i), doesn’t remove passwords entirely (ii), and is usually more expensive (iv).
+---------------------------------------------------------------------------------------------------------------------------------------------
 (Q11)An attacker changes the amount on a captured financial transaction from '$100' to '$1000' before forwarding it. This is a clear attack on:
 (i)Confidentiality  (ii)Integrity  (iii)Availability  (iv)Non-repudiation
-
+Integrity ensures that data is not altered or tampered with during transmission.
+Changing $100 to $1000 violates the integrity of the transaction.
+Confidentiality (i) relates to unauthorized reading, availability (iii) to access, non-repudiation (iv) to proof of origin.
+-----------------------------------------------------------------------------------------------------------------------------------------
 (Q12)A bank's mobile app requires both the client(your phone) and the server to verify each other's identity before exchaniging information.
 This process is known as:
 (i)Single Authentication  (ii)Mutual Authentication  (iii)Authorization  (iv)Identification
@@ -1157,88 +1182,137 @@ This process is known as:
 (Q1)Which statement best summarizes the Halting Problem?
 (a)A Problem that describes how to halt all running computers simultaneously.
 (b)A Computable problem used for checking if a number is prime.
-(c)An uncomputable problem of determining if any given program will stop or run forever.
-(d)The problem of optimizing algorithms to make them run faster.
+(c)An uncomputable problem of determining if any given program will stop or run forever.✅
+(d)The problem of optimizing algorithms to make them run faster. 
 
+The Halting Problem, proved undecidable by Alan Turing in 1936, 
+states that there is no general algorithm that can determine for all possible programs and
+inputs whether the program will eventually halt or continue running forever.
+-------------------------------------------------------------------------------------------
 (Q2)According to the notes,if a problem can be described by a mathematical function , it is:
 (a)Always computable
 (b)Guranteed to be solvable by a Deterministic Finite Automaton(DFA)
-(c)Not necessarily computable.
+(c)Not necessarily computable. ✅
 (d)Always part of the small fraction of uncomputable problems.
 
-(Q3)WHat is the correct relationship between an alphabet(E), a string (w), and a language(L)
+👉 Just because a problem can be expressed as a mathematical function doesn’t mean we can always compute it with an algorithm.
+Some functions (like the Halting Problem) are well-defined mathematically but are uncomputable in practice—no algorithm can solve them for all inputs.
+----------------------------------------------------------------------------------------------
+(Q3)What is the correct relationship between an alphabet(E), a string (w), and a language(L)
 (a)A language is a finite sequence of alphabets
 (b)An alphabet is a set of valid languages.
 (c)A string is a set of symbols, and a language is a finite sequence of those strings.
-(d)A language is a set of strings, where each string is a finite sequence of symbols from an alphabet.
+(d)A language is a set of strings, where each string is a finite sequence of symbols from an alphabet.✅
 
+Alphabet (E or Σ): A finite set of symbols (e.g., {0,1} or {a,b,c}).
+String (w): A finite sequence of symbols from the alphabet (e.g., "010" or "abc").
+Language (L): A set of strings formed from the alphabet (e.g., L = { "a", "ab", "ba", "bb" }).
+---------------------------------------------------------------------------------------------------
 (Q4)Which statement best summarizes the Halting Problem?
 (a)Strings are permitted to be of infinte length
 (b)The set of all possible strings from any alphabet is always finite.
-(c)Strings are always finite, but a language can contain an infinite number of them.
+(c)Strings are always finite, but a language can contain an infinite number of them.✅
 (d)A string and a symbol are functionally the same concept.
 
+A string is always a finite sequence of symbols from an alphabet.
+A language (set of strings) can be finite (e.g., L = {"a", "ab"}) or infinite (e.g., L = { "a", "aa", "aaa", ... }).
+-----------------------------------------------------------------------------------------------
 (Q5)How is a computational problem formally defined within automata theory?
 (a)As an algorithm that produces a specific numerical output
-(b)As a decision problem that answerrs YES/NO for a string's membership in a language
+(b)As a decision problem that answerrs YES/NO for a string's membership in a language.✅
 (c)As a function that maps one integer to another
 (d)As a collection of states in a machine
 
+In automata theory, a computational problem is often formalized as a decision problem: given a string w over some alphabet, determine whether 𝑤 ∈ 𝐿
+w∈L (where 𝐿 is a language).
+The answer is always YES (string belongs to the language) or NO (it does not).
+This formalization allows automata (like DFAs, NFAs, Turing machines) to recognize or decide languages.
+-------------------------------------------------------------------------------------------
 (Q6)What is the language described by the regular expression(0+1)*1?
 (a)Any sequence of 0s and 1s, including the empty string
 (b)All binary strings that start with 1
 (c)All binary strings of odd length
-(d)All binary strings that end with 1
+(d)All binary strings that end with 1✅
 
+Regular expression: (0+1)∗1
+(0+1)∗ → any sequence of 0s and 1s (including the empty string)
+The final 1 → ensures that every string ends with 1
+Examples: "1", "01", "101", "0001" are all in the language.
+Strings like "0" or "" (empty string) do not belong.
+------------------------------------------------------------------------------------------
 (Q7)The Kleene star operator(*) when applied to an alphabet sigma(i.e.,sigma*) represents:
 (a)At least one symbol from the alphabet sigma
-(b)Any finite sequence of symbols from sigma, including the empty string
+(b)Any finite sequence of symbols from sigma, including the empty string ✅
 (c)Only the empty string
 (d)An infinite repetition of a single symbol from sigma.
-
+The Kleene star Σ∗ represents all possible strings (including the empty string) 
+that can be formed using symbols from the alphabet Σ.
+Examples: If Σ={0,1}, then
+Σ∗={𝜖,0,1,00,01,10,11,000,...} where ϵ is the empty string.
+---------------------------------------------------------------------------------------------
 (Q8)What does the regular expression phi* represent?
-(a)The language containing only the empty string
+(a)The language containing only the empty string✅
 (b)The empty language
 (c)All possible strings over any alphabet
 (d)An invalid or undefined expression
 
+𝜙 represents the empty language (contains no strings).
+Applying the Kleene star to it: 𝜙∗  → zero or more concatenations of strings from 𝜙.
+Since there are no strings to concatenate, the only string in 𝜙∗ is the empty string ϵ.
+So, 𝜙∗={𝜖}.
+-----------------------------------------------------------------------------
 (Q9)Which of the following is NOT a component of the 5-tuple defining a DFA?
 (a)A finite set of states(Q)
 (b)A transition function(delta)
 (c)An input alphabet(sigma)
-(d)A set of regular expressions(R)
-
+(d)A set of regular expressions(R) ✅
+A Deterministic Finite Automaton (DFA) is formally defined as a 5-tuple:(Q,Σ,δ,q0​,F)
+Where:
+Q → Finite set of states
+Σ → Input alphabet
+δ → Transition function (Q×Σ→Q)
+𝑞0→ Start state (𝑞0∈𝑄)
+𝐹 → Set of accept/final states (F⊆Q)
+Regular expressions are not part of the DFA definition—they are a separate way to describe languages.
+-------------------------------------------------------------------------------------------
 (Q10)According to the rules for a DFA, which of the following configurations is permitted?
-(a)One start state and zero finl states
+(a)One start state and zero finl states✅
 (b)Two or more start states
 (c)A DFA with no defnied start state
 (d)A transition function that maps to a state not in Q
+A DFA must have exactly one start state.
+It can have zero or more final/accept states. If there are zero final states, the DFA will reject all input strings, but it is still a valid DFA.
+Options (b), (c), and (d) violate DFA rules:
+(b) DFAs cannot have multiple start states.
+(c) A start state must be defined.
+(d) The transition function must map to a state in 𝑄.
 
+--------------------------------------------------------------------------------------------------------------------------------
 (Q11)In the example DFA for the language L = {w sigma {0,1}* | w ends with 1}, what is the state of the machine after processing 
-input string ?
+input string  "100"?
 (a)q0   (b)q1  (c) The machine rejects before finishing the string  (d)It ends in both q0 and q1
-
+-------------------------------------------------------------------------------------------------
 (Q12)A DFA formally accepts an input string if & only if:
 (a)The machine passes through an accepting state at any point during processing.
-(b)The machine is in an accepting state after the entire string has been processed.
+(b)The machine is in an accepting state after the entire string has been processed.✅
 (c)The input string doesn't contain any symbols outside the alphbet sigma
 (d)The string has a length greater than zero.
 
 (Q13)For the DFA hat accepts binary strings with an even number odf 0s, what is the machine's final state after processing the string "10101"?
-(a)q even  (b)q odd  
+(a)q even✅  (b)q odd  
 (c)It remians in the initial state, as the number of 1s is odd.
 (d)The state cannnot be determined from the provided table.
 
 (Q14)What is the primary role of the transition function, delta, in a DFA?
 (a)To define which states are the accepting states
 (b)To specify the single start of the machine
-(c)To define the rules for moving from one state to another based on an input symbol.
+(c)To define the rules for moving from one state to another based on an input symbol.✅
 (d)To check if an input string is finite or infinite.
 
 (Q15)Which statement accurately reflects the "physics of computing" analogy for computing theory.
 (a)It is a primarily concerned with the physical hardware & electronics of computers.
 (b)It is a practical field focused only on building applications like compilers.
-(c)It establishes the fundamental laws & limits of what is possible with computation.
+(c)It establishes the fundamental laws & limits of what is possible with computation.✅
 (d)It proves that all mathematical problems are ultimately solvable.
 
 
