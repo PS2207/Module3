@@ -66,7 +66,7 @@ Hybrid Routing → combines features of both distance-vector and link-state prot
 --------------------------------------------------------------------------------------
 
 Q4)The default route in a router is usually represented as:
-(a)255.255.255.0   (b)127.0.0.1  (c)0.0.0/0   (d)192.168.1.1
+(a)255.255.255.0   (b)127.0.0.1  (c)0.0.0/0 ✅ (d)192.168.1.1
 
 Q5)Which wireless technology allows secure payments with very short range(<=10cm)?
 (a)Wi-Fi  (b)NFC  (c)Bluetooth  (d)ZigBee
@@ -85,6 +85,111 @@ Q6)Which generation of cellular technology introduced ultra-low latency(<1 ms)?
 
 (Q10)Throughput is always less than or equal to:
 (a)Bandwidth  (b)Jitter  (c)Latency  (d)Packet Loss
+
+(Q11)Which statement best summarizes the Halting Problem?
+A problem that describes how to halt all running computers simultaneously
+A computable problem used for checking if a number is prime
+An uncomputable problem of determining if any given program will stop or run forever
+The problme of optimizing algorithms to make them run faster.
+
+Q12)What is the correct relationship between an alphabet(sigma), a string (w), and a language(L)?
+A language is a finite sequence of alphabets
+An alphabet is a set of valid languages
+A string is a set of symbols, and a langauge is a finite sequence of those strings.
+A language is a set of strings, where each string is a fininte sequence of symbols from an alphabet.
+
+Q13)A large-scale Distributed Denial of Service(DDoS) attack successfully takes a company's website offline.Which pillar of the CIA Triad has been violated?
+Confidentiality  Integrity   Availability  Authentication
+
+Q14)What is the main advantage of Multi-Factor Authentication(MFA) over Single-Factor Authentication(SFA)?
+It is faster for the user to log in.
+It removes the need for passowrs entirely.
+It provides layered security,so a compromised password is not enough for a breach.
+It is less expensive to implement.
+
+Q15)Which normal form eliminates repeating groups?
+(a)1NF  (b)2NF  (c)3NF  (d)BCNF
+
+Q16)What is a trigger in SQL?
+A special stored procedure that automatically executes when an event occurs
+A temporary table
+A type of index
+A type of constraint
+
+Q17)You're designing a system for a library. which of the following would be considered 'data', as opposed to 'information'?
+A report showing the most borrowed books this month
+"The Greate Gatsby"
+The realization that fantasy books are borrowed most by young adults
+A list of all overdue books, sorted by the number of days overdue
+
+
+Q18.The ability to modify the physical schema(changing storage devices)without causing appliaction programs to be rewritten is known as:
+Logical Data Independence
+Physical Data Independence
+Conceptual Data INdependence
+External Data Independence.
+
+Q19)You need to add a 'DateOfBirth' column to an existing Employees table. Which command would you use?
+UPDATE TABLE Employees ADD COLUMN DateOfBirth DATE;
+MODIFY TABLE Employees ADD DateOfBirth DATE;
+ALTER TABLE Employees ADD COLUMN DateOfBirth DATE;
+CREATE COLUMN DateOfBirth ON Employees;
+
+Q20)To remove a specific customer with CustomerID 'CUST05' from the Customers table, you would use:
+REMOVE FROM Customers WHERE CustomerID = 'CUST05';
+DELETE FROM Customers WHERE CustomersID = 'CUST05';
+DROP ROW FROM Customers WHERE CustomerID = 'CUST05';
+TRUNCATE Customers WHERE CustomerID = 'CUST05';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
