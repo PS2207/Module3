@@ -725,6 +725,207 @@ for (let key in userCreatedAt){
 }
 console.log(arr)
 
+******************************************************************************************
+
+Async: Programming concept used to run tasks without blocking main program flow
+
+//Trying to get Data from the internet
+
+//Write to code to fetch the data
+
+//call tis code
+
+//it will go to the url
+
+//and then try to get the data
+
+//return some data
+-----------------------------------------------------------------------
+console.log(1) //synchronous code
+for (let i=0;i<100000000000000000; i++){  //this blocking operation until for lopp ends 
+}
+console.log(2)//synchronous code
+-----------------------------------------------------------
+asynchronous code using asyncronous function setTimeout(): non-blockng operation
+setTimeout(callback,1000) //1000ms =1 sec of delay ,//Asynchronous code: non-blocking piece of code
+setTimeout(()=>console.log(2),1000) //did not block lower code so async
+console.log(2)
+---------------------------------------------
+call satck: console.log(3)
+callback queue: ()=>()console.log(2)},
+---------------------------------------------------------------
+JS- single threaded language(can't do multiple thing at once)
+Event Loop?
+Using Call Stack   // synchronous: An function call go to go stack
+WebAPIs/ callback queue  //Asynchronous go queue Promises, setTimeout, setInterval, async await,fetch
+
+Macro task queue -> lower priority
+  (SetTimeout)
+Micro task queue -> higher priority
+  (Promise)
+
+Promises syntax:
+Promise.resolve().then(()=> console.log(5)) //go to callback queue 
+
+console.log(1)
+setTimeout(()=> console.log(2), 500 ) //1000ms =1 sec of delay ,//Asynchronous code: non-blocking piece of code
+console.log(3)
+Promise.resolve().then(()=>console.log(2) ) //did not block lower code so async
+
+1
+3
+4
+2
+-------------------
+console.log(1)
+setTimeout( ()=> {
+     console.log(2)
+     Promise.rsolve()
+       .then(console.log("Inside SetTimeout >Promise))
+  }
+)
+Promise.resolve()
+  .then( ()=> {
+       console.log(4)
+       setTimeout( ()=> console.out("inside Promise > setTimeout"))
+})
+console.log(3)
+----------------------------------
+console.log(1) //go to call stack
+setTimeout( ()=> { //entire macro queue
+     console.log(2)
+     Promise.rsolve()
+       .then(console.log("Inside SetTimeout >Promise"))
+  }
+)
+Promise.resolve() //mico
+  .then( ()=> {
+       console.log(4)
+       setTimeout( ()=> console.out("inside Promise > setTimeout"))
+})
+console.log(3)
+
+//call stack:
+    micro : 1.console.log(1), 3.Promises  //first priority
+    macro: 2.setTimeout()    setTimeout()2
+    
+1
+3
+4
+2
+Inside SetTimeout >Promise   
+inside Promise > setTimeout
+-------------------------------------------------
+
+console.log("start") //1st go call satck
+Promise.resolve()  //2 entire function Promise go to micro queue
+  .then( ()=>{
+     Promise.resolve().then( ()=> 
+          console.log("1"))
+     console.log("2")
+})
+
+setTimeout( ()=>{   //3 settimeout
+  Promise.resolve().then(()=>{
+    console.log("3")
+  })
+   console.log("4")
+})
+console.log("end")
+
+call satck: 1.c
+micro queue : Promise1  4.promise2 promise3
+macro queue : settimeout1
+//cosnosle.log()
+
+remove c then promise1 then promise2
+start
+end
+2
+1
+4
+3
+
+--------------------
+//callback function? boo function passed as a parameter
+function fun(boo){
+   boo()
+   console.log("start")
+   setTimeout(boo,2000)
+}
+fun(boo)
+function boo(){
+  console.log("hi")
+}
+output:
+start
+hi
+---------------
+function getData(callback){
+   setTimeout( ()=>{
+     callback("Data Received")
+   },2000)
+}
+getData((data1)=>{ 100more lines can be that is why Promise came
+   getData((data2)=>{
+      getData((data3)=>{
+         console.log)data1,data2,data3)
+      }
+   }
+  console.log(msg)
+})
+This is callback hell/callback pyramid so use Promises
+--------------------------------------------------------
+Promises in js are object that takes 3 types of value: success,fail,pending
+Primise.resolve()
+ .then((data)=>{
+    let ans data.map=>{}
+    return ans
+})
+.then((data)=>{
+
+})
+.catch((err)=>{
+   console.log(err.message)
+})
+.finally(()=>{
+
+})
+
+----------------------------------------------------------
+let i =-
+let id=setInterval(()=>{
+   if(i==5){
+     clearInterval()
+   }
+},1000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
