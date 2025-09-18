@@ -1096,7 +1096,7 @@ When filtering aggregates like AVG(), you must use the HAVING clause (since WHER
                        
 **************Network Security Assignment ***********************************************************************************************************************                    
 Q1.An attacker steals a printed, confidential company report from an employee's desk. This is primarily a failure of:
-(i)Network Security   (ii)CyberSecurity  (iii)Information Security   (iv)Physical Security
+(i)Network Security   (ii)CyberSecurity  (iii)Information Security   (iv)Physical Security✅ 
 The report was a printed document, not digital.
 Network security and cybersecurity deal with protection of data in digital/online environments.
 Information security covers both digital and physical data, but here the direct failure is physical security, since the paper report was left unprotected and stolen physically.
@@ -1140,7 +1140,7 @@ Options (i), (iii), and (iv) violate PoLP principles.
 (Q9)The term 'Cybersecurity' is most specifically focused on:
 (i)Protecting data in any form, including physical paper.
 (ii)Protecting data as it travels across networks.
-(iii)Protecting internet-connetced systems from digital attacks✅
+(iii)Protecting internet-connetced systems from digital attacks✅ 
 (iv)Protecting people and physical locations from harm.
 Cybersecurity focuses on safeguarding computers, networks, and digital systems against unauthorized access, attacks, or damage.
 Option (i) → broader data protection (not limited to cyber).
@@ -1154,29 +1154,47 @@ Firewalls and rate limiting are network security controls, not integrity mechani
 ----------------------------------------------------------------------------------------------------------
 (Q10)What is the main advantages of Multi-Factor Authentication(MFA) over Single-Factor Authentication(SFA)?
 (i)It is faster for the user to login.   (ii)It removes the need for passwords entirely.
-(iii)It provides layered security, so a comporised password is not enough for a breach.(iv)It is less expensive to implement.
+(iii)It provides layered security, so a comporised password is not enough for a breach.✅ (iv)It is less expensive to implement.
 MFA requires multiple independent authentication factors (e.g., password + OTP + fingerprint).
 Even if one factor is compromised, the attacker cannot gain access without the others.
 MFA is not necessarily faster (i), doesn’t remove passwords entirely (ii), and is usually more expensive (iv).
 ---------------------------------------------------------------------------------------------------------------------------------------------
 (Q11)An attacker changes the amount on a captured financial transaction from '$100' to '$1000' before forwarding it. This is a clear attack on:
-(i)Confidentiality  (ii)Integrity  (iii)Availability  (iv)Non-repudiation
+(i)Confidentiality✅   (ii)Integrity  (iii)Availability  (iv)Non-repudiation
 Integrity ensures that data is not altered or tampered with during transmission.
 Changing $100 to $1000 violates the integrity of the transaction.
 Confidentiality (i) relates to unauthorized reading, availability (iii) to access, non-repudiation (iv) to proof of origin.
 -----------------------------------------------------------------------------------------------------------------------------------------
 (Q12)A bank's mobile app requires both the client(your phone) and the server to verify each other's identity before exchaniging information.
 This process is known as:
-(i)Single Authentication  (ii)Mutual Authentication  (iii)Authorization  (iv)Identification
-
+(i)Single Authentication  (ii)Mutual Authentication✅  (iii)Authorization  (iv)Identification
+Explanation:
+Single Authentication → Only one party verifies identity (usually the client proving identity to the server).
+Mutual Authentication → Both client and server verify each other’s identity before exchanging information (common in secure banking apps, TLS/SSL with certificates).
+Authorization → Decides what actions or resources a user is allowed to access after authentication.
+Identification → Simply claiming an identity (e.g., entering a username), without proof.
+👉 Since the bank’s app requires both sides (your phone and the server) to confirm identity, it is Mutual Authentication.
+---------------------------------------------------------------------------------------------------------------------------
 (Q13)A security key like a YubiKey is an example of which authentication factor?
 (i)Something You know  (ii)Something you have  (iii)Something you are  (iv)A combination of all three
+Explanation:
+Something you know → Passwords, PINs, answers to security questions.
+Something you have → Physical objects like a YubiKey, smart card, or phone with OTP app.
+Something you are → Biometrics like fingerprint, face scan, iris recognition.
+A combination of all three → Would mean multi-factor authentication using knowledge + possession + biometrics together.
+👉 Since a YubiKey is a physical security token that you own, it falls under “Something you have.”
 
 (Q14)Using HTTPS(the lock icon in your browser) primarily ensures:
 (i)The website you are visiting is 100% free of malicious links
-(ii)The data transmitted between your browser and the server is encrypted.
+(ii)The data transmitted between your browser and the server is encrypted.✅
 (iii)The website will always be onlineand available
 (iv)The website has been approved by your internet service provider.
+🔹 Explanation:
+(i) 100% free of malicious links → ❌ HTTPS does not guarantee the site is safe; it only secures the connection. A malicious site can still use HTTPS.
+(ii) Encrypted transmission → ✅ HTTPS uses TLS/SSL to encrypt data so attackers cannot read or tamper with it during transmission.
+(iii) Always online → ❌ Availability depends on the server, not HTTPS.
+(iv) Approved by ISP → ❌ HTTPS certificates come from Certificate Authorities (CAs), not your ISP.
+👉 So, the lock icon means your connection is encrypted and secure from eavesdropping, but not that the site itself is safe.
 
 ***********Theory of Computation(12 Sep, 2025)*****************************************************************************************************
 (Q1)Which statement best summarizes the Halting Problem?
